@@ -3,39 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt Startseite</title>
+    <title>Projekt</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+      body {
+        background-color: #343a40;
+        color: #ffffff;
+      }
+      .form-select {
+        background-color: #495057;
+        color: white;
+        border: 1px solid #ced4da;
+      }
+
+      .form-select:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
     </style>
 </head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Funktion zum Auslesen der Werte aus dem Local Storage und Anzeigen in der Navbar
+    function updateNavbarValues() {
+      // Werte aus dem Local Storage auslesen
+      const calculations = localStorage.getItem('calculations');
+      const threads = localStorage.getItem('threads');
+  
+      // Prüfen, ob die Elemente im HTML existieren und die Werte aus dem Local Storage nicht null sind
+      if(calculations !== null) {
+        // Finde das <a>-Element für Calculations und setze den Textinhalt
+        document.querySelectorAll('.nav-item a')[0].textContent = `Calculations: ${calculations}`;
+      }
+      if(threads !== null) {
+        // Finde das <a>-Element für Threads und setze den Textinhalt
+        document.querySelectorAll('.nav-item a')[1].textContent = `Threads: ${threads}`;
+      }
+    }
+  const threadsDropdown = document.getElementById('threadsDropdown');
+  const calculationsDropdown = document.getElementById('calculationsDropdown');
+
+  // Funktion zum Aktualisieren der Navbar und Speichern im Local Storage
+  function updateSelection(type, value) {
+    localStorage.setItem(type, value); // Wert im Local Storage speichern
+    // Navbar entsprechend aktualisieren
+    const navLink = document.querySelector(`.nav-item a[data-type="${type}"]`);
+    if (navLink) {
+      navLink.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${value}`;
+    }
+  }
+
+  // Event Listener für die Dropdowns
+  threadsDropdown.addEventListener('change', function() {
+    updateSelection('threads', this.value);
+  });
+
+  calculationsDropdown.addEventListener('change', function() {
+    updateSelection('calculations', this.value);
+  });
+
+  // Initialwerte aus dem Local Storage setzen und Navbar aktualisieren
+  function setInitialSelection() {
+    const storedThreads = localStorage.getItem('threads');
+    const storedCalculations = localStorage.getItem('calculations');
+    if (storedThreads) {
+      threadsDropdown.value = storedThreads;
+      updateSelection('threads', storedThreads);
+    }
+    if (storedCalculations) {
+      calculationsDropdown.value = storedCalculations;
+      updateSelection('calculations', storedCalculations);
+    }
+  }
+
+  setInitialSelection();
+
+    localStorage.setItem('calculations', 500);
+    localStorage.setItem('threads', 2);
+  
+    // Führe die Funktion beim Laden der Seite aus
+    updateNavbarValues();
+  });
+  </script>
+  
 <body>
-    <h1>Meine Projekte</h1>
-    <ul>
-        <li><a href="projekt1.html">Projekt 1</a></li>
-        <li><a href="projekt2.html">Projekt 2</a></li>
-        <li><a href="projekt3.html">Projekt 3</a></li>
-        <!-- Füge weitere Projekte hier hinzu -->
+ <!-- Fixed navbar -->
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" style="margin-left: 10px;">Test-Suite</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li style="margin-left: 10px;" class="nav-item">
+        <a data-type="calculations">Calculations:</a>
+      </li>
+      <li style="margin-left: 10px;" class="nav-item">
+        <a data-type="threads">Threads:</a>
+      </li>
     </ul>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card text-white bg-dark">
+        <div class="card-body">
+          <h5 class="card-title">Einstellungen</h5>
+          <form>
+            <div class="mb-3">
+              <label for="threadsDropdown" class="form-label">Threads:</label>
+              <select class="form-select" id="threadsDropdown">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="calculationsDropdown" class="form-label">Calculations:</label>
+              <select class="form-select" id="calculationsDropdown">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul>
+    <li><a href="./tests/plain_js_no_multithreading/diagramm.html">Projekt 1</a></li>
+    <!-- Füge weitere Projekte hier hinzu -->
+</ul>
+
 </body>
 </html>

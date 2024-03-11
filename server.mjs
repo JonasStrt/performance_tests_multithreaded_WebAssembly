@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 app.use(express.static(__dirname));
 
-app.get('/*', (req, res) => {
+app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
