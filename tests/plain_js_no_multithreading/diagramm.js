@@ -271,20 +271,37 @@ function changeNodeColor(nodeKey, newColor) {
     myDiagram.updateAllTargetBindings();
   }
 
+  function logMemoryUsage() {
+    if (window.performance && window.performance.memory) {
+        const memory = window.performance.memory;
+        // console.log(`Used JS Heap Size: ${(memory.usedJSHeapSize / 1048576).toFixed(2)} MB`);
+        // console.log(`Total JS Heap Size: ${(memory.totalJSHeapSize / 1048576).toFixed(2)} MB`);
+        // console.log(`JS Heap Size Limit: ${(memory.jsHeapSizeLimit / 1048576).toFixed(2)} MB`);
+        console.log(memory);
+        return memory;
+    } else {
+        console.log("Performance.memory API is not supported in this browser.");
+    }
+}
 
   function startPerformanceTest() {
     let calculations = localStorage.getItem('calculations');
     let threads = localStorage.getItem('threads');
+    const memoryBefore = logMemoryUsage();
+    document.getElementById('value3').innerText = (memoryBefore.usedJSHeapSize / 1048576).toFixed(2);
     const start = performance.now();  
     startTest(nodes, links, calculations, threads);
-    const end = performance.now();     
-    const time = start - end;          
+    const end = performance.now();
+    const memoryAfter = logMemoryUsage();     
+    const time = end - start;
+    document.getElementById('value1').innerText = time;
+    document.getElementById('value2').innerText = (memoryAfter.totalJSHeapSize / 1048576).toFixed(2);
+    document.getElementById('value4').innerText = (memoryAfter.usedJSHeapSize / 1048576).toFixed(2);    
     console.log(start);
     console.log(end);
     console.log(time);
+
   }
   window.startPerformanceTest = startPerformanceTest;
-// window.addEventListener('load', function() {
 
-// });
 export {changeNodeColor, updateDiagramm, startPerformanceTest};
