@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <style>
       body {
         background-color: #343a40;
@@ -22,136 +25,153 @@
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
       }
     </style>
-</head>
+  </head>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Funktion zum Auslesen der Werte aus dem Local Storage und Anzeigen in der Navbar
-    function updateNavbarValues() {
-      // Werte aus dem Local Storage auslesen
-      const calculations = localStorage.getItem('calculations');
-      const threads = localStorage.getItem('threads');
-  
-      // Prüfen, ob die Elemente im HTML existieren und die Werte aus dem Local Storage nicht null sind
-      if(calculations !== null) {
-        // Finde das <a>-Element für Calculations und setze den Textinhalt
-        document.querySelectorAll('.nav-item a')[0].textContent = `Calculations: ${calculations}`;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Function for reading the values from the local storage and displaying them in the navbar
+      function updateNavbarValues() {
+        const terms = localStorage.getItem("terms");
+        const threads = localStorage.getItem("threads");
+
+        if (terms !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[0].textContent = `Terms: ${terms}`;
+        }
+        if (threads !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[1].textContent = `Threads: ${threads}`;
+        }
       }
-      if(threads !== null) {
-        // Finde das <a>-Element für Threads und setze den Textinhalt
-        document.querySelectorAll('.nav-item a')[1].textContent = `Threads: ${threads}`;
+      const threadsDropdown = document.getElementById("threadsDropdown");
+      const termsDropdown = document.getElementById("termsDropdown");
+
+      // Function for updating the navbar and saving to local storage
+      function updateSelection(type, value) {
+        localStorage.setItem(type, value);
+        // Update navbar accordingly
+        const navLink = document.querySelector(
+          `.nav-item a[data-type="${type}"]`
+        );
+        if (navLink) {
+          navLink.textContent = `${
+            type.charAt(0).toUpperCase() + type.slice(1)
+          }: ${value}`;
+        }
       }
-    }
-  const threadsDropdown = document.getElementById('threadsDropdown');
-  const calculationsDropdown = document.getElementById('calculationsDropdown');
+      // Event listener for the dropdowns
+      threadsDropdown.addEventListener("change", function () {
+        updateSelection("threads", this.value);
+      });
 
-  // Funktion zum Aktualisieren der Navbar und Speichern im Local Storage
-  function updateSelection(type, value) {
-    localStorage.setItem(type, value); // Wert im Local Storage speichern
-    // Navbar entsprechend aktualisieren
-    const navLink = document.querySelector(`.nav-item a[data-type="${type}"]`);
-    if (navLink) {
-      navLink.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: ${value}`;
-    }
-  }
+      termsDropdown.addEventListener("change", function () {
+        updateSelection("terms", this.value);
+      });
 
-  // Event Listener für die Dropdowns
-  threadsDropdown.addEventListener('change', function() {
-    updateSelection('threads', this.value);
-  });
+      // Set initial values from the local storage and update Navbar
+      function setInitialSelection() {
+        const storedThreads = localStorage.getItem("threads");
+        const storedTerms = localStorage.getItem("terms");
+        if (storedThreads) {
+          threadsDropdown.value = storedThreads;
+          updateSelection("threads", storedThreads);
+        } else {
+          localStorage.setItem("threads", 2);
+          this.setInitialSelection();
+        }
+        if (storedTerms) {
+          termsDropdown.value = storedTerms;
+          updateSelection("terms", storedTerms);
+        } else {
+          localStorage.setItem("terms", 10);
+          this.setInitialSelection();
+        }
+      }
 
-  calculationsDropdown.addEventListener('change', function() {
-    updateSelection('calculations', this.value);
-  });
+      setInitialSelection();
 
-  // Initialwerte aus dem Local Storage setzen und Navbar aktualisieren
-  function setInitialSelection() {
-    const storedThreads = localStorage.getItem('threads');
-    const storedCalculations = localStorage.getItem('calculations');
-    if (storedThreads) {
-      threadsDropdown.value = storedThreads;
-      updateSelection('threads', storedThreads);
-    }
-    else {
-      localStorage.setItem('threads', 2);
-      this.setInitialSelection();
-    }
-    if (storedCalculations) {
-      calculationsDropdown.value = storedCalculations;
-      updateSelection('calculations', storedCalculations);
-    }
-    else {
-      localStorage.setItem('calculations', 10);
-      this.setInitialSelection();
-    }
-  }
-
-  setInitialSelection();
-
-  
-    // Führe die Funktion beim Laden der Seite aus
-    updateNavbarValues();
-  });
+      updateNavbarValues();
+    });
   </script>
-  
-<body>
- <!-- Fixed navbar -->
- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" style="margin-left: 10px;">Test-Suite</a>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <li style="margin-left: 10px;" class="nav-item">
-        <a data-type="calculations">Calculations:</a>
-      </li>
-      <li style="margin-left: 10px;" class="nav-item">
-        <a data-type="threads">Threads:</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
-<div class="container mt-3">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <div class="card text-white bg-dark">
-        <div class="card-body">
-          <h5 class="card-title">Einstellungen</h5>
-          <form>
-            <div class="mb-3">
-              <label for="threadsDropdown" class="form-label">Threads:</label>
-              <select class="form-select" id="threadsDropdown">
-                <option value=2>2</option>
-                <option value=4>4</option>
-                <option value=8>8</option>
-              </select>
+  <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" style="margin-left: 10px">Test-Suite</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="terms">Terms:</a>
+          </li>
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="threads">Threads:</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Settings card -->
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card text-white bg-dark">
+            <div class="card-body">
+              <h5 class="card-title">Einstellungen</h5>
+              <form>
+                <div class="mb-3">
+                  <label for="threadsDropdown" class="form-label"
+                    >Threads:</label
+                  >
+                  <select class="form-select" id="threadsDropdown">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label
+                    for="termsDropdown"
+                    class="form-label"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="right"
+                    title="This field defines how many terms of the Pi calculation are used to determine the calculation effort for node coloring. A higher number of terms increases the accuracy of the Pi calculation and thus the degree of difficulty of the node coloring, as Pi is calculated up to this level for each node to be colored. This method is used to make node coloring more computationally demanding by combining a more complex calculation with each coloring step. The aim is to adjust the algorithmic complexity and thus influence the coloring strategy."
+                    >Terms - (Difficulty level - Pi terms per node
+                    coloring):</label
+                  >
+                  <select class="form-select" id="termsDropdown">
+                    <option value="10">10</option>
+                    <option value="10000">10000</option>
+                    <option value="10000000">10000000</option>
+                  </select>
+                </div>
+              </form>
             </div>
-            <div class="mb-3">
-              <label for="calculationsDropdown" class="form-label">Calculations:</label>
-              <select class="form-select" id="calculationsDropdown">
-                <option value=10>10</option>
-                <option value=10000>10000</option>
-                <option value=10000000>10000000</option>
-              </select>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="container mt-3">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <div style="margin-top: 4px;" class="list-group bg-dark">
-        <a href="./tests/plain_js_no_multithreading/diagramm.html" class="list-group-item list-group-item-action text-white bg-dark border-light">plain_js_no_multithreading</a>
-      </div>
-      <div style="margin-top: 4px;" class="list-group bg-dark">
-        <a href="./tests/plain_js_no_multithreading/diagramm.html" class="list-group-item list-group-item-action text-white bg-dark border-light">plain_js_no_multithreading</a>
+    <!-- Test projekt list -->
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div style="margin-top: 4px" class="list-group bg-dark">
+            <a
+              href="./tests/plain_js_no_multithreading/diagramm.html"
+              class="list-group-item list-group-item-action text-white bg-dark border-light"
+              >plain_js_no_multithreading</a
+            >
+          </div>
+          <div style="margin-top: 4px" class="list-group bg-dark">
+            <a
+              href="./tests/plain_js_no_multithreading/diagramm.html"
+              class="list-group-item list-group-item-action text-white bg-dark border-light"
+              >plain_js_no_multithreading</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

@@ -1,67 +1,115 @@
-import { changeNodeColor, updateDiagramm } from './diagramm';
-var calculations;
+import { changeNodeColor, updateDiagram } from "./diagram";
+var terms;
 var threads;
-function startTest(nodes, links, _calculations, _threads){
-    calculations = _calculations;
-    threads = _threads;
-    DSatur(nodes, links);
-}
-async function DSatur(nodes, links) {
-    // Aktualisiere die Sättigung aller Knoten
-    function updateSaturation(nodeKey, color) {
-        links.forEach(link => {
-            let targetNode = null;
-            if (link.from === nodeKey) {
-                targetNode = nodes.find(n => n.key === link.to);
-            } else if (link.to === nodeKey) {
-                targetNode = nodes.find(n => n.key === link.from);
-            }
 
-            if (targetNode && !targetNode.color) {
-                // Erhöhe die Sättigung, wenn der angrenzende Knoten noch nicht gefärbt ist
-                targetNode.weight++;
-            }
-        });
-    }
+var nodes;
+var links;
 
-    // Wähle den nächsten Knoten basierend auf der höchsten Sättigung (weight)
-    function selectNode() {
-        return nodes.filter(n => n.color === 0)
-                    .sort((a, b) => b.weight - a.weight || 
-                          links.filter(l => l.from === b.key || l.to === b.key).length - 
-                          links.filter(l => l.from === a.key || l.to === a.key).length)
-                    .pop();
-    }
+/**
+ * Initializes the test with provided nodes, links, terms, and threads.
+ * It sets up the global variables for use in the graph coloring algorithm and starts the DSatur algorithm.
+ *
+ * @param {Array} _nodes - Array of node objects for the test.
+ * @param {Array} _links - Array of link objects connecting the nodes.
+ * @param {number} _terms - Number of terms to use in the Pi calculation.
+ * @param {number} _threads - Number of threads to simulate (not used in this function but initialized for potential future use).
+ */
+function startTest(_nodes, _links, _terms, _threads) {
+  terms = _terms;
+  threads = _threads;
 
-    let node = selectNode();
-    while (node) {
-        // Finde eine gültige Farbe für den Knoten
-        let color = 1;
-        while (nodes.some(n => 
-               (links.some(l => (l.from === node.key && l.to === n.key) || 
-                               (l.to === node.key && l.from === n.key)) && n.color === color))) {
-            color++;
-        }
-        intensiveTask(calculations);
-        node.color = color;
-        updateDiagramm();
-        updateSaturation(node.key, color);
-        
-        node = selectNode();
-    }
+  nodes = _nodes;
+  links = _links;
+  dSatur();
 }
 
-
-function intensiveTask(terms) {
-    let sum = 0.0;
-    for (let i = 0; i < terms; i++) {
-        if (i % 2 === 0) {
-            sum += 1.0 / (2 * i + 1);
-        } else {
-            sum -= 1.0 / (2 * i + 1);
-        }
+/**
+ * Updates the saturation (weight) of all nodes connected to a given node.
+ * This function increases the weight of adjacent nodes that have not yet been colored.
+ *
+ * @param {string} nodeKey - The key of the node whose adjacent nodes will have their saturation updated.
+ * @param {number} color - The color assigned to the node (not directly used in this function but passed for potential future use).
+ */
+function updateSaturation(nodeKey, color) {
+  links.forEach((link) => {
+    let targetNode = null;
+    if (link.from === nodeKey) {
+      targetNode = nodes.find((n) => n.key === link.to);
+    } else if (link.to === nodeKey) {
+      targetNode = nodes.find((n) => n.key === link.from);
     }
-    return 4 * sum;
+
+    if (targetNode && !targetNode.color) {
+      targetNode.weight++;
+    }
+  });
 }
 
-export {startTest};
+/**
+ * Selects the next node to be colored, based on the highest saturation (weight).
+ * If there's a tie in weight, the node with the most connections (links) is selected.
+ *
+ * @returns {Object} The next node to be colored or `undefined` if no such node exists.
+ */
+function selectNode() {
+  return nodes
+    .filter((n) => n.color === 0)
+    .sort(
+      (a, b) =>
+        b.weight - a.weight ||
+        links.filter((l) => l.from === b.key || l.to === b.key).length -
+          links.filter((l) => l.from === a.key || l.to === a.key).length
+    )
+    .pop();
+}
+
+/**
+ * The DSatur algorithm implementation for graph coloring.
+ * Iteratively selects nodes based on saturation and assigns the lowest possible color that has not been used by adjacent nodes.
+ * Updates the diagram and the saturation of nodes as each node is colored.
+ */
+function dSatur() {
+  let node = selectNode();
+  while (node) {
+    let color = 1;
+    while (
+      nodes.some(
+        (n) =>
+          links.some(
+            (l) =>
+              (l.from === node.key && l.to === n.key) ||
+              (l.to === node.key && l.from === n.key)
+          ) && n.color === color
+      )
+    ) {
+      color++;
+    }
+    calculatePiLeibniz(terms);
+    node.color = color;
+    updateDiagram();
+    updateSaturation(node.key, color);
+
+    node = selectNode();
+  }
+}
+
+/**
+ * Calculates an approximation of Pi using the Leibniz formula.
+ * This function is used to simulate computational work for the performance test.
+ *
+ * @param {number} terms - The number of terms to use in the approximation.
+ * @returns {number} The approximation of Pi calculated using the specified number of terms.
+ */
+function calculatePiLeibniz(terms) {
+  let sum = 0.0;
+  for (let i = 0; i < terms; i++) {
+    if (i % 2 === 0) {
+      sum += 1.0 / (2 * i + 1);
+    } else {
+      sum -= 1.0 / (2 * i + 1);
+    }
+  }
+  return 4 * sum;
+}
+
+export { startTest };
