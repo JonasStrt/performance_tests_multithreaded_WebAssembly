@@ -72,16 +72,22 @@
       threadsDropdown.value = storedThreads;
       updateSelection('threads', storedThreads);
     }
+    else {
+      localStorage.setItem('threads', 2);
+      this.setInitialSelection();
+    }
     if (storedCalculations) {
       calculationsDropdown.value = storedCalculations;
       updateSelection('calculations', storedCalculations);
+    }
+    else {
+      localStorage.setItem('calculations', 10);
+      this.setInitialSelection();
     }
   }
 
   setInitialSelection();
 
-    localStorage.setItem('calculations', 500);
-    localStorage.setItem('threads', 2);
   
     // Führe die Funktion beim Laden der Seite aus
     updateNavbarValues();
@@ -114,17 +120,17 @@
             <div class="mb-3">
               <label for="threadsDropdown" class="form-label">Threads:</label>
               <select class="form-select" id="threadsDropdown">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value=2>2</option>
+                <option value=4>4</option>
+                <option value=8>8</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="calculationsDropdown" class="form-label">Calculations:</label>
               <select class="form-select" id="calculationsDropdown">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value=10>10</option>
+                <option value=10000>10000</option>
+                <option value=10000000>10000000</option>
               </select>
             </div>
           </form>

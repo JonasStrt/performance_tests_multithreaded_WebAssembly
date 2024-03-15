@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>GoJS Beispiel</title>
+    <style>
+        body {
+          background-color: #343a40;
+          color: #ffffff;
+        }
+      </style>
 </head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Funktion zum Auslesen der Werte aus dem Local Storage und Anzeigen in der Navbar
+        function updateNavbarValues() {
+            // Werte aus dem Local Storage auslesen
+            const calculations = localStorage.getItem('calculations');
+            const threads = localStorage.getItem('threads');
+        
+            // Prüfen, ob die Elemente im HTML existieren und die Werte aus dem Local Storage nicht null sind
+            if(calculations !== null) {
+                // Finde das <a>-Element für Calculations und setze den Textinhalt
+                document.querySelectorAll('.nav-item a')[0].textContent = `Calculations: ${calculations}`;
+            }
+            if(threads !== null) {
+                // Finde das <a>-Element für Threads und setze den Textinhalt
+                document.querySelectorAll('.nav-item a')[1].textContent = `Threads: ${threads}`;
+            }
+        }
+        updateNavbarValues();
+
+    });
+</script>
 <body>
-    <div id="myDiagramDiv" class ="rainbow" style="width:800px; height:600px;"></div>
+     <!-- Fixed navbar -->
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" style="margin-left: 10px;">Test-Suite</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li style="margin-left: 10px;" class="nav-item">
+          <a data-type="calculations">Calculations:</a>
+        </li>
+        <li style="margin-left: 10px;" class="nav-item">
+          <a data-type="threads">Threads:</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <div id="myDiagramDiv" style="width:800px; height:600px"></div>
     <script src="bundle.js"></script>
+    <button onclick="startPerformanceTest()">Start test</button>
+
 </body>
 </html>
