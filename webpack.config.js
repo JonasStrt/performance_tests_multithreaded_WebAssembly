@@ -8,7 +8,7 @@ const testFolders = fs.readdirSync(testsDir).filter(f => fs.statSync(path.join(t
 // Eine Webpack-Konfiguration für jeden Testordner erstellen
 const config = testFolders.map(folder => ({
   mode: 'development',
-  entry: path.join(testsDir, folder, 'diagramm.js'),
+  entry: path.join(testsDir, folder, 'diagram.js'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(testsDir, folder),

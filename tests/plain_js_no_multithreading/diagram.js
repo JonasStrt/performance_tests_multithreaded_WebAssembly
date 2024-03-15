@@ -402,7 +402,7 @@ function changeNodeColor(nodeKey, newColorCode) {
  * This function is designed to refresh the diagram's visual representation by ensuring that all bindings that associate model data with diagram elements are re-evaluated.
  * @returns {void} Does not return a value. Directly affects the diagram by triggering a re-evaluation of data bindings.
  */
-function updateDiagramm() {
+function updateDiagram() {
   myDiagram.updateAllTargetBindings();
 }
 //#endregion gojs
@@ -460,4 +460,4 @@ function startPerformanceTest() {
 
 window.startPerformanceTest = startPerformanceTest;
 
-export { changeNodeColor, updateDiagramm, startPerformanceTest };
+export { changeNodeColor, updateDiagram, startPerformanceTest };
