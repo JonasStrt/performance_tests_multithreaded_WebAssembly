@@ -80,10 +80,10 @@ function dSatur() {
       if (getNodeAttribute(node.key - 1, 3) === 0) {
         lockAdjacentNodes(node);
         setNodeAttribute(node.key - 1, 1, color);
-        postMessage({ status: 0, key: node.key, color: color });
         updateSaturation(node.key, color);
-        unlockAdjacentNodes(node);
         calculatePiLeibniz(terms);
+        unlockAdjacentNodes(node);
+        postMessage({ status: 0, key: node.key, color: color });
       }
       //it got locked
       else {
@@ -91,7 +91,7 @@ function dSatur() {
           nodeBufferView,
           (node.key - 1) * 4 + 3,
           0,
-          100
+          terms/10
         );
         if (waitResult === "ok") {
           continue;
