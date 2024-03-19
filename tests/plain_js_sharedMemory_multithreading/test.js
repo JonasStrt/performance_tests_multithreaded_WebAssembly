@@ -40,7 +40,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
           worker.terminate();
           resolve();
         } else {
-          changeNodeColor(event.data.key, event.data.color);
+          changeNodeColor(event.data.key, event.data.color, event.data.thread);
         }
       };
 
