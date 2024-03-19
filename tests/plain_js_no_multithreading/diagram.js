@@ -491,12 +491,6 @@ async function startPerformanceTest() {
   document.getElementById("value4").innerText = (
     memoryAfter.usedJSHeapSize / 1048576
   ).toFixed(2);
-  for (let i = 0; i < threads; i++) {
-    addListItemToContainer(
-      "Thread " + i + " colored " + threadNodeCount[i] + " nodes",
-      "thread" + i
-    );
-  }
 }
 
 window.startPerformanceTest = startPerformanceTest;

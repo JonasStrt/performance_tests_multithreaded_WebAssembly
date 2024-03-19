@@ -462,6 +462,25 @@ function getMemoryUsage() {
   }
 }
 
+function calculateGiniCoefficient() {
+  const sortedTasks = threadNodeCount.slice().sort((a, b) => a - b);
+  const n = sortedTasks.length;
+  let kumulativeSummen = 0;
+  let summeDerAufgaben = 0;
+
+  // Kumulative Summe und Summe der Aufgaben berechnen
+  for (let i = 0; i < n; i++) {
+    kumulativeSummen += sortedTasks[i] * (i + 1);
+    summeDerAufgaben += sortedTasks[i];
+  }
+
+  // Gini-Koeffizient berechnen, falls Summe der Aufgaben nicht 0 ist
+  const gini = summeDerAufgaben
+    ? (2 * kumulativeSummen) / (n * summeDerAufgaben) - (n + 1) / n
+    : 0;
+  return gini;
+}
+
 /**
  * Starts a performance test by initiating a test based on stored settings and measuring execution time and memory usage before and after the test.
  * Retrieves test settings from localStorage, including terms and threads.
@@ -490,7 +509,8 @@ async function startPerformanceTest() {
   document.getElementById("value4").innerText = (
     memoryAfter.usedJSHeapSize / 1048576
   ).toFixed(2);
-
+  document.getElementById("value5").innerText =
+    calculateGiniCoefficient().toFixed(2);
   for (let i = 0; i < threads; i++) {
     addListItemToContainer(
       "Thread " + i + " colored " + threadNodeCount[i] + " nodes",

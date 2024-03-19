@@ -6,6 +6,7 @@ var nodes;
 var links;
 
 var nodeBuffer;
+var workers = [];
 
 /**
  * Initializes the test with provided nodes, links, terms, and threads.
@@ -31,9 +32,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
 
   for (let i = 0; i < threads; i++) {
     const worker = new Worker("dSaturWorker.js"); // Pfad zur Worker-Datei
-
-    worker.postMessage({ nodeBuffer, nodes, links, terms, id: i });
-
+    workers[i] = worker;
     let promise = new Promise((resolve, reject) => {
       worker.onmessage = function (event) {
         if (event.data.status) {
@@ -52,11 +51,17 @@ async function startTest(_nodes, _links, _terms, _threads) {
 
     promises.push(promise);
   }
+  startWorkers();
 
   // Warten auf die Beendigung aller Worker
   return Promise.all(promises);
 }
 
+function startWorkers() {
+  for (let i = 0; i < threads; i++) {
+    workers[i].postMessage({ nodeBuffer, nodes, links, terms, id: i });
+  }
+}
 function serializeNodeData() {
   const int32View = new Int32Array(nodeBuffer);
 
