@@ -412,16 +412,13 @@ myDiagram.model = new go.GraphLinksModel(nodes, links);
 function mapColor(colorCode) {
   const colors = [
     "lightgray",
-    "red",
-    "green",
-    "blue",
-    "orange",
-    "purple",
-    "yellow",
-    "lime",
-    "cyan",
-    "magenta",
-    "crimson",
+    "#00b3fe",
+    "#1afe49",
+    "#ff124f",
+    "#defe47",
+    "#ff6e27",
+    "#00b3fe",
+    "#65dc98",
   ];
   return colors[colorCode] || "gray";
 }
@@ -434,7 +431,7 @@ function mapColor(colorCode) {
  * @returns {void} Does not return a value. Modifies the diagram's model directly.
  */
 function changeNodeColor(nodeKey, newColorCode, thread) {
-  threadNodeCount[thread]+=1;
+  threadNodeCount[thread] += 1;
   var data = myDiagram.model.findNodeDataForKey(nodeKey);
   if (data) {
     myDiagram.model.startTransaction("change color");
@@ -494,7 +491,6 @@ async function startPerformanceTest() {
     memoryAfter.usedJSHeapSize / 1048576
   ).toFixed(2);
 
-  console.log(threadNodeCount);
   for (let i = 0; i < threads; i++) {
     addListItemToContainer(
       "Thread " + i + " colored " + threadNodeCount[i] + " nodes",

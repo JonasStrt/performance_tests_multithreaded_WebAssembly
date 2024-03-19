@@ -1,4 +1,4 @@
-import { changeNodeColor, updateDiagram } from "./diagram";
+import { changeNodeColor } from "./diagram";
 var terms;
 var threads;
 
@@ -22,9 +22,8 @@ let resolveCompletionPromise;
  * @param {number} _threads - Number of threads to simulate (not used in this function but initialized for potential future use).
  */
 async function startTest(_nodes, _links, _terms, _threads) {
-
-  completionPromise = new Promise(resolve => {
-    resolveCompletionPromise = resolve; 
+  completionPromise = new Promise((resolve) => {
+    resolveCompletionPromise = resolve;
   });
 
   terms = _terms;
@@ -45,15 +44,16 @@ function runActorRoutine() {
 function initializeWorkerPool() {
   for (let i = 0; i < threads; i++) {
     const worker = new Worker("colorNodeDSaturWorker.js");
-    worker.onmessage = function(e) {
+    worker.id = i;
+    worker.onmessage = function (e) {
       processWorkerResult(e, worker);
-    }
+    };
     workers.push(worker);
   }
 }
 
 function terminateAllWorkers() {
-  workers.forEach(worker => worker.terminate()); // Jeden Worker terminieren
+  workers.forEach((worker) => worker.terminate()); // Jeden Worker terminieren
   workers.length = 0; // Das Array leeren
   activeWorkers.clear(); // Sicherstellen, dass auch das Set der aktiven Worker geleert wird
 }
@@ -72,16 +72,15 @@ function sendNodeToWorker(node) {
 function processWorkerResult(e, worker) {
   let node = nodes.find((node) => node.key === e.data.key);
   node.color = e.data.color;
-  updateDiagram();
+  changeNodeColor(node.key, node.color, worker.id);
   updateSaturation(node.key);
   unlockAdjacentNodes(node);
   activeWorkers.delete(worker);
   workers.push(worker);
-  if(!areAllNodesColored()) {
+  if (!areAllNodesColored()) {
     addColorableNodesToQueue();
     processNextTask();
-  }
-  else {
+  } else {
     resolveCompletionPromise();
     terminateAllWorkers();
   }

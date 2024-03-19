@@ -1,13 +1,47 @@
 import * as go from "gojs";
 import { startTest } from "./test";
 
+var terms = localStorage.getItem("terms");
+var threads = parseInt(localStorage.getItem("threads"), 10);
+var threadNodeCount = new Array(threads).fill(0);
+
+function addListItemToContainer(text, id) {
+  // Wähle den Container aus, in dem die Liste enthalten ist
+  const container = document.querySelector(".list-container .row .col-10");
+
+  // Erstelle ein neues div-Element für den Listeneintrag
+  const listGroupDiv = document.createElement("div");
+  listGroupDiv.classList.add("list-group", "bg-dark");
+  listGroupDiv.style.marginTop = "4px";
+
+  // Erstelle ein neues a-Element für den Link
+  const link = document.createElement("a");
+  link.classList.add(
+    "list-group-item",
+    "list-group-item-action",
+    "text-white",
+    "bg-dark",
+    "border-light"
+  );
+  link.textContent = text;
+
+  // Setze die ID für das a-Element
+  link.id = id;
+
+  // Füge den Link zum div-Element hinzu
+  listGroupDiv.appendChild(link);
+
+  // Füge das neue div-Element zum Container hinzu
+  container.appendChild(listGroupDiv);
+}
+
 //#region  gojs
 const $ = go.GraphObject.make;
 
 // the gojs diagram
 const myDiagram = $(go.Diagram, "myDiagramDiv", {
   "undoManager.isEnabled": false,
-  allowMove: false,
+  //allowMove: false,
   allowLink: false,
   allowZoom: false,
   allowHorizontalScroll: false,
@@ -29,7 +63,11 @@ myDiagram.nodeTemplate = $(
     },
     new go.Binding("fill", "color", mapColor)
   ),
-  $(go.TextBlock, { margin: 8 }, new go.Binding("text", "key"))
+  $(
+    go.TextBlock,
+    { margin: 20, font: "bold 32pt Sans-Serif" },
+    new go.Binding("text", "key")
+  )
 );
 
 // the linkTemplate
@@ -37,21 +75,28 @@ myDiagram.linkTemplate = $(go.Link, $(go.Shape));
 
 // the layout
 myDiagram.layout = $(go.ForceDirectedLayout, {
-  defaultSpringLength: 300,
+  defaultSpringLength: 30,
   defaultElectricalCharge: 500,
+  defaultGravitationalMass: 200,
+  defaultSpringStiffness: 0.1,
+  epsilonDistance: 1,
+  infinityDistance: 5000,
+  moveLimit: 100,
+  maxIterations: 300,
+  arrangementSpacing: new go.Size(100, 100),
 });
 
 // node data
 let nodes = [
-  { key: 1, color: 0, weight: 0 , lock: 0},
-  { key: 2, color: 0, weight: 0 , lock: 0},
-  { key: 3, color: 0, weight: 0 , lock: 0},
-  { key: 4, color: 0, weight: 0 , lock: 0},
-  { key: 5, color: 0, weight: 0 , lock: 0},
-  { key: 6, color: 0, weight: 0 , lock: 0},
-  { key: 7, color: 0, weight: 0 , lock: 0},
-  { key: 8, color: 0, weight: 0 , lock: 0},
-  { key: 9, color: 0, weight: 0 , lock: 0},
+  { key: 1, color: 0, weight: 0, lock: 0 },
+  { key: 2, color: 0, weight: 0, lock: 0 },
+  { key: 3, color: 0, weight: 0, lock: 0 },
+  { key: 4, color: 0, weight: 0, lock: 0 },
+  { key: 5, color: 0, weight: 0, lock: 0 },
+  { key: 6, color: 0, weight: 0, lock: 0 },
+  { key: 7, color: 0, weight: 0, lock: 0 },
+  { key: 8, color: 0, weight: 0, lock: 0 },
+  { key: 9, color: 0, weight: 0, lock: 0 },
   { key: 10, color: 0, weight: 0, lock: 0 },
   { key: 11, color: 0, weight: 0, lock: 0 },
   { key: 12, color: 0, weight: 0, lock: 0 },
@@ -367,16 +412,13 @@ myDiagram.model = new go.GraphLinksModel(nodes, links);
 function mapColor(colorCode) {
   const colors = [
     "lightgray",
-    "red",
-    "green",
-    "blue",
-    "orange",
-    "purple",
-    "yellow",
-    "lime",
-    "cyan",
-    "magenta",
-    "crimson",
+    "#00b3fe",
+    "#1afe49",
+    "#ff124f",
+    "#defe47",
+    "#ff6e27",
+    "#00b3fe",
+    "#65dc98",
   ];
   return colors[colorCode] || "gray";
 }
@@ -388,23 +430,17 @@ function mapColor(colorCode) {
  * @param {number} newColorCode - The numeric code representing the new color for the node. This code is expected to correspond to a specific color managed by the application.
  * @returns {void} Does not return a value. Modifies the diagram's model directly.
  */
-function changeNodeColor(nodeKey, newColorCode) {
+function changeNodeColor(nodeKey, newColorCode, thread) {
+  threadNodeCount[thread] += 1;
   var data = myDiagram.model.findNodeDataForKey(nodeKey);
   if (data) {
     myDiagram.model.startTransaction("change color");
     myDiagram.model.setDataProperty(data, "color", newColorCode);
     myDiagram.model.commitTransaction("change color");
   }
-}
-
-/**
- * Triggers an update of all target bindings in the diagram.
- * This function is designed to refresh the diagram's visual representation by ensuring that all bindings that associate model data with diagram elements are re-evaluated.
- * @returns {void} Does not return a value. Directly affects the diagram by triggering a re-evaluation of data bindings.
- */
-function updateDiagram() {
   myDiagram.updateAllTargetBindings();
 }
+
 //#endregion gojs
 
 /**
@@ -437,8 +473,6 @@ function getMemoryUsage() {
  * @returns {void} Does not return a value. Results of the performance test are displayed on the webpage.
  */
 async function startPerformanceTest() {
-  let terms = localStorage.getItem("terms");
-  let threads = localStorage.getItem("threads");
   const memoryBefore = getMemoryUsage();
   document.getElementById("value3").innerText = (
     memoryBefore.usedJSHeapSize / 1048576
@@ -457,8 +491,15 @@ async function startPerformanceTest() {
   document.getElementById("value4").innerText = (
     memoryAfter.usedJSHeapSize / 1048576
   ).toFixed(2);
+
+  for (let i = 0; i < threads; i++) {
+    addListItemToContainer(
+      "Thread " + i + " colored " + threadNodeCount[i] + " nodes",
+      "thread" + i
+    );
+  }
 }
 
 window.startPerformanceTest = startPerformanceTest;
 
-export { changeNodeColor, updateDiagram, startPerformanceTest };
+export { changeNodeColor, startPerformanceTest };

@@ -1,4 +1,4 @@
-import { changeNodeColor, updateDiagram } from "./diagram";
+import { changeNodeColor } from "./diagram";
 var terms;
 var threads;
 
@@ -86,7 +86,7 @@ function dSatur() {
     }
     calculatePiLeibniz(terms);
     node.color = color;
-    updateDiagram();
+    changeNodeColor(node.key,node.color,null);
     updateSaturation(node.key, color);
 
     node = selectNode();
