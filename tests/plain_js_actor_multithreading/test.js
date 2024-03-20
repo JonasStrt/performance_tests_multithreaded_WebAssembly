@@ -139,7 +139,6 @@ function selectNode() {
       }
     }
   }
-  console.log(nodeToColor);
   return nodeToColor;
 }
 
@@ -151,7 +150,7 @@ function countLinksForNode(nodeKey) {
 }
 function addColorableNodesToQueue() {
   let node;
-  while ((node = selectNode()) !== undefined) {
+  while ((node = selectNode()) !== null) {
     // Solange es einen auswählbaren Knoten gibt
     lockAdjacentNodes(node); // Sperre die angrenzenden Knoten
     sendNodeToWorker(node); // Sende den Knoten an den Worker
