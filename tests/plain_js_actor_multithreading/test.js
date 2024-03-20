@@ -116,23 +116,39 @@ function updateSaturation(nodeKey) {
 }
 
 /**
- * Selects the next node to be colored, based on the highest saturation (weight) and if it is not blocked.
+ * Selects the next node to be colored, based on the highest saturation (weight).
  * If there's a tie in weight, the node with the most connections (links) is selected.
  *
  * @returns {Object} The next node to be colored or `undefined` if no such node exists.
  */
 function selectNode() {
-  return nodes
-    .filter((n) => n.color === 0 && n.lock === 0)
-    .sort(
-      (a, b) =>
-        b.weight - a.weight ||
-        links.filter((l) => l.from === b.key || l.to === b.key).length -
-          links.filter((l) => l.from === a.key || l.to === a.key).length
-    )
-    .pop();
+  let nodeToColor = null;
+  let maxWeight = -Infinity;
+  let maxLinkCount = -Infinity;
+  for (let currNode of nodes) {
+    if (currNode.color === 0 && currNode.lock === 0) {
+      const weight = currNode.weight;
+      const linkCount = countLinksForNode(currNode.key);
+      if (
+        weight > maxWeight ||
+        (weight === maxWeight && linkCount > maxLinkCount)
+      ) {
+        nodeToColor = currNode;
+        maxWeight = weight;
+        maxLinkCount = linkCount;
+      }
+    }
+  }
+  console.log(nodeToColor);
+  return nodeToColor;
 }
 
+function countLinksForNode(nodeKey) {
+  return links.reduce(
+    (acc, link) => acc + (link.from === nodeKey || link.to === nodeKey ? 1 : 0),
+    0
+  );
+}
 function addColorableNodesToQueue() {
   let node;
   while ((node = selectNode()) !== undefined) {
@@ -152,22 +168,24 @@ function areAllNodesColored() {
  * @param {string} nodeKey - The key of the node to whose adjacent nodes the lock value is to be increased.
  */
 function lockAdjacentNodes(node) {
-  let nodeKey = node.key;
-  node.lock++;
-  links.forEach((link) => {
-    let targetNodeKey = null;
-    if (link.from === nodeKey) {
-      targetNodeKey = link.to;
-    } else if (link.to === nodeKey) {
-      targetNodeKey = link.from;
-    }
-    if (targetNodeKey !== null) {
-      const targetNode = nodes.find((n) => n.key === targetNodeKey);
-      if (targetNode) {
-        targetNode.lock++;
+  if (node) {
+    let nodeKey = node.key;
+    node.lock++;
+    links.forEach((link) => {
+      let targetNodeKey = null;
+      if (link.from === nodeKey) {
+        targetNodeKey = link.to;
+      } else if (link.to === nodeKey) {
+        targetNodeKey = link.from;
       }
-    }
-  });
+      if (targetNodeKey !== null) {
+        const targetNode = nodes.find((n) => n.key === targetNodeKey);
+        if (targetNode) {
+          targetNode.lock++;
+        }
+      }
+    });
+  }
 }
 
 /**
@@ -176,21 +194,23 @@ function lockAdjacentNodes(node) {
  * @param {string} nodeKey - The key of the node to whose adjacent nodes the lock value is to be decreased.
  */
 function unlockAdjacentNodes(node) {
-  let nodeKey = node.key;
-  links.forEach((link) => {
-    let targetNodeKey = null;
-    if (link.from === nodeKey) {
-      targetNodeKey = link.to;
-    } else if (link.to === nodeKey) {
-      targetNodeKey = link.from;
-    }
-    if (targetNodeKey !== null) {
-      const targetNode = nodes.find((n) => n.key === targetNodeKey);
-      if (targetNode) {
-        targetNode.lock--;
+  if (node) {
+    let nodeKey = node.key;
+    links.forEach((link) => {
+      let targetNodeKey = null;
+      if (link.from === nodeKey) {
+        targetNodeKey = link.to;
+      } else if (link.to === nodeKey) {
+        targetNodeKey = link.from;
       }
-    }
-  });
+      if (targetNodeKey !== null) {
+        const targetNode = nodes.find((n) => n.key === targetNodeKey);
+        if (targetNode) {
+          targetNode.lock--;
+        }
+      }
+    });
+  }
 }
 
 export { startTest };

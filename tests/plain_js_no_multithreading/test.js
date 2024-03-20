@@ -52,15 +52,32 @@ function updateSaturation(nodeKey, color) {
  * @returns {Object} The next node to be colored or `undefined` if no such node exists.
  */
 function selectNode() {
-  return nodes
-    .filter((n) => n.color === 0)
-    .sort(
-      (a, b) =>
-        b.weight - a.weight ||
-        links.filter((l) => l.from === b.key || l.to === b.key).length -
-          links.filter((l) => l.from === a.key || l.to === a.key).length
-    )
-    .pop();
+  let nodeToColor = null;
+  let maxWeight = -Infinity;
+  let maxLinkCount = -Infinity;
+  for (let currNode of nodes) {
+    //const lock = getNodeAttribute(nodeIndex, 3);
+    if (currNode.color === 0) {
+      const weight = currNode.weight;
+      const linkCount = countLinksForNode(currNode.key);
+      if (
+        weight > maxWeight ||
+        (weight === maxWeight && linkCount > maxLinkCount)
+      ) {
+        nodeToColor = currNode;
+        maxWeight = weight;
+        maxLinkCount = linkCount;
+      }
+    }
+  }
+  return nodeToColor;
+}
+
+function countLinksForNode(nodeKey) {
+  return links.reduce(
+    (acc, link) => acc + (link.from === nodeKey || link.to === nodeKey ? 1 : 0),
+    0
+  );
 }
 
 /**
@@ -86,7 +103,7 @@ function dSatur() {
     }
     calculatePiLeibniz(terms);
     node.color = color;
-    changeNodeColor(node.key,node.color,null);
+    changeNodeColor(node.key, node.color, null);
     updateSaturation(node.key, color);
 
     node = selectNode();
