@@ -33,6 +33,7 @@
       function updateNavbarValues() {
         const terms = localStorage.getItem("terms");
         const threads = localStorage.getItem("threads");
+        const nodes = localStorage.getItem("nodes");
 
         if (terms !== null) {
           document.querySelectorAll(
@@ -44,9 +45,15 @@
             ".nav-item a"
           )[1].textContent = `Threads: ${threads}`;
         }
+        if (nodes !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[2].textContent = `Nodes: ${nodes}`;
+        }
       }
       const threadsDropdown = document.getElementById("threadsDropdown");
       const termsDropdown = document.getElementById("termsDropdown");
+      const nodesDropdown = document.getElementById("nodesDropdown");
 
       // Function for updating the navbar and saving to local storage
       function updateSelection(type, value) {
@@ -70,10 +77,15 @@
         updateSelection("terms", this.value);
       });
 
+      nodesDropdown.addEventListener("change", function () {
+        updateSelection("nodes", this.value);
+      });
+
       // Set initial values from the local storage and update Navbar
       function setInitialSelection() {
         const storedThreads = localStorage.getItem("threads");
         const storedTerms = localStorage.getItem("terms");
+        const storedNodes = localStorage.getItem("nodes");
         if (storedThreads) {
           threadsDropdown.value = storedThreads;
           updateSelection("threads", storedThreads);
@@ -85,7 +97,14 @@
           termsDropdown.value = storedTerms;
           updateSelection("terms", storedTerms);
         } else {
-          localStorage.setItem("terms", 10);
+          localStorage.setItem("terms", 0);
+          this.setInitialSelection();
+        }
+        if (storedNodes) {
+          nodesDropdown.value = storedNodes;
+          updateSelection("nodes", storedNodes);
+        } else {
+          localStorage.setItem("nodes", 100);
           this.setInitialSelection();
         }
       }
@@ -107,6 +126,9 @@
           </li>
           <li style="margin-left: 10px" class="nav-item">
             <a data-type="threads">Threads:</a>
+          </li>
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="nodes">Nodes:</a>
           </li>
         </ul>
       </div>
@@ -144,10 +166,23 @@
                     coloring):</label
                   >
                   <select class="form-select" id="termsDropdown">
+                    <option value="0">0</option>
                     <option value="10">10</option>
                     <option value="1000">1000</option>
                     <option value="100000">100000</option>
                     <option value="10000000">10000000</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="nodesDropdown" class="form-label"
+                    >Nodes:</label
+                  >
+                  <select class="form-select" id="nodesDropdown">
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
                   </select>
                 </div>
               </form>

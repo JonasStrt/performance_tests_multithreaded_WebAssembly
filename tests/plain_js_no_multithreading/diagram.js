@@ -3,6 +3,7 @@ import { startTest } from "./test";
 
 var terms = localStorage.getItem("terms");
 var threads = parseInt(localStorage.getItem("threads"), 10);
+var nodeCount = localStorage.getItem("nodes");
 var threadNodeCount = new Array(threads).fill(0);
 
 function addListItemToContainer(text, id) {
@@ -89,7 +90,10 @@ myDiagram.layout = $(go.ForceDirectedLayout, {
 function generateGraph(n) {
   let nodes = [];
   let links = [];
-  let counter = 1; // Startintervall für die Verbindung von Knoten
+  let counter = 1;
+  if (n == 10 || n == 1000) {
+    counter = 9;
+  }
   let interval = n / 10;
   let vortex = false;
 
@@ -109,7 +113,7 @@ function generateGraph(n) {
   // Kanten erstellen
   for (let i = 1; i <= n; i++) {
     if (vortex) {
-      if (i + 5 <= n && i - 5 >= 1) {
+      if (i + 5 <= n && i - 3 >= 1) {
         if (!linkExists(i, i + 1)) {
           links.push({ from: i, to: i + 1 });
         }
@@ -139,7 +143,7 @@ function generateGraph(n) {
   return { nodes, links: links };
 }
 
-let graph = generateGraph(100);
+let graph = generateGraph(nodeCount);
 // node data
 let nodes = graph.nodes;
 // link data
@@ -181,7 +185,7 @@ function mapColor(colorCode) {
  * @returns {void} Does not return a value. Modifies the diagram's model directly.
  */
 function changeNodeColor(nodeKey, newColorCode, thread) {
-  //threadNodeCount[thread] += 1;
+  threadNodeCount[thread] += 1;
   var data = myDiagram.model.findNodeDataForKey(nodeKey);
   if (data) {
     myDiagram.model.startTransaction("change color");
@@ -213,6 +217,25 @@ function getMemoryUsage() {
   }
 }
 
+function calculateGiniCoefficient() {
+  const sortedTasks = threadNodeCount.slice().sort((a, b) => a - b);
+  const n = sortedTasks.length;
+  let kumulativeSummen = 0;
+  let summeDerAufgaben = 0;
+
+  // Kumulative Summe und Summe der Aufgaben berechnen
+  for (let i = 0; i < n; i++) {
+    kumulativeSummen += sortedTasks[i] * (i + 1);
+    summeDerAufgaben += sortedTasks[i];
+  }
+
+  // Gini-Koeffizient berechnen, falls Summe der Aufgaben nicht 0 ist
+  const gini = summeDerAufgaben
+    ? (2 * kumulativeSummen) / (n * summeDerAufgaben) - (n + 1) / n
+    : 0;
+  return gini;
+}
+
 /**
  * Starts a performance test by initiating a test based on stored settings and measuring execution time and memory usage before and after the test.
  * Retrieves test settings from localStorage, including terms and threads.
@@ -241,6 +264,15 @@ async function startPerformanceTest() {
   document.getElementById("value4").innerText = (
     memoryAfter.usedJSHeapSize / 1048576
   ).toFixed(2);
+  document.getElementById("value5").innerText =
+    calculateGiniCoefficient().toFixed(2);
+
+  for (let i = 0; i < threads; i++) {
+    addListItemToContainer(
+      "Thread " + i + " colored " + threadNodeCount[i] + " nodes",
+      "thread" + i
+    );
+  }
 }
 
 window.startPerformanceTest = startPerformanceTest;

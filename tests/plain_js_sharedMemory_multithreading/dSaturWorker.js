@@ -91,17 +91,17 @@ function dSatur() {
         });
       }
       //it got locked
-      else {
-        let waitResult = Atomics.wait(
-          nodeBufferView,
-          (node.key - 1) * 4 + 3,
-          0,
-          1000
-        );
-        if (waitResult === "ok") {
-          continue;
-        }
-      }
+      // else {
+      //   // let waitResult = Atomics.wait(
+      //   //   nodeBufferView,
+      //   //   (node.key - 1) * 4 + 3,
+      //   //   0,
+      //   //   1000
+      //   // );
+      //   // if (waitResult === "ok") {
+      //   //   continue;
+      //   // }
+      // }
     }
     node = selectNode();
   }

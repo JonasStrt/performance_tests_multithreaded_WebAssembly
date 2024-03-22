@@ -3,6 +3,7 @@ import { startTest } from "./test";
 
 var terms = localStorage.getItem("terms");
 var threads = parseInt(localStorage.getItem("threads"), 10);
+var nodeCount = localStorage.getItem("nodes");
 var threadNodeCount = new Array(threads).fill(0);
 
 function addListItemToContainer(text, id) {
@@ -89,7 +90,10 @@ myDiagram.layout = $(go.ForceDirectedLayout, {
 function generateGraph(n) {
   let nodes = [];
   let links = [];
-  let counter = 1; // Startintervall für die Verbindung von Knoten
+  let counter = 1;
+  if (n == 10 || n == 1000) {
+    counter = 9;
+  }
   let interval = n / 10;
   let vortex = false;
 
@@ -109,7 +113,7 @@ function generateGraph(n) {
   // Kanten erstellen
   for (let i = 1; i <= n; i++) {
     if (vortex) {
-      if (i + 5 <= n && i - 5 >= 1) {
+      if (i + 5 <= n && i - 3 >= 1) {
         if (!linkExists(i, i + 1)) {
           links.push({ from: i, to: i + 1 });
         }
@@ -139,7 +143,7 @@ function generateGraph(n) {
   return { nodes, links: links };
 }
 
-let graph = generateGraph(100);
+let graph = generateGraph(nodeCount);
 // node data
 let nodes = graph.nodes;
 // link data

@@ -34,6 +34,7 @@
       function updateNavbarValues() {
         const terms = localStorage.getItem("terms");
         const threads = localStorage.getItem("threads");
+        const nodes = localStorage.getItem("nodes");
         if (terms !== null) {
           document.querySelectorAll(
             ".nav-item a"
@@ -43,6 +44,11 @@
           document.querySelectorAll(
             ".nav-item a"
           )[1].textContent = `Threads: ${threads}`;
+        }
+        if (threads !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[2].textContent = `Nodes: ${nodes}`;
         }
       }
       updateNavbarValues();
@@ -61,6 +67,9 @@
           </li>
           <li style="margin-left: 10px" class="nav-item">
             <a data-type="threads">Threads:</a>
+          </li>
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="nodes">Nodes:</a>
           </li>
         </ul>
       </div>
@@ -117,7 +126,8 @@
                         Used JS HeapSize after: <span id="value4">-</span> MB
                       </p>
                       <p id="label5">
-                        Gini Coefficient (for distribution of nodes among threads): <span id="value5">-</span> 
+                        Gini Coefficient (for distribution of nodes among
+                        threads): <span id="value5">-</span>
                       </p>
                     </div>
                   </div>
