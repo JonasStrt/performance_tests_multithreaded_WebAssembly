@@ -72,7 +72,10 @@ myDiagram.nodeTemplate = $(
 );
 
 // the linkTemplate
-myDiagram.linkTemplate = $(go.Link, $(go.Shape));
+myDiagram.linkTemplate = $(
+  go.Link,
+  $(go.Shape, { strokeWidth: 3, stroke: "Linen" })
+);
 
 // the layout
 myDiagram.layout = $(go.ForceDirectedLayout, {
