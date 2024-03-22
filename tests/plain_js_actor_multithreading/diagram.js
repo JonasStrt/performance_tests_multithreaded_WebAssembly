@@ -77,18 +77,22 @@ myDiagram.linkTemplate = $(
   $(go.Shape, { strokeWidth: 3, stroke: "Linen" })
 );
 
-// the layout
-myDiagram.layout = $(go.ForceDirectedLayout, {
-  defaultSpringLength: 30,
-  defaultElectricalCharge: 500,
-  defaultGravitationalMass: 200,
-  defaultSpringStiffness: 0.1,
-  epsilonDistance: 1,
-  infinityDistance: 5000,
-  moveLimit: 100,
-  maxIterations: 300,
-  arrangementSpacing: new go.Size(100, 100),
-});
+let fast = false;
+fast = localStorage.getItem("fast");
+if (!fast) {
+  // the layout
+  myDiagram.layout = $(go.ForceDirectedLayout, {
+    defaultSpringLength: 30,
+    defaultElectricalCharge: 500,
+    defaultGravitationalMass: 200,
+    defaultSpringStiffness: 0.1,
+    epsilonDistance: 1,
+    infinityDistance: 5000,
+    moveLimit: 100,
+    maxIterations: 300,
+    arrangementSpacing: new go.Size(100, 100),
+  });
+}
 
 function generateGraph(n) {
   let nodes = [];
