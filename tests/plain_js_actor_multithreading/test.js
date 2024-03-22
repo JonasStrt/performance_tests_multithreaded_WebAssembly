@@ -33,12 +33,14 @@ async function startTest(_nodes, _links, _terms, _threads) {
   links = _links;
 
   initializeWorkerPool();
-  runActorRoutine();
+  startActorRoutine();
   return completionPromise;
 }
 
-function runActorRoutine() {
-  addColorableNodesToQueue();
+function startActorRoutine() {
+  for (let i = 0; i <threads; i++) {
+    addColorableNodeToQueue();
+  }
 }
 
 function initializeWorkerPool() {
@@ -78,7 +80,7 @@ function processWorkerResult(e, worker) {
   activeWorkers.delete(worker);
   workers.push(worker);
   if (!areAllNodesColored()) {
-    addColorableNodesToQueue();
+    addColorableNodeToQueue();
     processNextTask();
   } else {
     resolveCompletionPromise();
@@ -148,10 +150,9 @@ function countLinksForNode(nodeKey) {
     0
   );
 }
-function addColorableNodesToQueue() {
-  let node;
-  while ((node = selectNode()) !== null) {
-    // Solange es einen auswählbaren Knoten gibt
+function addColorableNodeToQueue() {
+  let node = selectNode();
+  if (node) {
     lockAdjacentNodes(node); // Sperre die angrenzenden Knoten
     sendNodeToWorker(node); // Sende den Knoten an den Worker
   }

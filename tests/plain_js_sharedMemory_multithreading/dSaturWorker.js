@@ -96,7 +96,7 @@ function dSatur() {
           nodeBufferView,
           (node.key - 1) * 4 + 3,
           0,
-          terms / 10
+          1000
         );
         if (waitResult === "ok") {
           continue;
