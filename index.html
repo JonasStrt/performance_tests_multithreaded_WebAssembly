@@ -54,6 +54,8 @@
       const threadsDropdown = document.getElementById("threadsDropdown");
       const termsDropdown = document.getElementById("termsDropdown");
       const nodesDropdown = document.getElementById("nodesDropdown");
+      var switchElement = document.getElementById('flexSwitchCheckDefault');
+
 
       // Function for updating the navbar and saving to local storage
       function updateSelection(type, value) {
@@ -80,12 +82,16 @@
       nodesDropdown.addEventListener("change", function () {
         updateSelection("nodes", this.value);
       });
+    switchElement.addEventListener('change', function() {
+      localStorage.setItem("vis", switchElement.checked);
+    });
 
       // Set initial values from the local storage and update Navbar
       function setInitialSelection() {
         const storedThreads = localStorage.getItem("threads");
         const storedTerms = localStorage.getItem("terms");
         const storedNodes = localStorage.getItem("nodes");
+        const storedVis = localStorage.getItem("vis");
         if (storedThreads) {
           threadsDropdown.value = storedThreads;
           updateSelection("threads", storedThreads);
@@ -105,6 +111,12 @@
           updateSelection("nodes", storedNodes);
         } else {
           localStorage.setItem("nodes", 100);
+          this.setInitialSelection();
+        }
+        if (storedVis) {
+          switchElement.checked = storedVis === "true";
+        } else {
+          localStorage.setItem("vis", true);
           this.setInitialSelection();
         }
       }
@@ -180,6 +192,17 @@
                     <option value="100">100</option>
                     <option value="1000">1000</option>
                   </select>
+                </div>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexSwitchCheckDefault"
+                    >Visualization</label
+                  >
                 </div>
               </form>
             </div>

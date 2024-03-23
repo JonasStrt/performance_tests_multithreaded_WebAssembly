@@ -5,6 +5,7 @@ var terms = localStorage.getItem("terms");
 var threads = parseInt(localStorage.getItem("threads"), 10);
 var nodeCount = localStorage.getItem("nodes");
 var threadNodeCount = new Array(threads).fill(0);
+var vis = localStorage.getItem("vis") === "true";
 
 function addListItemToContainer(text, id) {
   // Wähle den Container aus, in dem die Liste enthalten ist
@@ -77,9 +78,7 @@ myDiagram.linkTemplate = $(
   $(go.Shape, { strokeWidth: 3, stroke: "Linen" })
 );
 
-let fast = false;
-fast = localStorage.getItem("fast");
-if (!fast) {
+if (vis) {
   // the layout
   myDiagram.layout = $(go.ForceDirectedLayout, {
     defaultSpringLength: 30,
@@ -193,13 +192,15 @@ function mapColor(colorCode) {
  */
 function changeNodeColor(nodeKey, newColorCode, thread) {
   threadNodeCount[thread] += 1;
-  var data = myDiagram.model.findNodeDataForKey(nodeKey);
-  if (data) {
-    myDiagram.model.startTransaction("change color");
-    myDiagram.model.setDataProperty(data, "color", newColorCode);
-    myDiagram.model.commitTransaction("change color");
+  if (vis) {
+    var data = myDiagram.model.findNodeDataForKey(nodeKey);
+    if (data) {
+      myDiagram.model.startTransaction("change color");
+      myDiagram.model.setDataProperty(data, "color", newColorCode);
+      myDiagram.model.commitTransaction("change color");
+    }
+    myDiagram.updateAllTargetBindings();
   }
-  myDiagram.updateAllTargetBindings();
 }
 
 //#endregion gojs
