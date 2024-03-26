@@ -54,8 +54,7 @@
       const threadsDropdown = document.getElementById("threadsDropdown");
       const termsDropdown = document.getElementById("termsDropdown");
       const nodesDropdown = document.getElementById("nodesDropdown");
-      var switchElement = document.getElementById('flexSwitchCheckDefault');
-
+      var switchElement = document.getElementById("flexSwitchCheckDefault");
 
       // Function for updating the navbar and saving to local storage
       function updateSelection(type, value) {
@@ -82,9 +81,9 @@
       nodesDropdown.addEventListener("change", function () {
         updateSelection("nodes", this.value);
       });
-    switchElement.addEventListener('change', function() {
-      localStorage.setItem("vis", switchElement.checked);
-    });
+      switchElement.addEventListener("change", function () {
+        localStorage.setItem("vis", switchElement.checked);
+      });
 
       // Set initial values from the local storage and update Navbar
       function setInitialSelection() {
@@ -224,16 +223,16 @@
           </div>
           <div style="margin-top: 4px" class="list-group bg-dark">
             <a
-              href="./tests/plain_js_actor_multithreading/diagram.html"
+              href="./tests/plain_js_actor_webWorkers/diagram.html"
               class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >plain_js_actor_multithreading</a
-            >
+              >plain_js_actor_webWorkers
+            </a>
           </div>
           <div style="margin-top: 4px" class="list-group bg-dark">
             <a
-              href="./tests/plain_js_sharedMemory_multithreading/diagram.html"
+              href="./tests/plain_js_sharedMemory_webWorkers/diagram.html"
               class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >plain_js_sharedMemory_multithreading</a
+              >plain_js_sharedMemory_webWorkers</a
             >
           </div>
           <div style="margin-top: 4px" class="list-group bg-dark">
@@ -242,6 +241,14 @@
               class="list-group-item list-group-item-action text-white bg-dark border-light"
               >wasm_no_multithreading</a
             >
+          </div>
+
+          <div style="margin-top: 4px" class="list-group bg-dark">
+            <a
+              href="./tests/wasm_sharedMemory_4pthreads/diagram.html"
+              class="list-group-item list-group-item-action text-white bg-dark border-light"
+              >wasm_sharedMemory_4pthreads
+            </a>
           </div>
         </div>
       </div>
