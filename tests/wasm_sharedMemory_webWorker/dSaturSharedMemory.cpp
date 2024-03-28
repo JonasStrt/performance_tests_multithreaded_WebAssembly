@@ -60,7 +60,7 @@ void fetchAddNodeAttribute(int nodeKey, int attributeIndex)
 {
     int index = (nodeKey-1) * 4 + attributeIndex;
     int oldValue = getNodeAttribute(nodeKey, attributeIndex);
-    oldValue += 1;
+    oldValue = oldValue+1;
     // Atomics.store(nodeBufferView, index, value);
     emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)oldValue);
 }
@@ -69,7 +69,7 @@ void fetchSubNodeAttribute(int nodeKey, int attributeIndex)
 {
     int index = (nodeKey-1) * 4 + attributeIndex;
     int oldValue = getNodeAttribute(nodeKey, attributeIndex);
-    oldValue -= 1;
+    oldValue = oldValue - 1;
     // Atomics.store(nodeBufferView, index, value);
     emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)oldValue);
 }
@@ -142,7 +142,7 @@ void updateSaturation(int nodeKey, int color, std::vector<Node> &nodes, const st
 
         if (targetNode != nullptr && getNodeAttribute(targetNode->key, 1) == 0)
         {
-            fetchAddNodeAttribute(targetNode->key, 3);
+            fetchAddNodeAttribute(targetNode->key, 2);
         }
     }
 }
@@ -240,7 +240,7 @@ void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms,int th
                 updateSaturation(node->key, color, nodes, links);
                 calculatePiLeibniz(terms); // Simuliere Berechnungsaufwand
                 unlockAdjacentNodes(*node, nodes, links);
-                changeNodeColorJS(node->key, node->color, threadId);
+                changeNodeColorJS(node->key, color, threadId);
             }
         }
         node = selectNode(nodes, links);
@@ -289,9 +289,10 @@ void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms,int th
 
 extern "C"
 {
-    void processGraph(int32_t *nodesData, int nodeCount, int32_t *linksData, int linkCount, int terms, int threadId)
-    {
-        // Umwandlung der Rohdaten in Vektoren von Strukturen
+void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId) {
+        // Direkter Zugriff auf die Knoten und Verbindungen im Shared Memory
+        int32_t* nodesData = reinterpret_cast<int32_t*>(nodesOffset);
+        int32_t* linksData = reinterpret_cast<int32_t*>(linksOffset);
         globalNodesData = nodesData;
         std::vector<Node> nodes(nodeCount);
         std::vector<Link> links(linkCount);
@@ -306,5 +307,6 @@ extern "C"
             links[i] = {linksData[i * 2], linksData[i * 2 + 1]};
         }
         dSatur(nodes, links, terms, threadId);
+        threadsFinishedJS();
     }
 }

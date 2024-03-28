@@ -10,21 +10,8 @@ var linkBufferSize;
 var totalBufferSize;
 var buffer;
 var int32View;
-var threadsFinishedPromise;
 
-function initializePromise() {
-  threadsFinishedPromise = new Promise((resolve, reject) => {
-    // Speichere resolve (und ggf. reject) in einem höheren Scope, um sie später aufrufen zu können
-    window.resolveThreadsFinished = resolve;
-    // window.rejectThreadsFinished = reject; // Falls Sie auch Fehlerbehandlung implementieren möchten
-  });
-}
-
-function threadsFinished() {
-  if (window.resolveThreadsFinished) {
-    window.resolveThreadsFinished();
-  }
-}
+var workers = [];
 
 /**
  * Initializes the test with provided nodes, links, terms, and threads.
@@ -36,10 +23,9 @@ function threadsFinished() {
  * @param {number} _threads - Number of threads to simulate (not used in this function but initialized for potential future use).
  */
 async function startTest(_nodes, _links, _terms, _threads) {
-  initializePromise();
+  let promises = [];
   terms = _terms;
   threads = _threads;
-
   nodes = _nodes;
   links = _links;
 
@@ -50,18 +36,35 @@ async function startTest(_nodes, _links, _terms, _threads) {
   buffer = new SharedArrayBuffer(totalBufferSize);
   int32View = new Int32Array(buffer);
   serializeGraph();
-  const worker = new Worker("dSaturWasmWorker.js"); // Pfad zur Worker-Datei
-  worker.postMessage({
-    nodes,
-    links,
-    terms,
-    id: 1,
-    int32View,
-    totalBufferSize,
-    nodeBufferSize,
-  });
-
-  await threadsFinishedPromise;
+  for (let i = 0; i < threads; i++) {
+    const worker = new Worker("dSaturWasmWorker.js"); // Pfad zur Worker-Datei
+    workers[i] = worker;
+    let promise = new Promise((resolve, reject) => {
+      worker.onmessage = function (e) {
+        if (e.data.code == "changeColor") {
+          changeNodeColor(e.data.nodeKey, e.data.newColorCode, e.data.thread);
+        }
+        if (e.data.code == "end") {
+          resolve();
+        }
+      };
+      worker.onerror = function (error) {
+        console.error(`Fehler in Worker ${i}:`, error);
+        reject(error); // Ablehnung des Promises im Fehlerfall
+      };
+    });
+    promises.push(promise);
+    worker.postMessage({
+      nodes,
+      links,
+      terms,
+      id: i,
+      int32View,
+      totalBufferSize,
+      nodeBufferSize,
+    });
+  }
+  return Promise.all(promises);
 }
 
 function serializeGraph() {
