@@ -23,3 +23,8 @@ app.get('/home', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.get('/webassambly/dSaturSharedMemory',  (req, res) => {
+  res.type('application/wasm');
+  res.sendFile(path.join(__dirname, '/tests/wasm_sharedMemory_webWorker/dSaturSharedMemory.wasm'));
+});
