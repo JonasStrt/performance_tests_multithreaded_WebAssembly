@@ -5,11 +5,7 @@ var threads;
 var nodes;
 var links;
 
-var nodeBufferSize;
-var linkBufferSize;
-var totalBufferSize;
-var buffer;
-var int32View;
+var sharedMemory;
 
 var workers = [];
 
@@ -29,12 +25,21 @@ async function startTest(_nodes, _links, _terms, _threads) {
   nodes = _nodes;
   links = _links;
 
-  nodeBufferSize = nodes.length * 16; // 16 Bytes pro Knoten
-  linkBufferSize = links.length * 8; // 8 Bytes pro Verbindung
-  totalBufferSize = nodeBufferSize + linkBufferSize; //+ nodeVectorSize + linkVectorSize;
+  sharedMemory = new WebAssembly.Memory({
+    initial: 256,
+    maximum: 2048,
+    shared: true,
+  });
+  // const initWorker = new Worker("dSaturWasmWorker.js");
+  // initWorker.postMessage({
+  //   nodes,
+  //   links,
+  //   terms,
+  //   id: 0,
+  //   sharedMemory,
+  //   code: "init"
+  // });
 
-  buffer = new SharedArrayBuffer(totalBufferSize);
-  int32View = new Int32Array(buffer);
   serializeGraph();
   for (let i = 0; i < threads; i++) {
     const worker = new Worker("dSaturWasmWorker.js"); // Pfad zur Worker-Datei
@@ -59,9 +64,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
       links,
       terms,
       id: i,
-      int32View,
-      totalBufferSize,
-      nodeBufferSize,
+      sharedMemory
     });
   }
   return Promise.all(promises);
@@ -69,8 +72,9 @@ async function startTest(_nodes, _links, _terms, _threads) {
 
 function serializeGraph() {
   // Serialisiere Knoten
+  let int32View = new Int32Array(sharedMemory.buffer);
   nodes.forEach((node, index) => {
-    let baseIndex = index * 4; // 4 Int32 pro Knoten
+    let baseIndex = (index * 4)+100; // 4 Int32 pro Knoten
     int32View[baseIndex] = node.key;
     int32View[baseIndex + 1] = node.color;
     int32View[baseIndex + 2] = node.weight;
@@ -79,7 +83,7 @@ function serializeGraph() {
 
   // Serialisiere Verbindungen
   links.forEach((link, index) => {
-    let baseIndex = nodes.length * 4 + index * 2; // Setze fort, wo die Knoten enden
+    let baseIndex = (nodes.length * 4 + index * 2)+100; // Setze fort, wo die Knoten enden
     int32View[baseIndex] = link.from;
     int32View[baseIndex + 1] = link.to;
   });

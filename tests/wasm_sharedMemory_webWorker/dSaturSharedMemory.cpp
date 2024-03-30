@@ -3,8 +3,22 @@
 #include <algorithm>
 #include <emscripten.h>
 #include <emscripten/threading.h>
-
+struct Node
+{
+    int key;
+    int color;
+    int weight;
+    int lock;
+};
+struct Link
+{
+    int from;
+    int to;
+};
 int32_t *globalNodesData;
+std::vector<Node> nodes(1);
+std::vector<Link> links(1);
+
 extern "C"
 {
     // Deklariert die JavaScript-Funktion
@@ -26,23 +40,10 @@ EM_JS(void, threadsFinishedJS, (), {
     Module.threadsFinished();
 });
 
-struct Node
-{
-    int key;
-    int color;
-    int weight;
-    int lock;
-};
-struct Link
-{
-    int from;
-    int to;
-};
-
 // get node attribute
 int getNodeAttribute(int nodeKey, int attributeIndex)
 {
-    int index = (nodeKey-1) * 4 + attributeIndex;
+    int index = (nodeKey - 1) * 4 + attributeIndex;
     // Liest den Wert atomar
     // return Atomics.load(nodeBufferView, index);
     return emscripten_atomic_load_u32((uint32_t *)globalNodesData + index);
@@ -51,29 +52,28 @@ int getNodeAttribute(int nodeKey, int attributeIndex)
 // set node attribute
 void setNodeAttribute(int nodeKey, int attributeIndex, int value)
 {
-    int index = (nodeKey-1) * 4 + attributeIndex;
+    int index = (nodeKey - 1) * 4 + attributeIndex;
     // Atomics.store(nodeBufferView, index, value);
     emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)value);
 }
 
 void fetchAddNodeAttribute(int nodeKey, int attributeIndex)
 {
-    int index = (nodeKey-1) * 4 + attributeIndex;
+    int index = (nodeKey - 1) * 4 + attributeIndex;
     int oldValue = getNodeAttribute(nodeKey, attributeIndex);
-    oldValue = oldValue+1;
+    oldValue = oldValue + 1;
     // Atomics.store(nodeBufferView, index, value);
     emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)oldValue);
 }
 
 void fetchSubNodeAttribute(int nodeKey, int attributeIndex)
 {
-    int index = (nodeKey-1) * 4 + attributeIndex;
+    int index = (nodeKey - 1) * 4 + attributeIndex;
     int oldValue = getNodeAttribute(nodeKey, attributeIndex);
     oldValue = oldValue - 1;
     // Atomics.store(nodeBufferView, index, value);
     emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)oldValue);
 }
-
 
 int countLinksForNode(int nodeKey, const std::vector<Link> &links)
 {
@@ -203,8 +203,9 @@ double calculatePiLeibniz(int terms)
     return 4 * sum;
 }
 
-void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms,int threadId)
+void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms, int threadId)
 {
+    std::cout << "in thread" << threadId << "DSatur" << std::endl;
     Node *node = selectNode(nodes, links);
     while (node != nullptr)
     {
@@ -247,55 +248,51 @@ void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms,int th
     }
 }
 
-// void serializeBackToInt32Array(std::vector<Node> &nodes, int32_t *nodesData)
-// {
-//     for (size_t i = 0; i < nodes.size(); ++i)
-//     {
-//         nodesData[i * 4] = nodes[i].key;
-//         nodesData[i * 4 + 1] = nodes[i].color.load();
-//         nodesData[i * 4 + 2] = nodes[i].weight.load();
-//         nodesData[i * 4 + 3] = nodes[i].lock.load();
-//     }
-// }
-
-// // Funktion, um die Vektorinhalte zu loggen:
-// void logNodes(const std::vector<Node> &nodes)
-// {
-//     std::cout << "Nodes:" << std::endl;
-//     for (const auto &node : nodes)
-//     {
-//         std::cout << "Key: " << node.key << ", Color: " << node.color << ", Weight: " << node.weight << ", Lock: " << node.lock << std::endl;
-//     }
-// }
-
-// void logNodesFromIntArray(const int32_t *nodesData, int nodeCount)
-// {
-//     std::cout << "Nodes from Int32 Array:" << std::endl;
-//     for (int i = 0; i < nodeCount; ++i)
-//     {
-//         // Berechne den Basisindex für den aktuellen Knoten im Array
-//         int baseIndex = i * 4;
-
-//         // Extrahiere die Werte für den aktuellen Knoten
-//         int key = nodesData[baseIndex];
-//         int color = nodesData[baseIndex + 1];
-//         int weight = nodesData[baseIndex + 2];
-//         int lock = nodesData[baseIndex + 3];
-
-//         // Logge die Werte
-//         std::cout << "Key: " << key << ", Color: " << color << ", Weight: " << weight << ", Lock: " << lock << std::endl;
-//     }
-// }
-
 extern "C"
 {
-void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId) {
-        // Direkter Zugriff auf die Knoten und Verbindungen im Shared Memory
-        int32_t* nodesData = reinterpret_cast<int32_t*>(nodesOffset);
-        int32_t* linksData = reinterpret_cast<int32_t*>(linksOffset);
+    void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId)
+    {
+        std::cout << "in thread" << threadId << "processGraph" << std::endl;
+        int memoryBaseAddress = 0;
+        int32_t nodesOffsetInBytes = nodesOffset * sizeof(int32_t);
+        int32_t linksOffsetInBytes = linksOffset * sizeof(int32_t);
+        int32_t *nodesData = reinterpret_cast<int32_t *>(memoryBaseAddress + nodesOffsetInBytes);
+        int32_t *linksData = reinterpret_cast<int32_t *>(memoryBaseAddress + linksOffsetInBytes);
         globalNodesData = nodesData;
         std::vector<Node> nodes(nodeCount);
         std::vector<Link> links(linkCount);
+        std::cout << "in thread" << threadId << "nodes" << std::endl;
+        for (int i = 0; i < nodeCount; ++i)
+        {
+            int key = i +1; 
+            nodes[i] = {getNodeAttribute(key, 0), getNodeAttribute(key, 1), getNodeAttribute(key, 2),getNodeAttribute(key, 3)};
+        }
+        // for (int i = 0; i < nodeCount; ++i)
+        // {
+        //     nodes[i] = {nodesData[i * 4], nodesData[i * 4 + 1], nodesData[i * 4 + 2], nodesData[i * 4 + 3]};
+        // }
+        std::cout << "in thread" << threadId << "links" << std::endl;
+        for (int i = 0; i < linkCount; ++i)
+        {
+            links[i] = {linksData[i * 2], linksData[i * 2 + 1]};
+        }
+        dSatur(nodes, links, terms, threadId);
+        threadsFinishedJS();
+    }
+}
+
+extern "C"
+{
+    void initializeData(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId)
+    {
+        int memoryBaseAddress = 0;
+        int32_t nodesOffsetInBytes = nodesOffset * sizeof(int32_t);
+        int32_t linksOffsetInBytes = linksOffset * sizeof(int32_t);
+        int32_t *nodesData = reinterpret_cast<int32_t *>(memoryBaseAddress + nodesOffsetInBytes);
+        int32_t *linksData = reinterpret_cast<int32_t *>(memoryBaseAddress + linksOffsetInBytes);
+        globalNodesData = nodesData;
+        nodes.resize(nodeCount);
+        links.resize(linkCount);
 
         for (int i = 0; i < nodeCount; ++i)
         {
@@ -306,7 +303,5 @@ void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount
         {
             links[i] = {linksData[i * 2], linksData[i * 2 + 1]};
         }
-        dSatur(nodes, links, terms, threadId);
-        threadsFinishedJS();
     }
 }
