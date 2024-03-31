@@ -31,21 +31,26 @@ self.addEventListener("message", async function (e) {
   const linkCount = links.length;
   if(e.data["code"] == "init") {
     console.log("in init");
-    let pointers = DSaturWasmModuleWrapper.WasmModule._initializeData(
-      100,
+    DSaturWasmModuleWrapper.WasmModule._initializeData(
+      0,
       nodeCount,
-      500,
+      400,
       linkCount,
       terms,
       workerId
     );
-    console.log(pointers);
+    let nodesPointers = DSaturWasmModuleWrapper.WasmModule._getNodesDataPtr();
+    console.log(nodesPointers);
+    let linksPointers = DSaturWasmModuleWrapper.WasmModule._getLinksDataPtr();
+    console.log(linksPointers);
+    let dataPointers = DSaturWasmModuleWrapper.WasmModule._getDataPtr();
+    console.log(dataPointers);
   }
   else {
     DSaturWasmModuleWrapper.WasmModule._processGraph(
-      100,
+      0,
       nodeCount,
-      500,
+      400,
       linkCount,
       terms,
       workerId

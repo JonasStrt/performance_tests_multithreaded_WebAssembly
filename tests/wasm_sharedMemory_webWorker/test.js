@@ -27,7 +27,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
 
   sharedMemory = new WebAssembly.Memory({
     initial: 256,
-    maximum: 2048,
+    maximum: 256,
     shared: true,
   });
   // const initWorker = new Worker("dSaturWasmWorker.js");
@@ -59,6 +59,14 @@ async function startTest(_nodes, _links, _terms, _threads) {
       };
     });
     promises.push(promise);
+    // worker.postMessage({
+    //   nodes,
+    //   links,
+    //   terms,
+    //   id: 0,
+    //   sharedMemory,
+    //   code: "init"
+    // });
     worker.postMessage({
       nodes,
       links,
@@ -74,7 +82,7 @@ function serializeGraph() {
   // Serialisiere Knoten
   let int32View = new Int32Array(sharedMemory.buffer);
   nodes.forEach((node, index) => {
-    let baseIndex = (index * 4)+100; // 4 Int32 pro Knoten
+    let baseIndex = (index * 4); // 4 Int32 pro Knoten
     int32View[baseIndex] = node.key;
     int32View[baseIndex + 1] = node.color;
     int32View[baseIndex + 2] = node.weight;
@@ -83,7 +91,7 @@ function serializeGraph() {
 
   // Serialisiere Verbindungen
   links.forEach((link, index) => {
-    let baseIndex = (nodes.length * 4 + index * 2)+100; // Setze fort, wo die Knoten enden
+    let baseIndex = (nodes.length * 4 + index * 2); // Setze fort, wo die Knoten enden
     int32View[baseIndex] = link.from;
     int32View[baseIndex + 1] = link.to;
   });
