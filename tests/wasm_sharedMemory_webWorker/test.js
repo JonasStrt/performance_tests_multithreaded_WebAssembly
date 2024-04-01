@@ -8,6 +8,8 @@ var links;
 var sharedMemory;
 
 var workers = [];
+var nodesPointer;
+var linksPointer;
 
 /**
  * Initializes the test with provided nodes, links, terms, and threads.
@@ -30,20 +32,42 @@ async function startTest(_nodes, _links, _terms, _threads) {
     maximum: 256,
     shared: true,
   });
-  // const initWorker = new Worker("dSaturWasmWorker.js");
-  // initWorker.postMessage({
-  //   nodes,
-  //   links,
-  //   terms,
-  //   id: 0,
-  //   sharedMemory,
-  //   code: "init"
-  // });
+  let sharedMemoryGraphData = new SharedArrayBuffer(4000); // 4 Bytes für einen int32_t Zähler
+  serializeGraph(sharedMemoryGraphData);
 
-  serializeGraph();
-  for (let i = 0; i < threads; i++) {
-    const worker = new Worker("dSaturWasmWorker.js"); // Pfad zur Worker-Datei
-    workers[i] = worker;
+  // Erstelle ein Promise für den initialen Worker, um die Pointer zu erhalten
+  let pointerPromise = new Promise((resolve, reject) => {
+    const initWorker = new Worker("dSaturWasmWorker.js");
+    initWorker.onmessage = function (e) {
+      if (e.data.code == "pointer") {
+        resolve({
+          nodesPointer: e.data.nodesPtr,
+          linksPointer: e.data.linksPtr,
+        });
+        initWorker.terminate(); // Optional: Beende den Worker, wenn er nicht mehr benötigt wird
+      }
+    };
+    initWorker.onerror = function (error) {
+      reject(error);
+    };
+    initWorker.postMessage({
+      nodes,
+      links,
+      terms,
+      id: 0,
+      sharedMemory,
+      code: "init",
+      sharedMemoryGraphData,
+    });
+  });
+
+  // Warte auf die Pointer vom initialen Worker
+  const { nodesPointer, linksPointer } = await pointerPromise;
+
+  // Erstelle Worker und sende Nachrichten, nachdem die Pointer empfangen wurden
+  for (let i = 1; i <= threads; i++) {
+    // Starte bei 1, da id 0 für den initialen Worker verwendet wurde
+    const worker = new Worker("dSaturWasmWorker.js");
     let promise = new Promise((resolve, reject) => {
       worker.onmessage = function (e) {
         if (e.data.code == "changeColor") {
@@ -55,34 +79,30 @@ async function startTest(_nodes, _links, _terms, _threads) {
       };
       worker.onerror = function (error) {
         console.error(`Fehler in Worker ${i}:`, error);
-        reject(error); // Ablehnung des Promises im Fehlerfall
+        reject(error);
       };
     });
     promises.push(promise);
-    // worker.postMessage({
-    //   nodes,
-    //   links,
-    //   terms,
-    //   id: 0,
-    //   sharedMemory,
-    //   code: "init"
-    // });
+
+    // Nun, da wir die Pointer haben, sende die Nachrichten an die Worker
     worker.postMessage({
       nodes,
       links,
       terms,
       id: i,
-      sharedMemory
+      nodesPointer: nodesPointer,
+      linksPointer: linksPointer,
+      sharedMemory,
     });
   }
+
   return Promise.all(promises);
 }
-
-function serializeGraph() {
+function serializeGraph(buffer) {
   // Serialisiere Knoten
-  let int32View = new Int32Array(sharedMemory.buffer);
+  let int32View = new Int32Array(buffer);
   nodes.forEach((node, index) => {
-    let baseIndex = (index * 4); // 4 Int32 pro Knoten
+    let baseIndex = index * 4; // 4 Int32 pro Knoten
     int32View[baseIndex] = node.key;
     int32View[baseIndex + 1] = node.color;
     int32View[baseIndex + 2] = node.weight;
@@ -91,7 +111,7 @@ function serializeGraph() {
 
   // Serialisiere Verbindungen
   links.forEach((link, index) => {
-    let baseIndex = (nodes.length * 4 + index * 2); // Setze fort, wo die Knoten enden
+    let baseIndex = nodes.length * 4 + index * 2; // Setze fort, wo die Knoten enden
     int32View[baseIndex] = link.from;
     int32View[baseIndex + 1] = link.to;
   });

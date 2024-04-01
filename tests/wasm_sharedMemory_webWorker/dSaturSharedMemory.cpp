@@ -44,17 +44,15 @@ EM_JS(void, threadsFinishedJS, (), {
     Module.threadsFinished();
 });
 
-
 int getLinkAttribute(int linkIndex, int attributeIndex)
 {
     int index = linkIndex * 2 + attributeIndex;
     // Liest den Wert atomar
     // return Atomics.load(nodeBufferView, index);
-    //return emscripten_atomic_load_u32((uint32_t *)globalLinksData + index);
-    return globalLinksData[index];
-    //return 0;
+    return emscripten_atomic_load_u32((uint32_t *)globalLinksData + index);
+    // return globalLinksData[index];
+    //  return 0;
 }
-
 
 // get node attribute
 int getNodeAttribute(int nodeKey, int attributeIndex)
@@ -63,9 +61,9 @@ int getNodeAttribute(int nodeKey, int attributeIndex)
     int index = (nodeKey - 1) * 4 + attributeIndex;
     // Liest den Wert atomar
     // return Atomics.load(nodeBufferView, index);
-    //return emscripten_atomic_load_u32((uint32_t *)globalNodesData + index);
-    return globalNodesData[index];
-    //return 0;
+    return emscripten_atomic_load_u32((uint32_t *)globalNodesData + index);
+    // return globalNodesData[index];
+    //  return 0;
 }
 
 // set node attribute
@@ -73,18 +71,18 @@ void setNodeAttribute(int nodeKey, int attributeIndex, int value)
 {
     int index = (nodeKey - 1) * 4 + attributeIndex;
     // Atomics.store(nodeBufferView, index, value);
-    //emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)value);
-    globalNodesData[index] = value;
+    emscripten_atomic_store_u32((uint32_t *)globalNodesData + index, (uint32_t)value);
+    // globalNodesData[index] = value;
 }
 
 void fetchAddNodeAttribute(int nodeKey, int attributeIndex)
 {
     int index = (nodeKey - 1) * 4 + attributeIndex;
-    int oldValue = getNodeAttribute(nodeKey, attributeIndex);
-    oldValue = oldValue +1;
-    setNodeAttribute(nodeKey, attributeIndex, oldValue);
+    // int oldValue = getNodeAttribute(nodeKey, attributeIndex);
+    // oldValue = oldValue + 1;
+    // setNodeAttribute(nodeKey, attributeIndex, oldValue);
     // Führt die Addition atomar durch
-    //emscripten_atomic_add_u32((uint32_t *)globalNodesData + index, 1);
+    emscripten_atomic_add_u32((uint32_t *)globalNodesData + index, 1);
 }
 
 void fetchSubNodeAttribute(int nodeKey, int attributeIndex)
@@ -92,10 +90,10 @@ void fetchSubNodeAttribute(int nodeKey, int attributeIndex)
     // std::cout << "index : " << nodeKey << std::endl;
     int index = (nodeKey - 1) * 4 + attributeIndex;
     // Führt die Subtraktion atomar durch
-    //emscripten_atomic_sub_u32((uint32_t *)globalNodesData + index, 1);
-        int oldValue = getNodeAttribute(nodeKey, attributeIndex);
-    oldValue = oldValue -1;
-    setNodeAttribute(nodeKey, attributeIndex,oldValue);
+    emscripten_atomic_sub_u32((uint32_t *)globalNodesData + index, 1);
+    // int oldValue = getNodeAttribute(nodeKey, attributeIndex);
+    // oldValue = oldValue - 1;
+    // setNodeAttribute(nodeKey, attributeIndex, oldValue);
 }
 
 // int countLinksForNode(int nodeKey)
@@ -118,9 +116,9 @@ int countLinksForNode(int nodeKey)
     for (int i = 0; i < globalLinkCount; ++i)
     {
         // Berechnung des Indexes im globalen Datenarray
-        int index = i * 2; // Jeder Link hat 2 int32_t-Werte: from und to
-        int from = getLinkAttribute(index, 0);//globalLinksData[index];
-        int to = getLinkAttribute(index, 1);//globalLinksData[index + 1];
+        int index = i * 2;                     // Jeder Link hat 2 int32_t-Werte: from und to
+        int from = getLinkAttribute(index, 0); // globalLinksData[index];
+        int to = getLinkAttribute(index, 1);   // globalLinksData[index + 1];
 
         if (from == nodeKey || to == nodeKey)
         {
@@ -164,10 +162,10 @@ int selectNodeKey()
 
     for (int i = 0; i < globalNodeCount; ++i)
     {
-        int nodeKey = i +1;
-        //int nodeKey = getNodeAttribute(i,0);// globalNodesData[i * 4]; // Angenommen, der Key ist das erste Attribut eines Knotens
+        int nodeKey = i + 1;
+        // int nodeKey = getNodeAttribute(i,0);// globalNodesData[i * 4]; // Angenommen, der Key ist das erste Attribut eines Knotens
         if (getNodeAttribute(nodeKey, 1) == 0 && getNodeAttribute(nodeKey, 3) == 0) // Knoten noch nicht gefärbt
-        { 
+        {
             int weight = getNodeAttribute(nodeKey, 2);
             int linkCount = countLinksForNode(nodeKey); // Angepasste countLinksForNode Funktion wird hier aufgerufen
 
@@ -220,8 +218,8 @@ void updateSaturation(int nodeKey, int color)
 {
     for (int i = 0; i < globalLinkCount; ++i)
     {
-        int fromKey = getLinkAttribute(i,0);//globalLinksData[i * 2]; // Angenommen, das erste Element jedes Links ist 'from'
-        int toKey = getLinkAttribute(i,1);//globalLinksData[i * 2 + 1]; // Angenommen, das zweite Element jedes Links ist 'to'
+        int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // Angenommen, das erste Element jedes Links ist 'from'
+        int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // Angenommen, das zweite Element jedes Links ist 'to'
         int targetNodeKey = -1;
 
         if (fromKey == nodeKey)
@@ -265,8 +263,8 @@ void lockAdjacentNodes(int nodeKey)
 
     for (int i = 0; i < globalLinkCount; ++i)
     {
-        int fromKey = getLinkAttribute(i,0);//globalLinksData[i * 2]; // 'from' des aktuellen Links
-        int toKey = getLinkAttribute(i,1);//globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
+        int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // 'from' des aktuellen Links
+        int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
 
         // Überprüfe, ob der aktuelle Link vom gegebenen Knoten ausgeht oder zu ihm führt
         if (fromKey == nodeKey || toKey == nodeKey)
@@ -306,8 +304,8 @@ void unlockAdjacentNodes(int nodeKey)
 
     for (int i = 0; i < globalLinkCount; ++i)
     {
-        int fromKey = getLinkAttribute(i,0);//globalLinksData[i * 2]; // 'from' des aktuellen Links
-        int toKey = getLinkAttribute(i,1);//globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
+        int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // 'from' des aktuellen Links
+        int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
 
         // Überprüfe, ob der aktuelle Link vom gegebenen Knoten ausgeht oder zu ihm führt
         if (fromKey == nodeKey || toKey == nodeKey)
@@ -383,7 +381,6 @@ double calculatePiLeibniz(int terms)
 //     }
 // }
 
-
 void dSatur(int terms, int threadId)
 {
     int nodeKey = selectNodeKey();
@@ -396,8 +393,8 @@ void dSatur(int terms, int threadId)
             adjacentColored = false;
             for (int i = 0; i < globalLinkCount; ++i)
             {
-                int fromKey = getLinkAttribute(i,0);//globalLinksData[i * 2];
-                int toKey = getLinkAttribute(i,1);//globalLinksData[i * 2 + 1];
+                int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2];
+                int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1];
 
                 int targetNodeKey = (fromKey == nodeKey) ? toKey : (toKey == nodeKey ? fromKey : -1);
                 if (targetNodeKey != -1 && getNodeAttribute(targetNodeKey, 1) == color) // Prüfe die Farbe des angrenzenden Knotens
@@ -406,7 +403,8 @@ void dSatur(int terms, int threadId)
                     break;
                 }
             }
-            if (adjacentColored) ++color;
+            if (adjacentColored)
+                ++color;
         } while (adjacentColored);
 
         if (getNodeAttribute(nodeKey, 1) == 0)
@@ -427,20 +425,50 @@ void dSatur(int terms, int threadId)
 
 extern "C"
 {
-    void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId)
+    void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId, int32_t *nodesData, int32_t *linksData)
     {
         // std::cout << "in thread" << threadId << "processGraph" << std::endl;
         int memoryBaseAddress = 0;
         int32_t nodesOffsetInBytes = nodesOffset * sizeof(int32_t);
         int32_t linksOffsetInBytes = linksOffset * sizeof(int32_t);
-        int32_t *nodesData = reinterpret_cast<int32_t *>(memoryBaseAddress + nodesOffsetInBytes);
-        int32_t *linksData = reinterpret_cast<int32_t *>(memoryBaseAddress + linksOffsetInBytes);
+        // int32_t *nodesData = reinterpret_cast<int32_t *>(memoryBaseAddress + nodesOffsetInBytes);
+        // int32_t *linksData = reinterpret_cast<int32_t *>(memoryBaseAddress + linksOffsetInBytes);
         // std::cout << nodesData << std::endl;
         globalNodeCount = nodeCount;
         globalLinkCount = linkCount;
 
         globalNodesData = nodesData;
         globalLinksData = linksData;
+
+        // for (int i = 0; i < nodeCount; ++i)
+        // {
+        //     const currNode = new Node {nodesData[i * 4], nodesData[i * 4 + 1], nodesData[i * 4 + 2], nodesData[i * 4 + 3]};
+        //     std::cout << "hier" << Node << std::endl;
+        //     //nodes[i] = {nodesData[i * 4], nodesData[i * 4 + 1], nodesData[i * 4 + 2], nodesData[i * 4 + 3]};
+        // }
+
+        // for (int i = 0; i < nodeCount; ++i)
+        // {
+        //     int key = nodesData[i * 4];
+        //     int color = nodesData[i * 4 + 1];
+        //     int weight = nodesData[i * 4 + 2];
+        //     int lock = nodesData[i * 4 + 3];
+
+        //     std::cout << "Node " << i << ": "
+        //               << "Key: " << key << ", "
+        //               << "Color: " << color << ", "
+        //               << "Weight: " << weight << ", "
+        //               << "Lock: " << lock << std::endl;
+        // }
+        // for (int i = 0; i < linkCount; ++i)
+        // {
+        //     int from = linksData[i * 2];
+        //     int to = linksData[i * 2 + 1];
+
+        //     std::cout << "Link " << i << ": "
+        //               << "From: " << from << ", "
+        //               << "To: " << to << std::endl;
+        // }
 
         dSatur(terms, threadId);
 
@@ -483,11 +511,11 @@ extern "C"
 
     int32_t getLinksDataPtr()
     {
-        //return reinterpret_cast<int32_t>(&links[0]);
+        // return reinterpret_cast<int32_t>(&links[0]);
         return 0;
     }
 
-    int32_t getDataPtr() 
+    int32_t getDataPtr()
     {
         return reinterpret_cast<uintptr_t>(globalNodesData);
     }
