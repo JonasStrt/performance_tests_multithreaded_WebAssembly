@@ -1,8 +1,10 @@
 #include <iostream>
-#include <vector>
+#include <emscripten/stack.h>
+// #include <vector>
 #include <algorithm>
 #include <emscripten.h>
 #include <emscripten/threading.h>
+
 struct Node
 {
     int key;
@@ -17,11 +19,12 @@ struct Link
 };
 int32_t *globalNodesData;
 int32_t *globalLinksData;
-int globalLinkCount;
-int globalNodeCount;
+int32_t *globalLinkCount;
+int32_t *globalNodeCount;
+int32_t *globalTerms;
 
-std::vector<Node> nodes(100);
-std::vector<Link> links(100);
+// std::vector<Node> nodes(100);
+// std::vector<Link> links(100);
 
 extern "C"
 {
@@ -44,6 +47,21 @@ EM_JS(void, threadsFinishedJS, (), {
     Module.threadsFinished();
 });
 
+int getTerms()
+{
+    return emscripten_atomic_load_u32((uint32_t *)globalTerms);
+}
+
+int getNodeCount()
+{
+    return emscripten_atomic_load_u32((uint32_t *)globalNodeCount);
+}
+
+int getLinkCount()
+{
+    return emscripten_atomic_load_u32((uint32_t *)globalLinkCount);
+}
+
 int getLinkAttribute(int linkIndex, int attributeIndex)
 {
     int index = linkIndex * 2 + attributeIndex;
@@ -51,7 +69,7 @@ int getLinkAttribute(int linkIndex, int attributeIndex)
     // return Atomics.load(nodeBufferView, index);
     return emscripten_atomic_load_u32((uint32_t *)globalLinksData + index);
     // return globalLinksData[index];
-    //  return 0;
+    //   return 0;
 }
 
 // get node attribute
@@ -113,7 +131,7 @@ int countLinksForNode(int nodeKey)
 {
     int count = 0;
     // Zugriff auf die Links im Speicher
-    for (int i = 0; i < globalLinkCount; ++i)
+    for (int i = 0; i < getLinkCount(); ++i)
     {
         // Berechnung des Indexes im globalen Datenarray
         int index = i * 2;                     // Jeder Link hat 2 int32_t-Werte: from und to
@@ -160,7 +178,7 @@ int selectNodeKey()
     int maxWeight = std::numeric_limits<int>::min();
     int maxLinkCount = std::numeric_limits<int>::min();
 
-    for (int i = 0; i < globalNodeCount; ++i)
+    for (int i = 0; i < getNodeCount(); ++i)
     {
         int nodeKey = i + 1;
         // int nodeKey = getNodeAttribute(i,0);// globalNodesData[i * 4]; // Angenommen, der Key ist das erste Attribut eines Knotens
@@ -216,7 +234,7 @@ int selectNodeKey()
 
 void updateSaturation(int nodeKey, int color)
 {
-    for (int i = 0; i < globalLinkCount; ++i)
+    for (int i = 0; i < getLinkCount(); ++i)
     {
         int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // Angenommen, das erste Element jedes Links ist 'from'
         int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // Angenommen, das zweite Element jedes Links ist 'to'
@@ -261,7 +279,7 @@ void lockAdjacentNodes(int nodeKey)
 {
     fetchAddNodeAttribute(nodeKey, 3); // Setze den Lock für den gegebenen Knoten
 
-    for (int i = 0; i < globalLinkCount; ++i)
+    for (int i = 0; i < getLinkCount(); ++i)
     {
         int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // 'from' des aktuellen Links
         int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
@@ -302,7 +320,7 @@ void unlockAdjacentNodes(int nodeKey)
 {
     fetchSubNodeAttribute(nodeKey, 3); // Verringere den Lock für den gegebenen Knoten
 
-    for (int i = 0; i < globalLinkCount; ++i)
+    for (int i = 0; i < getLinkCount(); ++i)
     {
         int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2]; // 'from' des aktuellen Links
         int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1]; // 'to' des aktuellen Links
@@ -383,6 +401,7 @@ double calculatePiLeibniz(int terms)
 
 void dSatur(int terms, int threadId)
 {
+
     int nodeKey = selectNodeKey();
     while (nodeKey != -1) // Ein gültiger Knotenschlüssel ist gefunden worden
     {
@@ -391,7 +410,7 @@ void dSatur(int terms, int threadId)
         do
         {
             adjacentColored = false;
-            for (int i = 0; i < globalLinkCount; ++i)
+            for (int i = 0; i < getLinkCount(); ++i)
             {
                 int fromKey = getLinkAttribute(i, 0); // globalLinksData[i * 2];
                 int toKey = getLinkAttribute(i, 1);   // globalLinksData[i * 2 + 1];
@@ -425,52 +444,69 @@ void dSatur(int terms, int threadId)
 
 extern "C"
 {
-    void processGraph(int nodesOffset, int nodeCount, int linksOffset, int linkCount, int terms, int threadId, int32_t *nodesData, int32_t *linksData)
+    void processGraph(int threadId, int32_t *nodeCount, int32_t *linkCount, int32_t *terms, int32_t *nodesData, int32_t *linksData)
     {
-        // std::cout << "in thread" << threadId << "processGraph" << std::endl;
-        int memoryBaseAddress = 0;
-        int32_t nodesOffsetInBytes = nodesOffset * sizeof(int32_t);
-        int32_t linksOffsetInBytes = linksOffset * sizeof(int32_t);
+        // if (threadId == 0)
+        // {
+        //     uintptr_t baseStackptr = emscripten_stack_get_base();
+        //     uintptr_t endStackptr = emscripten_stack_get_end();
+        //     emscripten_stack_set_limits(reinterpret_cast<void *>(baseStackptr / 2), reinterpret_cast<void *>(endStackptr));
+
+        //     std::cout << "base stack ptr : " << baseStackptr << std::endl;
+        //     std::cout << "ende stack ptr : " << endStackptr << std::endl;
+        // }
+        // else {
+        //     uintptr_t baseStackptr = emscripten_stack_get_base();
+        //     uintptr_t endStackptr = emscripten_stack_get_end();
+        //     emscripten_stack_set_limits(reinterpret_cast<void *>(baseStackptr), reinterpret_cast<void *>(baseStackptr/2));
+
+        //     std::cout << "base stack ptr : " << baseStackptr << std::endl;
+        //     std::cout << "ende stack ptr : " << endStackptr << std::endl;
+        // }
+
+        // int memoryBaseAddress = 0;
+        // int32_t nodesOffsetInBytes = nodesOffset * sizeof(int32_t);
+        // int32_t linksOffsetInBytes = linksOffset * sizeof(int32_t);
         // int32_t *nodesData = reinterpret_cast<int32_t *>(memoryBaseAddress + nodesOffsetInBytes);
         // int32_t *linksData = reinterpret_cast<int32_t *>(memoryBaseAddress + linksOffsetInBytes);
         // std::cout << nodesData << std::endl;
         globalNodeCount = nodeCount;
         globalLinkCount = linkCount;
+        globalTerms = terms;
 
         globalNodesData = nodesData;
         globalLinksData = linksData;
 
-        // for (int i = 0; i < nodeCount; ++i)
-        // {
-        //     const currNode = new Node {nodesData[i * 4], nodesData[i * 4 + 1], nodesData[i * 4 + 2], nodesData[i * 4 + 3]};
-        //     std::cout << "hier" << Node << std::endl;
-        //     //nodes[i] = {nodesData[i * 4], nodesData[i * 4 + 1], nodesData[i * 4 + 2], nodesData[i * 4 + 3]};
-        // }
+        int *ptr = (int *)malloc(sizeof(int));
+        *ptr = 1;
 
-        // for (int i = 0; i < nodeCount; ++i)
+        // for (*ptr = 1; *ptr <= getNodeCount(); *ptr = *ptr + 1)
         // {
-        //     int key = nodesData[i * 4];
-        //     int color = nodesData[i * 4 + 1];
-        //     int weight = nodesData[i * 4 + 2];
-        //     int lock = nodesData[i * 4 + 3];
+        //     int key = getNodeAttribute(*ptr, 0);
+        //     int color = getNodeAttribute(*ptr, 1);
+        //     int weight = getNodeAttribute(*ptr, 2);
+        //     int lock = getNodeAttribute(*ptr, 3);
 
-        //     std::cout << "Node " << i << ": "
+        //     std::cout << "Node "
+        //               << "X"
+        //               << ": "
         //               << "Key: " << key << ", "
         //               << "Color: " << color << ", "
         //               << "Weight: " << weight << ", "
         //               << "Lock: " << lock << std::endl;
         // }
-        // for (int i = 0; i < linkCount; ++i)
+        // for (int i = 0; i < getLinkCount(); ++i)
         // {
         //     int from = linksData[i * 2];
         //     int to = linksData[i * 2 + 1];
 
-        //     std::cout << "Link " << i << ": "
+        //     std::cout << "Link " << "X"<< ": "
         //               << "From: " << from << ", "
         //               << "To: " << to << std::endl;
         // }
 
-        dSatur(terms, threadId);
+        
+        dSatur(getTerms(), threadId);
 
         threadsFinishedJS();
     }

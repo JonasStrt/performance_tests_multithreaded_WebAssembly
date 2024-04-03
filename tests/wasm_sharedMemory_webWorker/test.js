@@ -7,9 +7,13 @@ var links;
 
 var sharedMemory;
 
-var workers = [];
-var nodesPointer;
-var linksPointer;
+// var workers = [];
+// var nodesPointer;
+// var linksPointer;
+// var nodeCountPtr;
+// var linkCountPtr;
+// var termsPtr;
+// var workerPtr;
 
 /**
  * Initializes the test with provided nodes, links, terms, and threads.
@@ -43,6 +47,10 @@ async function startTest(_nodes, _links, _terms, _threads) {
         resolve({
           nodesPointer: e.data.nodesPtr,
           linksPointer: e.data.linksPtr,
+          nodeCountPtr: e.data.nodeCountPtr,
+          linkCountPtr: e.data.linkCountPtr,
+          termsPtr: e.data.termsPtr,
+          workerPtr: e.data.termsPtr
         });
         initWorker.terminate(); // Optional: Beende den Worker, wenn er nicht mehr benötigt wird
       }
@@ -61,11 +69,10 @@ async function startTest(_nodes, _links, _terms, _threads) {
     });
   });
 
-  // Warte auf die Pointer vom initialen Worker
-  const { nodesPointer, linksPointer } = await pointerPromise;
+  const { nodesPointer, linksPointer, nodeCountPtr, linkCountPtr, termsPtr, workerPtr } = await pointerPromise;
 
   // Erstelle Worker und sende Nachrichten, nachdem die Pointer empfangen wurden
-  for (let i = 1; i <= threads; i++) {
+  for (let i = 0; i < threads; i++) {
     // Starte bei 1, da id 0 für den initialen Worker verwendet wurde
     const worker = new Worker("dSaturWasmWorker.js");
     let promise = new Promise((resolve, reject) => {
@@ -90,6 +97,10 @@ async function startTest(_nodes, _links, _terms, _threads) {
       links,
       terms,
       id: i,
+      nodeCountPtr,
+      linkCountPtr,
+      termsPtr,
+      workerPtr,
       nodesPointer: nodesPointer,
       linksPointer: linksPointer,
       sharedMemory,

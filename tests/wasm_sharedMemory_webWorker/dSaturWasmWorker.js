@@ -19,10 +19,7 @@ self.addEventListener("message", async function (e) {
   workerId = e.data["id"];
   sharedMemory = e.data["sharedMemory"];
   sharedMemoryGraphData = e.data["sharedMemoryGraphData"];
-  var dSaturWasmModule = new DSaturWasmModuleWrapper(
-    "Module",
-    sharedMemory
-  );
+  var dSaturWasmModule = new DSaturWasmModuleWrapper("Module", sharedMemory, workerId +1);
   await dSaturWasmModule.init();
   DSaturWasmModuleWrapper.WasmModule.changeNodeColor = changeNodeColor;
   DSaturWasmModuleWrapper.WasmModule.threadsFinished = threadsFinished;
@@ -30,14 +27,40 @@ self.addEventListener("message", async function (e) {
   const linkCount = links.length;
   nodeBufferSize = nodes.length * 16; // 16 Bytes pro Knoten
   linkBufferSize = links.length * 8; // 8 Bytes pro Verbindung
+
+  termsBufferSize = 4;
+  nodeCountBufferSize = 4;
+  linksCountBufferSize = 4;
+  wokerBufferSize = 4;
+
   totalBufferSize = nodeBufferSize + linkBufferSize;
-  if(e.data["code"] == "init") {
+  if (e.data["code"] == "init") {
     console.log("in init");
-    const nodesPtr =  DSaturWasmModuleWrapper.WasmModule._malloc(totalBufferSize); // Speicher im WebAssembly-Modul reservieren
+    const nodesPtr =
+      DSaturWasmModuleWrapper.WasmModule._malloc(totalBufferSize); // Speicher im WebAssembly-Modul reservieren
     const linksPtr = nodesPtr + nodeBufferSize; // Verbindungsdaten kommen nach den Knotendaten
+    const nodeCountPtr = DSaturWasmModuleWrapper.WasmModule._malloc(4);
+    const linkCountPtr = DSaturWasmModuleWrapper.WasmModule._malloc(4);
+    const workerPtr = DSaturWasmModuleWrapper.WasmModule._malloc(4);
+    const termsPtr = DSaturWasmModuleWrapper.WasmModule._malloc(4);
+
     var int32View = new Int32Array(sharedMemoryGraphData);
     DSaturWasmModuleWrapper.WasmModule.HEAP32.set(int32View, nodesPtr / 4);
-    postMessage({ code: "pointer", nodesPtr, linksPtr });
+
+    DSaturWasmModuleWrapper.WasmModule.HEAP32[nodeCountPtr / 4] = nodes.length;
+    DSaturWasmModuleWrapper.WasmModule.HEAP32[linkCountPtr / 4] = links.length;
+    DSaturWasmModuleWrapper.WasmModule.HEAP32[workerPtr / 4] = 0;
+    DSaturWasmModuleWrapper.WasmModule.HEAP32[termsPtr / 4] = terms;
+
+    postMessage({
+      code: "pointer",
+      nodesPtr,
+      linksPtr,
+      nodeCountPtr,
+      linkCountPtr,
+      workerPtr,
+      termsPtr,
+    });
     // console.log(int32View);
     // console.log("Module");
     // console.log(nodesPtr /4);
@@ -56,20 +79,21 @@ self.addEventListener("message", async function (e) {
     // console.log(linksPointers);
     // let dataPointers = DSaturWasmModuleWrapper.WasmModule._getDataPtr();
     // console.log(dataPointers);
-  }
-  else {
+  } else {
     console.log(DSaturWasmModuleWrapper.WasmModule);
     console.log(e.data["nodesPointer"]);
     console.log(e.data["linksPointer"]);
+
+    console.log(e.data["nodeCountPtr"]);
+    console.log(e.data["linkCountPtr"]);
+    console.log(workerId);
     DSaturWasmModuleWrapper.WasmModule._processGraph(
-      0,
-      nodeCount,
-      400,
-      linkCount,
-      terms,
       workerId,
-      (e.data["nodesPointer"]),
-      (e.data["linksPointer"])
+      e.data["nodeCountPtr"],
+      e.data["linkCountPtr"],
+      e.data["termsPtr"],
+      e.data["nodesPointer"],
+      e.data["linksPointer"]
     );
   }
   //Module._free(nodesPtr);
