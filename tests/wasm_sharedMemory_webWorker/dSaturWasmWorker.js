@@ -35,7 +35,6 @@ self.addEventListener("message", async function (e) {
 
   totalBufferSize = nodeBufferSize + linkBufferSize;
   if (e.data["code"] == "init") {
-    console.log("in init");
     const nodesPtr =
       DSaturWasmModuleWrapper.WasmModule._malloc(totalBufferSize); // Speicher im WebAssembly-Modul reservieren
     const linksPtr = nodesPtr + nodeBufferSize; // Verbindungsdaten kommen nach den Knotendaten
@@ -80,13 +79,6 @@ self.addEventListener("message", async function (e) {
     // let dataPointers = DSaturWasmModuleWrapper.WasmModule._getDataPtr();
     // console.log(dataPointers);
   } else {
-    console.log(DSaturWasmModuleWrapper.WasmModule);
-    console.log(e.data["nodesPointer"]);
-    console.log(e.data["linksPointer"]);
-
-    console.log(e.data["nodeCountPtr"]);
-    console.log(e.data["linkCountPtr"]);
-    console.log(workerId);
     DSaturWasmModuleWrapper.WasmModule._processGraph(
       workerId,
       e.data["nodeCountPtr"],
@@ -96,5 +88,4 @@ self.addEventListener("message", async function (e) {
       e.data["linksPointer"]
     );
   }
-  //Module._free(nodesPtr);
 });

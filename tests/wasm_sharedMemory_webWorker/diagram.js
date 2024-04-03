@@ -193,7 +193,6 @@ function mapColor(colorCode) {
  */
 function changeNodeColor(nodeKey, newColorCode, thread) {
   threadNodeCount[thread] += 1;
-  console.log("color node from thread: "+ thread)
   if (vis) {
     var data = myDiagram.model.findNodeDataForKey(nodeKey);
     if (data) {
