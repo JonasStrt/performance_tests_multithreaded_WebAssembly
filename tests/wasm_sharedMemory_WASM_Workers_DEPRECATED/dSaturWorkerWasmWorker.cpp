@@ -1,4 +1,5 @@
 #include <emscripten/threading.h>
+#include <emscripten/wasm_worker.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -62,15 +63,10 @@ struct Link
     int to;
 };
 
-struct ThreadData
-{
-    std::vector<Node> *nodes;
-    std::vector<Link> *links;
-    int terms;
-    int threadId;
-
-    ThreadData(std::vector<Node> *n, std::vector<Link> *l, int t, int id) : nodes(n), links(l), terms(t), threadId(id) {}
-};
+std::vector<Node> *globalNodes;
+std::vector<Link> *globalLinks;
+int globalTerms;
+int globalThreadId;
 
 int countLinksForNode(int nodeKey, const std::vector<Link> &links)
 {
@@ -202,13 +198,13 @@ double calculatePiLeibniz(int terms)
     return 4 * sum;
 }
 
-void *dSatur(void *arg)
+void dSatur()
 {
-    auto data = static_cast<ThreadData *>(arg);
-    auto &nodes = *(data->nodes);
-    auto &links = *(data->links);
-    int terms = data->terms;
-    int threadId = data->threadId;
+    std::cout << "in dSatur" << std::endl;
+    auto &nodes = *globalNodes;    
+    auto &links = *globalLinks;   
+    int terms = globalTerms;       
+    int threadId = globalThreadId; 
     Node *node = selectNode(nodes, links);
     while (node != nullptr)
     {
@@ -244,39 +240,41 @@ void *dSatur(void *arg)
                 updateSaturation(node->key, color, nodes, links);
                 calculatePiLeibniz(terms); // Simuliere Berechnungsaufwand
                 unlockAdjacentNodes(*node, nodes, links);
-                // changeNodeColorJS(node->key, node->color, threadId);
-                emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIII, changeNodeColorCallback, node->key, color, threadId);
+                changeNodeColorJS(node->key, node->color, threadId);
+                std::cout << "color : " << node->key << std::endl;
+                //emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIII, changeNodeColorCallback, node->key, color, threadId);
             }
         }
         node = selectNode(nodes, links);
     }
-    return nullptr;
 }
 
 void invokeThreads(int numThreads, std::vector<Node> &nodes, std::vector<Link> &links, int terms)
 {
-    pthread_t threads[numThreads];
-    std::vector<ThreadData *> threadData; // Verwende einen Vektor von Zeigern auf ThreadData
-
+    std::cout << "in invokeThreads" << std::endl;
+    globalNodes = &nodes;
+    globalLinks = &links;
+    globalTerms = terms;
+    globalThreadId = 0;
     for (int i = 0; i < numThreads; ++i)
     {
         // Dynamisch ein neues ThreadData Objekt für jeden Thread erstellen
-        ThreadData *data = new ThreadData(&nodes, &links, terms, i);
-        threadData.push_back(data); // Füge den Zeiger zum Vektor hinzu
-        pthread_create(&threads[i], nullptr, dSatur, data);
+        std::cout << "try to invoke thread" << std::endl;
+        emscripten_wasm_worker_t worker = emscripten_malloc_wasm_worker(/*stackSize: */ 2048);
+        emscripten_wasm_worker_post_function_v(worker, dSatur);
     }
 
-    for (int i = 0; i < numThreads; ++i)
-    {
-        pthread_join(threads[i], nullptr);
-    }
+    // for (int i = 0; i < numThreads; ++i)
+    // {
+    //     pthread_join(threads[i], nullptr);
+    // }
 
-    // Speicher für jedes ThreadData Objekt freigeben
-    for (ThreadData *data : threadData)
-    {
-        delete data;
-    }
-    threadsFinishedJS();
+    // // Speicher für jedes ThreadData Objekt freigeben
+    // for (ThreadData *data : threadData)
+    // {
+    //     delete data;
+    // }
+    //threadsFinishedJS();
 }
 
 void serializeBackToInt32Array(std::vector<Node> &nodes, int32_t *nodesData)
@@ -290,40 +288,11 @@ void serializeBackToInt32Array(std::vector<Node> &nodes, int32_t *nodesData)
     }
 }
 
-// Funktion, um die Vektorinhalte zu loggen:
-void logNodes(const std::vector<Node> &nodes)
-{
-    std::cout << "Nodes:" << std::endl;
-    for (const auto &node : nodes)
-    {
-        std::cout << "Key: " << node.key << ", Color: " << node.color << ", Weight: " << node.weight << ", Lock: " << node.lock << std::endl;
-    }
-}
-
-void logNodesFromIntArray(const int32_t *nodesData, int nodeCount)
-{
-    std::cout << "Nodes from Int32 Array:" << std::endl;
-    for (int i = 0; i < nodeCount; ++i)
-    {
-        // Berechne den Basisindex für den aktuellen Knoten im Array
-        int baseIndex = i * 4;
-
-        // Extrahiere die Werte für den aktuellen Knoten
-        int key = nodesData[baseIndex];
-        int color = nodesData[baseIndex + 1];
-        int weight = nodesData[baseIndex + 2];
-        int lock = nodesData[baseIndex + 3];
-
-        // Logge die Werte
-        std::cout << "Key: " << key << ", Color: " << color << ", Weight: " << weight << ", Lock: " << lock << std::endl;
-    }
-}
 
 extern "C"
 {
     void processGraph(int32_t *nodesData, int nodeCount, int32_t *linksData, int linkCount, int terms, int numThreads)
     {
-        std::cout << "in process graph" << std::endl;
         // Umwandlung der Rohdaten in Vektoren von Strukturen
         std::vector<Node> nodes;
         std::vector<Link> links(linkCount);
@@ -338,6 +307,5 @@ extern "C"
             links[i] = {linksData[i * 2], linksData[i * 2 + 1]};
         }
         invokeThreads(numThreads, nodes, links, terms);
-
     }
 }

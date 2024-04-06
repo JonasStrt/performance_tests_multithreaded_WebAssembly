@@ -28,7 +28,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
     maximum: 256,
     shared: true,
   });
-  
+
   let nodeBufferSize = nodes.length * 16; // 16 Bytes pro Knoten
   let linkBufferSize = links.length * 8; // 8 Bytes pro Verbindung
   let totalBufferSize = nodeBufferSize + linkBufferSize;
