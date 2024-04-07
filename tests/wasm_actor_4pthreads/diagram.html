@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <title>GoJS Beispiel</title>
+    <style>
+      body {
+        background-color: #343a40;
+        color: #ffffff;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 56px); /* Höhe der Navbar abziehen */
+        overflow: hidden;
+      }
+
+      .list-container {
+        flex-grow: 1;
+        overflow-y: hidden;
+      }
+    </style>
+  </head>
+
+  <script>
+    //set initial values for navbar
+    document.addEventListener("DOMContentLoaded", function () {
+      function updateNavbarValues() {
+        const terms = localStorage.getItem("terms");
+        const threads = localStorage.getItem("threads");
+        const nodes = localStorage.getItem("nodes");
+        if (terms !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[0].textContent = `Terms: ${terms}`;
+        }
+        if (threads !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[1].textContent = `Threads: ${threads}`;
+        }
+        if (threads !== null) {
+          document.querySelectorAll(
+            ".nav-item a"
+          )[2].textContent = `Nodes: ${nodes}`;
+        }
+      }
+      updateNavbarValues();
+    });
+  </script>
+  <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="../../index.html" style="margin-left: 10px"
+        >Test-Suite</a
+      >
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="terms">Terms:</a>
+          </li>
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="threads">Threads:</a>
+          </li>
+          <li style="margin-left: 10px" class="nav-item">
+            <a data-type="nodes">Nodes:</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div
+      style="
+        display: flex;
+        width: 95%;
+        height: calc(100vh - 56px);
+        margin: auto;
+        overflow: hidden;
+      "
+    >
+      <!-- Diagram -->
+      <div
+        id="myDiagramDiv"
+        style="
+          flex: 0 0 60%;
+          height: 100%;
+          margin-right: 10px;
+          overflow-y: hidden;
+        "
+      ></div>
+
+      <!-- Right side container -->
+      <div
+        class="flex-container"
+        style="flex: 0 0 40%; display: flex; flex-direction: column"
+      >
+        <!-- Performance card -->
+        <div class="container mt-3">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Performance & Memory - wasm_sharedMemory_2pthreads
+                  </h5>
+                  <!-- Performance metrics -->
+                  <div class="row">
+                    <div class="col-6">
+                      <h6 class="mt-3">Measurements</h6>
+                      <p id="label1">
+                        Execution Time: <span id="value1">-</span> MS
+                      </p>
+                      <p id="label2">
+                        Total JS HeapSize: <span id="value2">-</span> MB
+                      </p>
+                      <p id="label3">
+                        Used JS HeapSize before: <span id="value3">-</span> MB
+                      </p>
+                      <p id="label4">
+                        Used JS HeapSize after: <span id="value4">-</span> MB
+                      </p>
+                      <p id="label5">
+                        Gini Coefficient (for distribution of nodes among
+                        threads): <span id="value5">-</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Performance test buttons -->
+                  <div class="d-flex justify-content-between mt-3">
+                    <button
+                      class="btn btn-primary me-2"
+                      onclick="startPerformanceTest()"
+                    >
+                      Start Performance Test
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="window.location.reload();"
+                    >
+                      Reload
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable List Container -->
+        <div
+          class="container mt-3 list-container"
+          style="flex-grow: 1; overflow-y: auto"
+        >
+          <div class="row justify-content-center">
+            <div class="col-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="dSaturActor.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>

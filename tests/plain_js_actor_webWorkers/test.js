@@ -38,7 +38,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
 }
 
 function startActorRoutine() {
-  for (let i = 0; i <threads; i++) {
+  for (let i = 0; i < threads; i++) {
     addColorableNodeToQueue();
   }
 }

@@ -26,5 +26,5 @@ app.listen(port, () => {
 
 app.get('/webassambly/dSaturSharedMemory',  (req, res) => {
   res.type('application/wasm');
-  res.sendFile(path.join(__dirname, '/tests/wasm_sharedMemory_webWorker/dSaturSharedMemory.wasm'));
+  res.sendFile(path.join(__dirname, '/tests/assemblyScript_sharedMemory_webWorker/dSaturSharedMemory.wasm'));
 });
