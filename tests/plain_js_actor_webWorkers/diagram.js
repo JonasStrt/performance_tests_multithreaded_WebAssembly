@@ -254,6 +254,7 @@ function calculateGiniCoefficient() {
  * @returns {void} Does not return a value. Results of the performance test are displayed on the webpage.
  */
 async function startPerformanceTest() {
+  console.log(links.length);
   const memoryBefore = getMemoryUsage();
   document.getElementById("value3").innerText = (
     memoryBefore.usedJSHeapSize / 1048576

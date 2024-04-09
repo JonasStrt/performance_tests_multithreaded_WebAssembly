@@ -144,178 +144,194 @@
         </ul>
       </div>
     </nav>
-    <!-- Settings card -->
-    <div class="container mt-3">
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="card text-white bg-dark">
-            <div class="card-body">
-              <h5 class="card-title">Settings</h5>
-              <form>
-                <div class="mb-3">
-                  <label for="threadsDropdown" class="form-label"
-                    >Threads:</label
-                  >
-                  <select class="form-select" id="threadsDropdown">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="8">8</option>
-                    <option value="16">16</option>
-                    <option value="32">32</option>
-                    <option value="64">64</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="termsDropdown"
-                    class="form-label"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="right"
-                    title="This field defines how many terms of the Pi calculation are used to determine the calculation effort for node coloring. A higher number of terms increases the accuracy of the Pi calculation and thus the degree of difficulty of the node coloring, as Pi is calculated up to this level for each node to be colored. This method is used to make node coloring more computationally demanding by combining a more complex calculation with each coloring step. The aim is to adjust the algorithmic complexity and thus influence the coloring strategy."
-                    >Terms - (Difficulty level - Pi terms per node
-                    coloring):</label
-                  >
-                  <select class="form-select" id="termsDropdown">
-                    <option value="0">0</option>
-                    <option value="10">10</option>
-                    <option value="1000">1000</option>
-                    <option value="100000">100000</option>
-                    <option value="10000000">10000000</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="nodesDropdown" class="form-label">Nodes:</label>
-                  <select class="form-select" id="nodesDropdown">
-                    <option value="10">10</option>
-                    <option value="100">100</option>
-                    <option value="1000">1000</option>
-                  </select>
-                </div>
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <label class="form-check-label" for="flexSwitchCheckDefault"
-                    >Visualization</label
-                  >
-                </div>
-              </form>
+    <div
+    style="
+      display: flex;
+      width: 95%;
+      height: calc(100vh - 56px);
+      margin: auto;
+      overflow: hidden;
+    "
+  >
+    <!-- Right side container -->
+    <div
+      class="flex-container"
+      style="flex: 0 0 100%; display: flex; flex-direction: column"
+    >
+      <!-- Settings card -->
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div class="card text-white bg-dark">
+              <div class="card-body">
+                <h5 class="card-title">Settings</h5>
+                <form>
+                  <div class="mb-3">
+                    <label for="threadsDropdown" class="form-label"
+                      >Threads:</label
+                    >
+                    <select class="form-select" id="threadsDropdown">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                      <option value="8">8</option>
+                      <option value="16">16</option>
+                      <option value="32">32</option>
+                      <option value="64">64</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label
+                      for="termsDropdown"
+                      class="form-label"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      title="This field defines how many terms of the Pi calculation are used to determine the calculation effort for node coloring. A higher number of terms increases the accuracy of the Pi calculation and thus the degree of difficulty of the node coloring, as Pi is calculated up to this level for each node to be colored. This method is used to make node coloring more computationally demanding by combining a more complex calculation with each coloring step. The aim is to adjust the algorithmic complexity and thus influence the coloring strategy."
+                      >Terms - (Difficulty level - Pi terms per node
+                      coloring):</label
+                    >
+                    <select class="form-select" id="termsDropdown">
+                      <option value="0">0</option>
+                      <option value="10">10</option>
+                      <option value="1000">1000</option>
+                      <option value="100000">100000</option>
+                      <option value="10000000">10000000</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="nodesDropdown" class="form-label">Nodes:</label>
+                    <select class="form-select" id="nodesDropdown">
+                      <option value="10">10</option>
+                      <option value="100">100</option>
+                      <option value="1000">1000</option>
+                    </select>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexSwitchCheckDefault"
+                      >Visualization</label
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test projekt list -->
+      <div class="container mt-3" style="flex-grow: 1; overflow-y: auto">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/plain_js_no_multithreading/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >plain_js_no_multithreading</a
+              >
+            </div>
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/plain_js_actor_webWorkers/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >plain_js_actor_webWorkers
+              </a>
+            </div>
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/plain_js_sharedMemory_webWorkers/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >plain_js_sharedMemory_webWorkers</a
+              >
+            </div>
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_no_multithreading/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_no_multithreading</a
+              >
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_sharedMemory_2pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_sharedMemory_2pthreads
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_sharedMemory_4pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_sharedMemory_4pthreads
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_sharedMemory_8pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_sharedMemory_8pthreads
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_sharedMemory_2webWorker/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_sharedMemory_2webWorker
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_sharedMemory_2webWorker_unoptimized/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_sharedMemory_2webWorker_unoptimized
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_actor_webWorkers/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_actor_webWorkers
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_actor_2pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_actor_2pthreads
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_actor_4pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_actor_4pthreads
+              </a>
+            </div>
+
+            <div style="margin-top: 4px" class="list-group bg-dark">
+              <a
+                href="./tests/wasm_actor_8pthreads/diagram.html"
+                class="list-group-item list-group-item-action text-white bg-dark border-light"
+                >wasm_actor_8pthreads
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Test projekt list -->
-    <div class="container mt-3">
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/plain_js_no_multithreading/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >plain_js_no_multithreading</a
-            >
-          </div>
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/plain_js_actor_webWorkers/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >plain_js_actor_webWorkers
-            </a>
-          </div>
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/plain_js_sharedMemory_webWorkers/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >plain_js_sharedMemory_webWorkers</a
-            >
-          </div>
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_no_multithreading/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_no_multithreading</a
-            >
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_sharedMemory_2pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_sharedMemory_2pthreads
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_sharedMemory_4pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_sharedMemory_4pthreads
-            </a>
-          </div>
-          
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_sharedMemory_8pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_sharedMemory_8pthreads
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_sharedMemory_2webWorker/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_sharedMemory_2webWorker
-            </a>
-          </div>
-          
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_sharedMemory_2webWorker_unoptimized/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_sharedMemory_2webWorker_unoptimized
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_actor_webWorkers/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_actor_webWorkers
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_actor_2pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_actor_2pthreads
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_actor_4pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_actor_4pthreads
-            </a>
-          </div>
-
-          <div style="margin-top: 4px" class="list-group bg-dark">
-            <a
-              href="./tests/wasm_actor_8pthreads/diagram.html"
-              class="list-group-item list-group-item-action text-white bg-dark border-light"
-              >wasm_actor_8pthreads
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </body>
 </html>
