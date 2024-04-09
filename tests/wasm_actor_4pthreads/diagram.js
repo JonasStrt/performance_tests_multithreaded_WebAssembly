@@ -1,12 +1,22 @@
 import * as go from "gojs";
 import { startTest } from "./test";
 
-
 var terms = localStorage.getItem("terms");
 var threads = parseInt(localStorage.getItem("threads"), 10);
 var nodeCount = localStorage.getItem("nodes");
 var threadNodeCount = new Array(threads).fill(0);
+let callCounter = {};
 var vis = localStorage.getItem("vis") === "true";
+
+const promiseObj = {
+  promise: null,
+  resolve: null,
+};
+
+// Initialisiere das Promise
+promiseObj.promise = new Promise((resolve, reject) => {
+  promiseObj.resolve = resolve;
+});
 
 function addListItemToContainer(text, id) {
   // Wähle den Container aus, in dem die Liste enthalten ist
@@ -192,7 +202,12 @@ function mapColor(colorCode) {
  * @returns {void} Does not return a value. Modifies the diagram's model directly.
  */
 function changeNodeColor(nodeKey, newColorCode, thread) {
-  threadNodeCount[thread] += 1;
+  //threadNodeCount[thread] += 1;
+  if (callCounter[thread]) {
+    callCounter[thread]++;
+  } else {
+    callCounter[thread] = 1;
+  }
   if (vis) {
     var data = myDiagram.model.findNodeDataForKey(nodeKey);
     if (data) {
@@ -261,29 +276,34 @@ async function startPerformanceTest() {
   ).toFixed(2);
   const start = performance.now();
   //start test
-  await startTest(nodes, links, terms, threads);
+  startTest(nodes, links, terms, threads);
   //end test
-  const end = performance.now();
-  const memoryAfter = getMemoryUsage();
-  const time = end - start;
-  document.getElementById("value1").innerText = time;
-  document.getElementById("value2").innerText = (
-    memoryAfter.totalJSHeapSize / 1048576
-  ).toFixed(2);
-  document.getElementById("value4").innerText = (
-    memoryAfter.usedJSHeapSize / 1048576
-  ).toFixed(2);
-  document.getElementById("value5").innerText =
-    calculateGiniCoefficient().toFixed(2);
+  (async () => {
+    // Warte auf das Promise
+    const result = await promiseObj.promise;
+    const end = performance.now();
+    const memoryAfter = getMemoryUsage();
+    const time = end - start;
+    threadNodeCount = Object.values(callCounter);
+    document.getElementById("value1").innerText = time;
+    document.getElementById("value2").innerText = (
+      memoryAfter.totalJSHeapSize / 1048576
+    ).toFixed(2);
+    document.getElementById("value4").innerText = (
+      memoryAfter.usedJSHeapSize / 1048576
+    ).toFixed(2);
+    document.getElementById("value5").innerText =
+      calculateGiniCoefficient().toFixed(2);
 
-  for (let i = 0; i < threads; i++) {
-    addListItemToContainer(
-      "Thread " + i + " colored " + threadNodeCount[i] + " nodes",
-      "thread" + i
-    );
-  }
+    for (let i = 0; i < threads; i++) {
+      addListItemToContainer(
+        "Thread " + i + " colored " + threadNodeCount[i] + " nodes",
+        "thread" + i
+      );
+    }
+  })();
 }
 
 window.startPerformanceTest = startPerformanceTest;
 
-export { changeNodeColor, startPerformanceTest };
+export { changeNodeColor, startPerformanceTest, promiseObj };

@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <emscripten.h>
 #include <emscripten/threading.h>
+#include <deque>
 
 struct Node
 {
@@ -29,6 +30,8 @@ struct Link
 
 extern "C"
 {
+
+    void executeMainThreadActionsHelper();
     // Deklariert die JavaScript-Funktion
     EM_JS(void, changeNodeColorJS, (int nodeKey, int newColorCode, int thread), {
         // Rufe die JavaScript-Funktion auf
@@ -41,9 +44,7 @@ extern "C"
         changeNodeColorJS(nodeKey, newColorCode, thread);
     }
 
-    // Deklariert die JavaScript-Funktion
     EM_JS(void, threadsFinishedJS, (), {
-        // Rufe die JavaScript-Funktion auf
         Module.threadsFinished();
     });
 }
@@ -96,18 +97,33 @@ class Actor
 {
 public:
     Actor(unsigned int numThreads, std::vector<Node> &nodes, std::vector<Link> &links, int terms)
-        : tasksCompletedPromise(new std::promise<void>()), nodes(nodes), links(links), globalTerms(terms)
+        : tasksCompletedPromise(new std::promise<void>()), nodes(nodes), links(links), globalTerms(terms), promiseFulfilled(false)
     {
         tasksCompletedFuture = tasksCompletedPromise->get_future();
+
+        // for (unsigned int i = 0; i < numThreads; ++i)
+        // {
+        //     workerThreads.emplace_back([this]
+        //                                {
+        //         while (true) {
+        //             auto task = taskQueue.dequeue();
+        //             if (!task) break; // Exit if queue is closed and empty
+        //             task();
+        //         } });
+        // }
 
         for (unsigned int i = 0; i < numThreads; ++i)
         {
             workerThreads.emplace_back([this]
                                        {
-                while (true) {
+                while (!areAllNodesColored()) {
                     auto task = taskQueue.dequeue();
-                    if (!task) break; // Exit if queue is closed and empty
-                    task();
+                    if (task) { // Prüfe, ob eine gültige Aufgabe vorhanden ist
+                        task();
+                    } else {
+                        // Kurzes Warten, um CPU-Last zu reduzieren, falls die Queue temporär leer ist
+                        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                    }
                 } });
         }
 
@@ -126,11 +142,38 @@ public:
             thread.join();
         }
         delete tasksCompletedPromise;
+        executeMainThreadActions();
     }
 
     void waitForTasksCompletion()
     {
         tasksCompletedFuture.wait();
+        executeMainThreadActions();
+    }
+
+    void enqueueMainThreadAction(std::function<void()> action)
+    {
+        std::lock_guard<std::mutex> lock(mainThreadActionsMutex);
+        mainThreadActionsQueue.push_back(action);
+    }
+
+    void executeMainThreadActions()
+    {
+        std::function<void()> action;
+        while (true)
+        {
+            std::lock_guard<std::mutex> lock(mainThreadActionsMutex);
+            if (mainThreadActionsQueue.empty())
+                break;
+            action = mainThreadActionsQueue.front();
+            mainThreadActionsQueue.pop_front();
+            action(); // Führe die Aktion außerhalb des Locks aus
+        }
+        if (areAllNodesColored())
+        {
+            emscripten_cancel_main_loop();
+            threadsFinishedJS();
+        }
     }
 
     std::vector<Node> nodes;
@@ -142,21 +185,32 @@ private:
     TaskQueue taskQueue;
     std::promise<void> *tasksCompletedPromise;
     std::future<void> tasksCompletedFuture;
+    std::deque<std::function<void()>> mainThreadActionsQueue;
+    std::mutex mainThreadActionsMutex;
+    std::mutex fulfillMutex;
+    bool promiseFulfilled;
 
     void addNextTask()
     {
-        if (!areAllNodesColored())
+        Node *nodeToColor = selectNode(); // Implementierung dieser Funktion erforderlich
+        if (nodeToColor != nullptr)
         {
-            Node *nodeToColor = selectNode();
-            if (nodeToColor != nullptr)
-            {
-                lockAdjacentNodes(*nodeToColor);
-                taskQueue.enqueue([this, nodeToColor]()
-                                  {
-                int color = dSaturSingleNode(nodeToColor->key);
-                changeNodeColorJS(nodeToColor->key, color,0);
-                updateSaturation(nodeToColor->key);
-                unlockAdjacentNodes(*nodeToColor);
+            // Lock the node to color immediately to prevent race conditions
+            lockAdjacentNodes(*nodeToColor); // Sollte direkt erfolgen, um Wettlaufbedingungen zu vermeiden
+
+            // Enqueue the coloring task
+            taskQueue.enqueue([this, nodeToColor]()
+                              {
+                                  // Perform the coloring, which is a quick operation and doesn't need main thread
+                                  int color = dSaturSingleNode(nodeToColor->key);
+                                  nodeToColor->color = color;
+                                  emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIII, changeNodeColorCallback, nodeToColor->key, color, std::this_thread::get_id());
+                                  // Schedule main-thread specific operations
+                                  enqueueMainThreadAction([this, nodeKey = nodeToColor->key, nodeColor = nodeToColor->color]()
+                                                          {
+                updateSaturation(nodeKey);
+                unlockAdjacentNodes(nodeKey);
+                //changeNodeColorJS(nodeKey,nodeColor,0);
                 if (!areAllNodesColored()) {
                     addNextTask();
                 } else {
@@ -166,11 +220,11 @@ private:
                         promiseFulfilled = true;
                     }
                 } });
-            }
+                                  // executeMainThreadActionsHelper();
+                                  // emscripten_sync_run_in_main_runtime_thread(EM_FUNC_SIG_V,executeMainThreadActionsHelper);
+                              });
         }
     }
-    std::mutex fulfillMutex;
-    bool promiseFulfilled = false;
     void lockAdjacentNodes(Node &node)
     {
         node.lock = node.lock + 1;
@@ -191,15 +245,15 @@ private:
         }
     }
 
-    void unlockAdjacentNodes(Node &node)
+    void unlockAdjacentNodes(int nodeKey)
     {
-        node.lock = node.lock - 1;
+        // node.lock = node.lock - 1;
 
         for (const auto &link : links)
         {
-            if (link.from == node.key || link.to == node.key)
+            if (link.from == nodeKey || link.to == nodeKey)
             {
-                int targetNodeKey = (link.from == node.key) ? link.to : link.from;
+                int targetNodeKey = (link.from == nodeKey) ? link.to : link.from;
                 auto targetNodeIter = std::find_if(nodes.begin(), nodes.end(), [targetNodeKey](const Node &n)
                                                    { return n.key == targetNodeKey; });
 
@@ -341,8 +395,16 @@ private:
     }
 };
 
+Actor *globalActor = nullptr;
+
 extern "C"
 {
+
+    void executeMainThreadActionsHelper()
+    {
+        globalActor->executeMainThreadActions();
+    }
+
     void processGraph(int32_t *nodesData, int nodeCount, int32_t *linksData, int linkCount, int terms, int threads)
     {
         std::vector<Node> currnodes;
@@ -356,11 +418,12 @@ extern "C"
         {
             currlinks.emplace_back(linksData[i * 2], linksData[i * 2 + 1]);
         }
-        Actor actor(threads, currnodes, currlinks, terms);
+        globalActor = new Actor(threads, currnodes, currlinks, terms);
+        // Actor actor(threads, currnodes, currlinks, terms);
+        emscripten_set_main_loop(executeMainThreadActionsHelper, 0, 1);
+        // globalActor->waitForTasksCompletion();
 
-        actor.waitForTasksCompletion();
-
-        std::cout << "Alle Aufgaben sind abgeschlossen." << std::endl;
-        threadsFinishedJS();
+        // std::cout << "Alle Aufgaben sind abgeschlossen." << std::endl;
+        // delete globalActor;
     }
 }

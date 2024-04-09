@@ -21,6 +21,7 @@ function initializePromise() {
 }
 
 function threadsFinished() {
+  console.log("threads finished in js ");
   if (window.resolveThreadsFinished) {
     window.resolveThreadsFinished();
   }
@@ -53,6 +54,7 @@ async function startTest(_nodes, _links, _terms, _threads) {
   if (typeof Module !== "undefined") {
     Module.changeNodeColor = changeNodeColor;
     Module.threadsFinished = threadsFinished;
+  
     const nodesPtr = Module._malloc(totalBufferSize); // Speicher im WebAssembly-Modul reservieren
     Module.HEAP32.set(int32View, nodesPtr / 4); // Kopiere die Daten in den WebAssembly-Speicher
     // Berechne die Positionen der Knoten- und Verbindungsarrays im Speicher

@@ -1,4 +1,4 @@
-import { changeNodeColor } from "./diagram";
+import { changeNodeColor, promiseObj } from "./diagram";
 var terms;
 var threads;
 
@@ -21,6 +21,8 @@ function initializePromise() {
 }
 
 function threadsFinished() {
+  // console.log("in js threads finished");
+  promiseObj.resolve();
   if (window.resolveThreadsFinished) {
     window.resolveThreadsFinished();
   }
