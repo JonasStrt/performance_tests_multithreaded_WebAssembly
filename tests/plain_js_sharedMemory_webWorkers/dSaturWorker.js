@@ -15,12 +15,14 @@ var workerId;
 function calculatePiLeibniz(terms) {
   let sum = 0.0;
   for (let i = 0; i < terms; i++) {
+    console.log("calculate term");
     if (i % 2 === 0) {
       sum += 1.0 / (2 * i + 1);
     } else {
       sum -= 1.0 / (2 * i + 1);
     }
   }
+  console.log(sum);
   return 4 * sum;
 }
 

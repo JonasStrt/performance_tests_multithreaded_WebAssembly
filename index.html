@@ -31,24 +31,24 @@
     document.addEventListener("DOMContentLoaded", function () {
       // Function for reading the values from the local storage and displaying them in the navbar
       function updateNavbarValues() {
-        const terms = localStorage.getItem("terms");
+        const terms = 0;//localStorage.getItem("terms");
         const threads = localStorage.getItem("threads");
         const nodes = localStorage.getItem("nodes");
 
-        if (terms !== null) {
-          document.querySelectorAll(
-            ".nav-item a"
-          )[0].textContent = `Terms: ${terms}`;
-        }
+        // if (terms !== null) {
+        //   document.querySelectorAll(
+        //     ".nav-item a"
+        //   )[0].textContent = `Terms: ${terms}`;
+        // }
         if (threads !== null) {
           document.querySelectorAll(
             ".nav-item a"
-          )[1].textContent = `Threads: ${threads}`;
+          )[0].textContent = `Threads: ${threads}`;
         }
         if (nodes !== null) {
           document.querySelectorAll(
             ".nav-item a"
-          )[2].textContent = `Nodes: ${nodes}`;
+          )[1].textContent = `Nodes: ${nodes}`;
         }
       }
       const threadsDropdown = document.getElementById("threadsDropdown");
@@ -74,9 +74,9 @@
         updateSelection("threads", this.value);
       });
 
-      termsDropdown.addEventListener("change", function () {
-        updateSelection("terms", this.value);
-      });
+      // termsDropdown.addEventListener("change", function () {
+      //   updateSelection("terms", this.value);
+      // });
 
       nodesDropdown.addEventListener("change", function () {
         updateSelection("nodes", this.value);
@@ -98,13 +98,14 @@
           localStorage.setItem("threads", 2);
           this.setInitialSelection();
         }
-        if (storedTerms) {
-          termsDropdown.value = storedTerms;
-          updateSelection("terms", storedTerms);
-        } else {
-          localStorage.setItem("terms", 0);
-          this.setInitialSelection();
-        }
+        // if (storedTerms) {
+        //   termsDropdown.value = storedTerms;
+        //   updateSelection("terms", storedTerms);
+        // } else {
+        //   localStorage.setItem("terms", 0);
+        //   this.setInitialSelection();
+        // }
+        localStorage.setItem("terms", 0);
         if (storedNodes) {
           nodesDropdown.value = storedNodes;
           updateSelection("nodes", storedNodes);
@@ -132,9 +133,9 @@
       <a class="navbar-brand" style="margin-left: 10px">Test-Suite</a>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li style="margin-left: 10px" class="nav-item">
+          <!-- <li style="margin-left: 10px" class="nav-item">
             <a data-type="terms">Terms:</a>
-          </li>
+          </li> -->
           <li style="margin-left: 10px" class="nav-item">
             <a data-type="threads">Threads:</a>
           </li>
@@ -180,7 +181,7 @@
                       <option value="64">64</option>
                     </select>
                   </div>
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <label
                       for="termsDropdown"
                       class="form-label"
@@ -197,7 +198,7 @@
                       <option value="100000">100000</option>
                       <option value="10000000">10000000</option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="mb-3">
                     <label for="nodesDropdown" class="form-label">Nodes:</label>
                     <select class="form-select" id="nodesDropdown">

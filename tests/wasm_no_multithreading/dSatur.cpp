@@ -100,6 +100,7 @@ double calculatePiLeibniz(int terms)
     double sum = 0.0;
     for (int i = 0; i < terms; i++)
     {
+        std::cout << "calculate term" << std::endl;
         if (i % 2 == 0)
         {
             sum += 1.0 / (2 * i + 1);
@@ -109,6 +110,7 @@ double calculatePiLeibniz(int terms)
             sum -= 1.0 / (2 * i + 1);
         }
     }
+    std::cout << sum << std::endl;
     return 4 * sum;
 }
 
