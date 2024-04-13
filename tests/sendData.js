@@ -17,7 +17,6 @@ function sendData(
     Implementation: implementation,
     Visualisation: vis
   };
-  console.log(messwert);
   fetch("http://localhost:3000/sendData", {
     method: "POST", // HTTP-Methode
     headers: {

@@ -1,5 +1,6 @@
 import * as go from "gojs";
 import { startTest } from "./test";
+import { sendData } from "../sendData";
 
 var terms = localStorage.getItem("terms");
 var threads = parseInt(localStorage.getItem("threads"), 10);
@@ -281,6 +282,16 @@ async function startPerformanceTest() {
       "thread" + i
     );
   }
+
+  sendData(
+    time,
+    +(memoryAfter.totalJSHeapSize / 1048576).toFixed(2),
+    +calculateGiniCoefficient().toFixed(2),
+    +threads,
+    +nodeCount,
+    "js_sharedMemory_webWorkers",
+    vis
+  );
 }
 
 window.startPerformanceTest = startPerformanceTest;

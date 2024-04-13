@@ -284,7 +284,15 @@ async function startPerformanceTest() {
     );
   }
 
-  sendData(time, +(memoryAfter.totalJSHeapSize / 1048576).toFixed(2),+calculateGiniCoefficient().toFixed(2),+threads,+nodeCount,"js_actor_webWorkers",vis);
+  sendData(
+    time,
+    +(memoryAfter.totalJSHeapSize / 1048576).toFixed(2),
+    +calculateGiniCoefficient().toFixed(2),
+    +threads,
+    +nodeCount,
+    "js_actor_webWorkers",
+    vis
+  );
 }
 
 window.startPerformanceTest = startPerformanceTest;

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 const app = express();
 const port = 3000;
 
@@ -30,6 +31,35 @@ app.get('/webassambly/dSaturSharedMemory',  (req, res) => {
 });
 
 app.post('/sendData', (req, res) => {
-  const messwert = req.body;
-  console.log('Empfangener Messwert:', messwert);
+  const point = req.body;
+  addNewMeasuringPoint("./measurements/measuringPoints.json", point);
 });
+
+function addNewMeasuringPoint(filePath, newObject) {
+    // Datei lesen
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error("Ein Fehler ist aufgetreten beim Lesen der Datei:", err);
+        return;
+      }
+  
+      // JSON parsen
+      const obj = JSON.parse(data);
+  
+      // Neues Objekt zum Array hinzufügen
+      obj.push(newObject);
+  
+      // Objekt zurück in JSON-String konvertieren
+      const updatedJson = JSON.stringify(obj, null, 2);  // 'null, 2' für eine formatierte Ausgabe
+  
+      // JSON-Datei aktualisieren
+      fs.writeFile(filePath, updatedJson, 'utf8', (err) => {
+        if (err) {
+          console.error("Ein Fehler ist aufgetreten beim Schreiben der Datei:", err);
+        } else {
+          console.log("Datei wurde erfolgreich aktualisiert.");
+        }
+      });
+    });
+
+}

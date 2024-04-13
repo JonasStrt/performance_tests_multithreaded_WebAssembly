@@ -1,5 +1,6 @@
 import * as go from "gojs";
 import { startTest } from "./test";
+import { sendData } from "../sendData";
 
 
 var terms = localStorage.getItem("terms");
@@ -282,6 +283,16 @@ async function startPerformanceTest() {
       "thread" + i
     );
   }
+
+  sendData(
+    time,
+    +(memoryAfter.totalJSHeapSize / 1048576).toFixed(2),
+    +calculateGiniCoefficient().toFixed(2),
+    +threads,
+    +nodeCount,
+    "wasm_sharedMemory_pthreads",
+    vis
+  );
 }
 
 window.startPerformanceTest = startPerformanceTest;
