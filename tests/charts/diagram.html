@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <title>GoJS Beispiel</title>
+    <style>
+      body {
+        /* background-color: #343a40;
+        color: #ffffff; */
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 56px); /* Höhe der Navbar abziehen */
+        overflow: hidden;
+      }
+
+      .list-container {
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand" href="../../index.html" style="margin-left: 10px"
+        >Test-Suite</a
+      >
+    </nav>
+
+    <div
+      style="
+        display: flex;
+        width: 95%;
+        height: calc(100vh - 56px);
+        margin: auto;
+        overflow: hidden;
+      "
+    >
+      <!-- Diagram -->
+      <div
+        id="myDiagramDiv"
+        style="
+          flex: 0 0 60%;
+          height: 100%;
+          margin-right: 10px;
+          overflow-y: hidden;
+        "
+      >
+      <canvas id="chart"></canvas></div>
+
+      <!-- Right side container -->
+      <div
+        class="flex-container"
+        style="flex: 0 0 40%; display: flex; flex-direction: column"
+      >
+        <!-- Performance card -->
+        <div class="container mt-3">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Chart
+                  </h5>
+                  <!-- Performance metrics -->
+                  <div class="row">
+                    <div class="col-6">
+                      <h6 class="mt-3">Measurements</h6>
+                      <p id="label1">
+                        Execution Time: <span id="value1">-</span> MS
+                      </p>
+                      <p id="label2">
+                        Total JS HeapSize: <span id="value2">-</span> MB
+                      </p>
+                      <p id="label3">
+                        Used JS HeapSize before: <span id="value3">-</span> MB
+                      </p>
+                      <p id="label4">
+                        Used JS HeapSize after: <span id="value4">-</span> MB
+                      </p>
+                      <p id="label5">
+                        Gini Coefficient (for distribution of nodes among
+                        threads): <span id="value5">-</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Performance test buttons -->
+                  <div class="d-flex justify-content-between mt-3">
+                    <button
+                      class="btn btn-primary me-2"
+                      onclick="generateChart()"
+                    >
+                      Generate chart
+                    </button>
+
+                    <button class="btn btn-primary me-2" id="download-btn">Download Chart</button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="window.location.reload();"
+                    >
+                      Reload
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable List Container -->
+        <div
+          class="container mt-3 list-container"
+          style="flex-grow: 1; overflow-y: auto"
+        >
+          <div class="row justify-content-center">
+            <div class="col-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>

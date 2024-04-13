@@ -1,3 +1,4932 @@
 [
-
+  {
+    "Execution time": 144.75499999895692,
+    "Total Heap Size": 14.22,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.07000000029802,
+    "Total Heap Size": 31.63,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.839999999851,
+    "Total Heap Size": 29.63,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 146.01500000059605,
+    "Total Heap Size": 29.63,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 150.94500000029802,
+    "Total Heap Size": 29.63,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 147.2800000011921,
+    "Total Heap Size": 29.88,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.85000000149012,
+    "Total Heap Size": 30.13,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.5,
+    "Total Heap Size": 30.13,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 149.31499999947846,
+    "Total Heap Size": 30.38,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.375,
+    "Total Heap Size": 29.63,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 430.14000000059605,
+    "Total Heap Size": 34.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 359.7199999988079,
+    "Total Heap Size": 38.25,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 366.589999999851,
+    "Total Heap Size": 37,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 371.43500000052154,
+    "Total Heap Size": 38,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.61999999918044,
+    "Total Heap Size": 38.25,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.695000000298,
+    "Total Heap Size": 38.75,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.5149999987334,
+    "Total Heap Size": 38.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.464999999851,
+    "Total Heap Size": 36.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.65499999932945,
+    "Total Heap Size": 36.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 386.34999999962747,
+    "Total Heap Size": 37.1,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 384.820000000298,
+    "Total Heap Size": 40.3,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 389.43999999947846,
+    "Total Heap Size": 43.71,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 375.80000000074506,
+    "Total Heap Size": 43.71,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 382.0449999999255,
+    "Total Heap Size": 43.8,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 383.160000000149,
+    "Total Heap Size": 42.35,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 385.17500000074506,
+    "Total Heap Size": 35.1,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 384.4900000002235,
+    "Total Heap Size": 36.1,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 380.5550000015646,
+    "Total Heap Size": 38.6,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 413.06499999947846,
+    "Total Heap Size": 40.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.25,
+    "Total Heap Size": 43.85,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.33500000089407,
+    "Total Heap Size": 55.48,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.22000000067055,
+    "Total Heap Size": 75.64,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.99000000022352,
+    "Total Heap Size": 63.14,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.785000000149,
+    "Total Heap Size": 58.98,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 133.75500000081956,
+    "Total Heap Size": 58.98,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 130.875,
+    "Total Heap Size": 58.48,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 133.05499999970198,
+    "Total Heap Size": 58.98,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 132.22000000067055,
+    "Total Heap Size": 58.98,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.83499999903142,
+    "Total Heap Size": 58.98,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.61500000022352,
+    "Total Heap Size": 75.24,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 120.64500000141561,
+    "Total Heap Size": 64.65,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 118.49500000104308,
+    "Total Heap Size": 67.81,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 117.09999999962747,
+    "Total Heap Size": 65.56,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 121.81499999947846,
+    "Total Heap Size": 66.19,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 119.9850000012666,
+    "Total Heap Size": 61.19,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 119.42999999970198,
+    "Total Heap Size": 60.44,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 110.11499999836087,
+    "Total Heap Size": 60.94,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 117.85499999858439,
+    "Total Heap Size": 61.19,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 114.60499999858439,
+    "Total Heap Size": 61.44,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 112.08499999903142,
+    "Total Heap Size": 63.44,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 419.39000000059605,
+    "Total Heap Size": 64.4,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 424.52500000037253,
+    "Total Heap Size": 51.93,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 430.2400000002235,
+    "Total Heap Size": 46.18,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 477.55000000074506,
+    "Total Heap Size": 44.02,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 556.8650000002235,
+    "Total Heap Size": 44.02,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 482.7099999990314,
+    "Total Heap Size": 44.52,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 438.1349999997765,
+    "Total Heap Size": 46.77,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 448.66499999910593,
+    "Total Heap Size": 45.52,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 412.660000000149,
+    "Total Heap Size": 46.27,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 400.7450000010431,
+    "Total Heap Size": 45.02,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 375.69999999925494,
+    "Total Heap Size": 49.74,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 367.80000000074506,
+    "Total Heap Size": 52.72,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 374.0750000011176,
+    "Total Heap Size": 43.72,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 404.99499999918044,
+    "Total Heap Size": 43.56,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 373.97000000067055,
+    "Total Heap Size": 46.97,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 389.86999999918044,
+    "Total Heap Size": 46.47,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 378.39000000059605,
+    "Total Heap Size": 47.97,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 376.52500000037253,
+    "Total Heap Size": 50.06,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 361.035000000149,
+    "Total Heap Size": 51.56,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 369.10500000044703,
+    "Total Heap Size": 53.81,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1659.429999999702,
+    "Total Heap Size": 58.7,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1656.3100000005215,
+    "Total Heap Size": 44.61,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1651.5050000008196,
+    "Total Heap Size": 44.36,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1652.8149999994785,
+    "Total Heap Size": 43.95,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1660.405000001192,
+    "Total Heap Size": 43.7,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1651.859999999404,
+    "Total Heap Size": 43.7,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1654.0999999996275,
+    "Total Heap Size": 43.95,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1658.234999999404,
+    "Total Heap Size": 42.74,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1657.699999999255,
+    "Total Heap Size": 35.74,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1662.609999999404,
+    "Total Heap Size": 37.9,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 327.8850000016391,
+    "Total Heap Size": 14.23,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 338.6299999989569,
+    "Total Heap Size": 22.89,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 345.910000000149,
+    "Total Heap Size": 33.64,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 332.58000000193715,
+    "Total Heap Size": 30.14,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 376.61500000208616,
+    "Total Heap Size": 30.14,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 341.26500000059605,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 378.3850000016391,
+    "Total Heap Size": 30.61,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 348.1550000011921,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 410.8449999988079,
+    "Total Heap Size": 32.11,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 439.39000000059605,
+    "Total Heap Size": 30.61,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 366.7450000010431,
+    "Total Heap Size": 32.32,
+    "Gini coefficient": 0.04,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 368.0249999985099,
+    "Total Heap Size": 37.23,
+    "Gini coefficient": 0.09,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.3349999971688,
+    "Total Heap Size": 40.23,
+    "Gini coefficient": 0.08,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 367.0849999971688,
+    "Total Heap Size": 36.82,
+    "Gini coefficient": 0.14,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 380.839999999851,
+    "Total Heap Size": 37.57,
+    "Gini coefficient": 0.29,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 374.0849999971688,
+    "Total Heap Size": 40.82,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.7750000022352,
+    "Total Heap Size": 43.82,
+    "Gini coefficient": 0.2,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 375.0950000025332,
+    "Total Heap Size": 36.32,
+    "Gini coefficient": 0.14,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 366.785000000149,
+    "Total Heap Size": 35.82,
+    "Gini coefficient": 0.1,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 386.6500000022352,
+    "Total Heap Size": 37.98,
+    "Gini coefficient": 0.06,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.51999999955297,
+    "Total Heap Size": 41.9,
+    "Gini coefficient": 0.19,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 113.21000000089407,
+    "Total Heap Size": 47.06,
+    "Gini coefficient": 0.02,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 109.7200000025332,
+    "Total Heap Size": 49.4,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.10999999940395,
+    "Total Heap Size": 46.75,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 121.4400000013411,
+    "Total Heap Size": 35.75,
+    "Gini coefficient": 0.17,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 116.15000000223517,
+    "Total Heap Size": 45.75,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 113.69500000029802,
+    "Total Heap Size": 48.75,
+    "Gini coefficient": 0.02,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 117.76000000163913,
+    "Total Heap Size": 43.28,
+    "Gini coefficient": 0.02,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 116.63500000163913,
+    "Total Heap Size": 38.03,
+    "Gini coefficient": 0.04,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 115.58500000089407,
+    "Total Heap Size": 38.28,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 390.58500000089407,
+    "Total Heap Size": 40.74,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 403.1149999983609,
+    "Total Heap Size": 44.9,
+    "Gini coefficient": 0.26,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 443.98499999940395,
+    "Total Heap Size": 44.65,
+    "Gini coefficient": 0.02,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 399.07499999925494,
+    "Total Heap Size": 44.24,
+    "Gini coefficient": 0.22,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 433.054999999702,
+    "Total Heap Size": 43.49,
+    "Gini coefficient": 0.07,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 413.4400000013411,
+    "Total Heap Size": 45.74,
+    "Gini coefficient": 0.2,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 397.8450000025332,
+    "Total Heap Size": 43.99,
+    "Gini coefficient": 0.08,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 407.445000000298,
+    "Total Heap Size": 43.49,
+    "Gini coefficient": 0.17,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 401.5599999986589,
+    "Total Heap Size": 42.78,
+    "Gini coefficient": 0.15,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 403.3649999983609,
+    "Total Heap Size": 36.53,
+    "Gini coefficient": 0.06,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 344.945000000298,
+    "Total Heap Size": 40.49,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 358.73000000044703,
+    "Total Heap Size": 44.65,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 354.53999999910593,
+    "Total Heap Size": 44.4,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 355.1550000011921,
+    "Total Heap Size": 43.24,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 336.7550000026822,
+    "Total Heap Size": 45.4,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 361.30000000074506,
+    "Total Heap Size": 47.9,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 351.86500000208616,
+    "Total Heap Size": 46.65,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 348.0999999977648,
+    "Total Heap Size": 48.49,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.96000000089407,
+    "Total Heap Size": 44.74,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 347.29499999806285,
+    "Total Heap Size": 43.49,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 817.0949999988079,
+    "Total Heap Size": 46.67,
+    "Gini coefficient": 0.1,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 828.679999999702,
+    "Total Heap Size": 47.08,
+    "Gini coefficient": 0.05,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 823.8849999979138,
+    "Total Heap Size": 49.83,
+    "Gini coefficient": 0.06,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 822.2899999991059,
+    "Total Heap Size": 49.43,
+    "Gini coefficient": 0.07,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 829.2199999988079,
+    "Total Heap Size": 50.18,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 829.234999999404,
+    "Total Heap Size": 52.67,
+    "Gini coefficient": 0.01,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 822.9050000011921,
+    "Total Heap Size": 49.93,
+    "Gini coefficient": 0.05,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 819.859999999404,
+    "Total Heap Size": 50.67,
+    "Gini coefficient": 0.04,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 820.1550000011921,
+    "Total Heap Size": 48.17,
+    "Gini coefficient": 0.03,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 829.2199999988079,
+    "Total Heap Size": 48.18,
+    "Gini coefficient": 0.13,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 342.214999999851,
+    "Total Heap Size": 12.2,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 340.64500000327826,
+    "Total Heap Size": 22.35,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 365.17500000074506,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 335.53999999910593,
+    "Total Heap Size": 29.36,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 350.0650000013411,
+    "Total Heap Size": 32.1,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 353.89499999955297,
+    "Total Heap Size": 29.36,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 364.49000000208616,
+    "Total Heap Size": 31.35,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 351.96000000089407,
+    "Total Heap Size": 29.86,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 345.9000000022352,
+    "Total Heap Size": 31.35,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 344.86500000208616,
+    "Total Heap Size": 30.35,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 371.82499999925494,
+    "Total Heap Size": 11.94,
+    "Gini coefficient": 0.46,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 371.1200000010431,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0.31,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 363.5400000028312,
+    "Total Heap Size": 33.1,
+    "Gini coefficient": 0.41,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 364.3850000016391,
+    "Total Heap Size": 36.35,
+    "Gini coefficient": 0.42,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 365.589999999851,
+    "Total Heap Size": 28.35,
+    "Gini coefficient": 0.42,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 378.7750000022352,
+    "Total Heap Size": 28.6,
+    "Gini coefficient": 0.33,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 373.5650000013411,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.15,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 376.96000000089407,
+    "Total Heap Size": 31.6,
+    "Gini coefficient": 0.53,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 368.25999999791384,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.59,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 377.5999999977648,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.31,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.01999999955297,
+    "Total Heap Size": 12.16,
+    "Gini coefficient": 0.08,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 109.55000000074506,
+    "Total Heap Size": 23.07,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.86499999836087,
+    "Total Heap Size": 29.82,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.05000000074506,
+    "Total Heap Size": 32.82,
+    "Gini coefficient": 0.23,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.88500000163913,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.05,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.48999999836087,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.08,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 115.17000000178814,
+    "Total Heap Size": 32.32,
+    "Gini coefficient": 0.12,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 110.88999999687076,
+    "Total Heap Size": 29.82,
+    "Gini coefficient": 0.23,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 113.11499999836087,
+    "Total Heap Size": 29.82,
+    "Gini coefficient": 0.06,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 110.42500000074506,
+    "Total Heap Size": 32.82,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 354.429999999702,
+    "Total Heap Size": 11.31,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 357.945000000298,
+    "Total Heap Size": 22.85,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.179999999702,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 372.60500000044703,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 368.64499999955297,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 369.1550000011921,
+    "Total Heap Size": 29.11,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 371.1849999986589,
+    "Total Heap Size": 31.85,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.64499999955297,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 377.2449999973178,
+    "Total Heap Size": 28.6,
+    "Gini coefficient": 0.01,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 365.85999999940395,
+    "Total Heap Size": 28.6,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 432.5950000025332,
+    "Total Heap Size": 11.83,
+    "Gini coefficient": 0.06,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 407.304999999702,
+    "Total Heap Size": 23,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 385.4750000014901,
+    "Total Heap Size": 33.25,
+    "Gini coefficient": 0.06,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 409.9750000014901,
+    "Total Heap Size": 32.75,
+    "Gini coefficient": 0.08,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 411.429999999702,
+    "Total Heap Size": 32.75,
+    "Gini coefficient": 0.04,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 407.17499999701977,
+    "Total Heap Size": 33,
+    "Gini coefficient": 0.04,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 402.28999999910593,
+    "Total Heap Size": 33.25,
+    "Gini coefficient": 0.02,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 412.4749999977648,
+    "Total Heap Size": 33.49,
+    "Gini coefficient": 0.03,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 385.9699999988079,
+    "Total Heap Size": 29.75,
+    "Gini coefficient": 0.07,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 429.304999999702,
+    "Total Heap Size": 32,
+    "Gini coefficient": 0.05,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 350.85500000044703,
+    "Total Heap Size": 13.95,
+    "Gini coefficient": 0.08,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 367.39000000059605,
+    "Total Heap Size": 22.61,
+    "Gini coefficient": 0.07,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 360.945000000298,
+    "Total Heap Size": 33.11,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 355.88499999791384,
+    "Total Heap Size": 36.36,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.48000000044703,
+    "Total Heap Size": 38.6,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 360.45500000193715,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 355.57499999925494,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 358.589999999851,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.07,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 346.160000000149,
+    "Total Heap Size": 29.85,
+    "Gini coefficient": 0.06,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 488.4899999983609,
+    "Total Heap Size": 30.1,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 376.26999999955297,
+    "Total Heap Size": 11.69,
+    "Gini coefficient": 0.76,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 383.01999999955297,
+    "Total Heap Size": 23.1,
+    "Gini coefficient": 0.64,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 379.20499999821186,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.71,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 551.1550000011921,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.43,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.29499999806285,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.64,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 379.19999999925494,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.7,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 390.39499999955297,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.71,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 397.06999999657273,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.61,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 384.679999999702,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.69,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 379.4049999974668,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.78,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 132.76999999955297,
+    "Total Heap Size": 13.91,
+    "Gini coefficient": 0.28,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 117.32000000029802,
+    "Total Heap Size": 24.57,
+    "Gini coefficient": 0.32,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 113.05000000074506,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.35,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 110.14999999850988,
+    "Total Heap Size": 31.07,
+    "Gini coefficient": 0.41,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 115.00500000268221,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.36,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 114.23499999940395,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.21,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.4400000013411,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.4,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 114.83999999985099,
+    "Total Heap Size": 31.07,
+    "Gini coefficient": 0.27,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 113.05000000074506,
+    "Total Heap Size": 31.07,
+    "Gini coefficient": 0.45,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 111.10499999672174,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.34,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 384.8099999986589,
+    "Total Heap Size": 11.06,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.85500000044703,
+    "Total Heap Size": 22.35,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 366.55000000074506,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 377.04500000178814,
+    "Total Heap Size": 31.85,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 388.07499999925494,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 365.64000000059605,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.035000000149,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.32999999821186,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.03,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 381.3500000014901,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 374.089999999851,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.06,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 186.5949999988079,
+    "Total Heap Size": 12.34,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 188.3099999986589,
+    "Total Heap Size": 23.5,
+    "Gini coefficient": 0.08,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 184.089999999851,
+    "Total Heap Size": 33.75,
+    "Gini coefficient": 0.06,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 202.77499999850988,
+    "Total Heap Size": 33.5,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 212.410000000149,
+    "Total Heap Size": 33.5,
+    "Gini coefficient": 0.07,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 182.28999999910593,
+    "Total Heap Size": 33.25,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 194.64999999850988,
+    "Total Heap Size": 33,
+    "Gini coefficient": 0.04,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 193.55499999970198,
+    "Total Heap Size": 33.75,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 195.58000000193715,
+    "Total Heap Size": 33.5,
+    "Gini coefficient": 0.11,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 212.21000000089407,
+    "Total Heap Size": 33.5,
+    "Gini coefficient": 0.05,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.964999999851,
+    "Total Heap Size": 13.95,
+    "Gini coefficient": 0.12,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 383.14499999955297,
+    "Total Heap Size": 22.35,
+    "Gini coefficient": 0.09,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.8450000025332,
+    "Total Heap Size": 29.85,
+    "Gini coefficient": 0.11,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 365.33000000193715,
+    "Total Heap Size": 29.86,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 381.1849999986589,
+    "Total Heap Size": 31.61,
+    "Gini coefficient": 0.09,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.1849999986589,
+    "Total Heap Size": 34.85,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 367.98000000044703,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 378.39499999955297,
+    "Total Heap Size": 29.36,
+    "Gini coefficient": 0.09,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 381.679999999702,
+    "Total Heap Size": 31.6,
+    "Gini coefficient": 0.11,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 378.9750000014901,
+    "Total Heap Size": 29.86,
+    "Gini coefficient": 0.13,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 412.1850000023842,
+    "Total Heap Size": 11.69,
+    "Gini coefficient": 0.76,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 381,
+    "Total Heap Size": 22.1,
+    "Gini coefficient": 0.8,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 446.2750000022352,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.87,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 370.26500000059605,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.84,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 441.1149999983609,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.75,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 383.1549999974668,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.83,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 407.445000000298,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.71,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 400.2600000016391,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.77,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 404.410000000149,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.81,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 386.23499999940395,
+    "Total Heap Size": 29.85,
+    "Gini coefficient": 0.88,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 415.01499999687076,
+    "Total Heap Size": 11.95,
+    "Gini coefficient": 0.06,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 409.51999999955297,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0.08,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 413.23000000044703,
+    "Total Heap Size": 28.86,
+    "Gini coefficient": 0.11,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 411.0050000026822,
+    "Total Heap Size": 30.86,
+    "Gini coefficient": 0.07,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 411.8150000013411,
+    "Total Heap Size": 33.85,
+    "Gini coefficient": 0.07,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 416.9349999986589,
+    "Total Heap Size": 29.36,
+    "Gini coefficient": 0.07,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 414.61500000208616,
+    "Total Heap Size": 30.85,
+    "Gini coefficient": 0.07,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 408.26999999955297,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.08,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 421.75,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.05,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 424.07500000298023,
+    "Total Heap Size": 29.6,
+    "Gini coefficient": 0.08,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 434.75,
+    "Total Heap Size": 12.2,
+    "Gini coefficient": 0.28,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 663.3850000016391,
+    "Total Heap Size": 22.35,
+    "Gini coefficient": 0.28,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 580.7899999991059,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 439.464999999851,
+    "Total Heap Size": 28.35,
+    "Gini coefficient": 0.3,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 482.38499999791384,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.28,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 461.38499999791384,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 408.42500000074506,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.28,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 417.1200000010431,
+    "Total Heap Size": 29.11,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 401.9150000028312,
+    "Total Heap Size": 31.85,
+    "Gini coefficient": 0.3,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 385.4000000022352,
+    "Total Heap Size": 30.11,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 438.67500000074506,
+    "Total Heap Size": 11.19,
+    "Gini coefficient": 0.88,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 425.3450000025332,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0.91,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 413.92000000178814,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.89,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 414.10999999940395,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.89,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 427.44999999925494,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0.88,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 440.23499999940395,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.88,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 425.9749999977648,
+    "Total Heap Size": 28.6,
+    "Gini coefficient": 0.92,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 431.25,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.87,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 437.0649999976158,
+    "Total Heap Size": 32.35,
+    "Gini coefficient": 0.92,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 427.80500000342727,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0.9,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 464.45500000193715,
+    "Total Heap Size": 12.31,
+    "Gini coefficient": 0.32,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 448.91999999806285,
+    "Total Heap Size": 22.85,
+    "Gini coefficient": 0.32,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 482.554999999702,
+    "Total Heap Size": 29.85,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 509.83000000193715,
+    "Total Heap Size": 28.85,
+    "Gini coefficient": 0.32,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 501.71000000089407,
+    "Total Heap Size": 30.11,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 495.10500000044703,
+    "Total Heap Size": 32.86,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 471.51500000059605,
+    "Total Heap Size": 35.35,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 445.2749999985099,
+    "Total Heap Size": 29.85,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 459.4000000022352,
+    "Total Heap Size": 30.61,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 453.46000000089407,
+    "Total Heap Size": 32.1,
+    "Gini coefficient": 0.31,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.1900000013411,
+    "Total Heap Size": 17.93,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.50499999895692,
+    "Total Heap Size": 31.84,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.035000000149,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.98000000044703,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.35500000044703,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.7799999974668,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.94500000029802,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 138.40000000223517,
+    "Total Heap Size": 32.84,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.6849999986589,
+    "Total Heap Size": 31.09,
+    "Gini coefficient": 0,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.83000000193715,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128,
+    "Total Heap Size": 39.52,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.07000000029802,
+    "Total Heap Size": 62.27,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.24500000104308,
+    "Total Heap Size": 80.03,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 119.11000000312924,
+    "Total Heap Size": 99.03,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.43500000238419,
+    "Total Heap Size": 53.52,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.2800000011921,
+    "Total Heap Size": 47.27,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.13499999791384,
+    "Total Heap Size": 47.27,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.3449999988079,
+    "Total Heap Size": 47.27,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.23000000044703,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.44499999657273,
+    "Total Heap Size": 17.68,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.44500000029802,
+    "Total Heap Size": 30.59,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 136.85500000044703,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 138.23499999940395,
+    "Total Heap Size": 29.09,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.92999999970198,
+    "Total Heap Size": 29.09,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.17000000178814,
+    "Total Heap Size": 31.34,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.17500000074506,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.10999999940395,
+    "Total Heap Size": 28.84,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.0299999974668,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 147.86500000208616,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 133.51000000163913,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.89999999850988,
+    "Total Heap Size": 39.52,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.76500000059605,
+    "Total Heap Size": 62.02,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 123.35999999940395,
+    "Total Heap Size": 48.02,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.27000000327826,
+    "Total Heap Size": 46.52,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.15000000223517,
+    "Total Heap Size": 46.52,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.57000000029802,
+    "Total Heap Size": 62.52,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 130.51999999955297,
+    "Total Heap Size": 49.27,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.71000000089407,
+    "Total Heap Size": 63.27,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.07999999821186,
+    "Total Heap Size": 48.52,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 149.99500000104308,
+    "Total Heap Size": 18.68,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.535000000149,
+    "Total Heap Size": 32.09,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.9949999973178,
+    "Total Heap Size": 33.09,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.42500000074506,
+    "Total Heap Size": 29.09,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.17999999970198,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 146.26999999955297,
+    "Total Heap Size": 29.09,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 146.6550000011921,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.464999999851,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.67000000178814,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.64000000059605,
+    "Total Heap Size": 31.34,
+    "Gini coefficient": 0,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.4700000025332,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 130.13500000163913,
+    "Total Heap Size": 39.52,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.625,
+    "Total Heap Size": 45.27,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 123.78500000014901,
+    "Total Heap Size": 61.02,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.95999999716878,
+    "Total Heap Size": 47.77,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.10999999940395,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.77500000223517,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.65000000223517,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.76500000059605,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.39000000059605,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.88,
+    "Threads": 8,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.1300000026822,
+    "Total Heap Size": 17.93,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.964999999851,
+    "Total Heap Size": 30.34,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 136.86500000208616,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.9050000011921,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.89999999850988,
+    "Total Heap Size": 32.09,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.42999999970198,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.5650000013411,
+    "Total Heap Size": 28.84,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.57000000029802,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.7200000025332,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.54000000283122,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.54000000283122,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.14999999850988,
+    "Total Heap Size": 40.02,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.46000000089407,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 127.78500000014901,
+    "Total Heap Size": 46.27,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.94500000029802,
+    "Total Heap Size": 62.27,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.32000000029802,
+    "Total Heap Size": 80.53,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 124.92499999701977,
+    "Total Heap Size": 100.03,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.23499999940395,
+    "Total Heap Size": 54.27,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 121.69999999925494,
+    "Total Heap Size": 46.27,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.625,
+    "Total Heap Size": 46.27,
+    "Gini coefficient": 0.94,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.464999999851,
+    "Total Heap Size": 17.68,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.2800000011921,
+    "Total Heap Size": 30.34,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.32000000029802,
+    "Total Heap Size": 29.09,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.60000000149012,
+    "Total Heap Size": 29.34,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.125,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.66999999806285,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.8150000013411,
+    "Total Heap Size": 30.09,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.45000000298023,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.14999999850988,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.94999999925494,
+    "Total Heap Size": 29.84,
+    "Gini coefficient": 0,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.76999999955297,
+    "Total Heap Size": 28.11,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.4949999973178,
+    "Total Heap Size": 39.02,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 127.20500000193715,
+    "Total Heap Size": 61.52,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.66000000014901,
+    "Total Heap Size": 47.77,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.5600000023842,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 122.42500000074506,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 146.89499999955297,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.964999999851,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 126.1900000013411,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.17499999701977,
+    "Total Heap Size": 45.77,
+    "Gini coefficient": 0.97,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.89999999850988,
+    "Total Heap Size": 11.93,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 136.12000000104308,
+    "Total Heap Size": 23.09,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.95499999821186,
+    "Total Heap Size": 29.59,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 368.67500000074506,
+    "Total Heap Size": 12.2,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 354.5650000013411,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 371.0049999989569,
+    "Total Heap Size": 28.35,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 373.6299999989569,
+    "Total Heap Size": 12.19,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 361.429999999702,
+    "Total Heap Size": 23.1,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 373.5100000016391,
+    "Total Heap Size": 29.1,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "js_sharedMemory_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 134.26500000059605,
+    "Total Heap Size": 30.36,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 127.08000000193715,
+    "Total Heap Size": 39.27,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 125.8099999986589,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.5,
+    "Total Heap Size": 46.02,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 121.29999999701977,
+    "Total Heap Size": 14.91,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 114.9349999986589,
+    "Total Heap Size": 24.57,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 116.46499999985099,
+    "Total Heap Size": 31.07,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 406.35999999940395,
+    "Total Heap Size": 11.31,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 388.5650000013411,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 392.660000000149,
+    "Total Heap Size": 29.35,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_webWorker",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 369.42500000074506,
+    "Total Heap Size": 11.06,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 360.83500000089407,
+    "Total Heap Size": 22.6,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_webWorkers",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1653.719999998808,
+    "Total Heap Size": 12.09,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1652.3149999976158,
+    "Total Heap Size": 22.99,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 1662.929999999702,
+    "Total Heap Size": 29.99,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 151.14499999955297,
+    "Total Heap Size": 19.66,
+    "Gini coefficient": 0.21,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 154.95500000193715,
+    "Total Heap Size": 32.07,
+    "Gini coefficient": 0.23,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.87999999895692,
+    "Total Heap Size": 31.57,
+    "Gini coefficient": 0.19,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 155.36499999836087,
+    "Total Heap Size": 32.82,
+    "Gini coefficient": 0.24,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 134.80499999970198,
+    "Total Heap Size": 31.07,
+    "Gini coefficient": 0.15,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 133.72500000149012,
+    "Total Heap Size": 30.07,
+    "Gini coefficient": 0.16,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.5650000013411,
+    "Total Heap Size": 30.07,
+    "Gini coefficient": 0.23,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.77000000327826,
+    "Total Heap Size": 30.07,
+    "Gini coefficient": 0.16,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 134.67999999970198,
+    "Total Heap Size": 30.07,
+    "Gini coefficient": 0.23,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.82000000029802,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.15,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.714999999851,
+    "Total Heap Size": 30.57,
+    "Gini coefficient": 0.17,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.48000000044703,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.2,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 396.05000000074506,
+    "Total Heap Size": 13.2,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 372.20500000193715,
+    "Total Heap Size": 24.11,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 369.39000000059605,
+    "Total Heap Size": 34.86,
+    "Gini coefficient": 0.15,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 358.3850000016391,
+    "Total Heap Size": 33.36,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 341.7449999973178,
+    "Total Heap Size": 36.37,
+    "Gini coefficient": 0.11,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 350.03999999910593,
+    "Total Heap Size": 38.86,
+    "Gini coefficient": 0.14,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 357.8449999988079,
+    "Total Heap Size": 35.86,
+    "Gini coefficient": 0.13,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 377.77000000327826,
+    "Total Heap Size": 33.86,
+    "Gini coefficient": 0.15,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 462.39499999955297,
+    "Total Heap Size": 34.11,
+    "Gini coefficient": 0.12,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 381.3799999989569,
+    "Total Heap Size": 34.36,
+    "Gini coefficient": 0.13,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.0949999988079,
+    "Total Heap Size": 34.61,
+    "Gini coefficient": 0.1,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 369.92000000178814,
+    "Total Heap Size": 33.11,
+    "Gini coefficient": 0.12,
+    "Threads": 16,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 180.45500000193715,
+    "Total Heap Size": 19.66,
+    "Gini coefficient": 0.21,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 172.53999999910593,
+    "Total Heap Size": 32.32,
+    "Gini coefficient": 0.25,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.1549999974668,
+    "Total Heap Size": 30.82,
+    "Gini coefficient": 0.27,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 142.64999999850988,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.3,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.035000000149,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.33,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 148.45500000193715,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.25,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 151.70499999821186,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 186.30000000074506,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.24,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 145.85500000044703,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.27,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 170.60000000149012,
+    "Total Heap Size": 30.57,
+    "Gini coefficient": 0.28,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 147.82999999821186,
+    "Total Heap Size": 30.57,
+    "Gini coefficient": 0.29,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 138.62000000104308,
+    "Total Heap Size": 30.32,
+    "Gini coefficient": 0.34,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_sharedMemory_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 375.44499999657273,
+    "Total Heap Size": 13.2,
+    "Gini coefficient": 0.16,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 360.804999999702,
+    "Total Heap Size": 25.7,
+    "Gini coefficient": 0.14,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.0650000013411,
+    "Total Heap Size": 25.36,
+    "Gini coefficient": 0.14,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 345.07499999925494,
+    "Total Heap Size": 34.36,
+    "Gini coefficient": 0.16,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 402.875,
+    "Total Heap Size": 33.86,
+    "Gini coefficient": 0.16,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 372.8099999986589,
+    "Total Heap Size": 33.61,
+    "Gini coefficient": 0.15,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 361.1900000013411,
+    "Total Heap Size": 35.86,
+    "Gini coefficient": 0.17,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 411.66499999910593,
+    "Total Heap Size": 35.11,
+    "Gini coefficient": 0.18,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 346.7549999989569,
+    "Total Heap Size": 34.86,
+    "Gini coefficient": 0.16,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 362.94999999925494,
+    "Total Heap Size": 33.86,
+    "Gini coefficient": 0.12,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 379.375,
+    "Total Heap Size": 34.11,
+    "Gini coefficient": 0.18,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 367.195000000298,
+    "Total Heap Size": 34.36,
+    "Gini coefficient": 0.14,
+    "Threads": 32,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_actor_pthreads",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 138.375,
+    "Total Heap Size": 30.93,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 134.22999999672174,
+    "Total Heap Size": 40.09,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 132.65000000223517,
+    "Total Heap Size": 48.24,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.7800000011921,
+    "Total Heap Size": 48.49,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.89999999850988,
+    "Total Heap Size": 64.5,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 128.02500000223517,
+    "Total Heap Size": 50.84,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.67999999970198,
+    "Total Heap Size": 47.09,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 133.09999999776483,
+    "Total Heap Size": 46.59,
+    "Gini coefficient": 0,
+    "Threads": 1,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 131.07499999925494,
+    "Total Heap Size": 62.63,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.12000000104308,
+    "Total Heap Size": 64.88,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 141.07499999925494,
+    "Total Heap Size": 65.13,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 129.17999999970198,
+    "Total Heap Size": 65.13,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.89999999850988,
+    "Total Heap Size": 65.88,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 143.0949999988079,
+    "Total Heap Size": 65.88,
+    "Gini coefficient": 0.5,
+    "Threads": 2,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 136.66500000283122,
+    "Total Heap Size": 82.16,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 135.26999999955297,
+    "Total Heap Size": 84.16,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 140.41999999806285,
+    "Total Heap Size": 84.91,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 138.8099999986589,
+    "Total Heap Size": 84.66,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 137.23000000044703,
+    "Total Heap Size": 84.91,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 146.125,
+    "Total Heap Size": 87.04,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 144.36499999836087,
+    "Total Heap Size": 87.29,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  },
+  {
+    "Execution time": 139.04500000178814,
+    "Total Heap Size": 87.54,
+    "Gini coefficient": 0.75,
+    "Threads": 4,
+    "Nodes": 100,
+    "Browser": "Chrome",
+    "Implementation": "wasm_no_multithreading",
+    "Visualisation": true
+  }
 ]

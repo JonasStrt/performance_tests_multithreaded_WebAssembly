@@ -21,6 +21,7 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
@@ -28,6 +29,11 @@ app.listen(port, () => {
 app.get('/webassambly/dSaturSharedMemory',  (req, res) => {
   res.type('application/wasm');
   res.sendFile(path.join(__dirname, '/tests/assemblyScript_sharedMemory_webWorker/dSaturSharedMemory.wasm'));
+});
+
+app.get('/data',  (req, res) => {
+  res.type('application/json');
+  res.sendFile(path.join(__dirname, '/measurements/measuringPoints.json'));
 });
 
 app.post('/sendData', (req, res) => {
