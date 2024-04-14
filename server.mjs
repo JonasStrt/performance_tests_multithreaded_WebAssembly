@@ -52,10 +52,14 @@ function addNewMeasuringPoint(filePath, newObject) {
       // JSON parsen
       const obj = JSON.parse(data);
   
-      // Neues Objekt zum Array hinzufügen
-      obj.push(newObject);
-  
-      // Objekt zurück in JSON-String konvertieren
+      // obj.push(newObject);
+      // obj.forEach(item => {
+      //   if(item["Implementation"] === "js_no_multithreading" || item["Implementation"] === "wasm_no_multithreading") {
+      //     item["Threads"] = 0;
+      //     item["Gini coefficient"] = 0;
+      //   }
+      // })
+
       const updatedJson = JSON.stringify(obj, null, 2);  // 'null, 2' für eine formatierte Ausgabe
   
       // JSON-Datei aktualisieren

@@ -286,8 +286,8 @@ async function startPerformanceTest() {
   sendData(
     time,
     +(memoryAfter.totalJSHeapSize / 1048576).toFixed(2),
-    +calculateGiniCoefficient().toFixed(2),
-    +threads,
+    0,
+    0,
     +nodeCount,
     "js_no_multithreading",
     vis
