@@ -52,7 +52,7 @@ function addNewMeasuringPoint(filePath, newObject) {
       // JSON parsen
       const obj = JSON.parse(data);
   
-      // obj.push(newObject);
+      obj.push(newObject);
       // obj.forEach(item => {
       //   if(item["Implementation"] === "js_no_multithreading" || item["Implementation"] === "wasm_no_multithreading") {
       //     item["Threads"] = 0;
