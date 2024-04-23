@@ -8,27 +8,29 @@ var nodesValue;
 var browserValue;
 var visualizationChecked;
 var valueSelection;
-
+var termsValue;
 // async function initDataSet(xParam, yParam, browser, vis, nodes) {
 //   const response = await fetch('/data');
 //   data = await response.json();
 //   console.log(data);
 // }
 
-async function initDataSet(xParam, yParam, browser, vis, nodes) {
+async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
   const response = await fetch("/data");
   const rawData = await response.json();
   console.log(yParam);
   console.log(browser);
   console.log(vis);
   console.log(nodes);
+  console.log(terms)
 
   // Filter the data based on browser, visualisation, and nodes criteria
   const filteredData = rawData.filter(
     (item) =>
       item.Browser === browser &&
       item.Visualisation === vis &&
-      item.Nodes === nodes
+      item.Nodes === nodes &&
+      item.Terms === terms
   );
 
   // Group and calculate average values per implementation and thread count
@@ -77,7 +79,8 @@ async function generateChart() {
     valueSelection.toString(),
     browserValue.toString(),
     visualizationChecked,
-    nodesValue
+    nodesValue,
+    termsValue
   );
   myChart = new Chart(document.getElementById("chart"), {
     type: "line",
@@ -139,6 +142,7 @@ function getFormValues() {
   browserValue = document.getElementById("browserDropdown").value;
   visualizationChecked = document.getElementById("flexSwitchCheckDefault").checked;
   valueSelection = document.getElementById("valueDropdown").value;
+  termsValue = parseInt(document.getElementById("termsDropdown").value);
 }
 window.generateChart = generateChart;
 export { generateChart };
