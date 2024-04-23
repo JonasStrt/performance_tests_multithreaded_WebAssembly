@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <atomic>
 #include <emscripten.h>
+#include <cmath>
+#include <iomanip>
 
 extern "C"
 {
@@ -187,7 +189,7 @@ void unlockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector
 
 double calculatePiLeibniz(int terms)
 {
-    double sum = 0.0;
+    volatile long double sum = 0.0;
     for (int i = 0; i < terms; i++)
     {
         if (i % 2 == 0)
@@ -199,7 +201,10 @@ double calculatePiLeibniz(int terms)
             sum -= 1.0 / (2 * i + 1);
         }
     }
-    return 4 * sum;
+    long double pi = 4 * sum;
+    std::cout << "Pi berechnet mit " << terms << " Termen: "
+              << std::setprecision(20) << pi << std::endl;
+    return pi;
 }
 
 void *dSatur(void *arg)
@@ -240,9 +245,9 @@ void *dSatur(void *arg)
             if (node->lock.load() == 0)
             {
                 lockAdjacentNodes(*node, nodes, links);
-                node->color.store(color);
                 updateSaturation(node->key, color, nodes, links);
-                calculatePiLeibniz(terms); // Simuliere Berechnungsaufwand
+                node->color.store(color);
+                calculatePiLeibniz(terms + color);
                 unlockAdjacentNodes(*node, nodes, links);
                 // changeNodeColorJS(node->key, node->color, threadId);
                 emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIII, changeNodeColorCallback, node->key, color, threadId);
@@ -338,6 +343,5 @@ extern "C"
             links[i] = {linksData[i * 2], linksData[i * 2 + 1]};
         }
         invokeThreads(numThreads, nodes, links, terms);
-
     }
 }

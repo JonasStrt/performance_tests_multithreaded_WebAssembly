@@ -5375,6 +5375,7 @@ function threadsFinishedJS() { Module.threadsFinished(); }
   
   
   
+  
   var stringToUTF8 = (str, outPtr, maxBytesToWrite) => {
       assert(typeof maxBytesToWrite == 'number', 'stringToUTF8(str, outPtr, maxBytesToWrite) is missing the third parameter that specifies the length of the output buffer!');
       return stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite);
@@ -5444,8 +5445,6 @@ function threadsFinishedJS() { Module.threadsFinished(); }
       ret = onDone(ret);
       return ret;
     };
-
-  
   
     /**
      * @param {string=} returnType
@@ -5457,6 +5456,8 @@ function threadsFinishedJS() { Module.threadsFinished(); }
         return ccall(ident, returnType, argTypes, arguments, opts);
       }
     };
+
+
 
 
 PThread.init();;
@@ -5616,16 +5617,17 @@ var dynCall_viijii = Module['dynCall_viijii'] = createExportWrapper('dynCall_vii
 var dynCall_iiiiij = Module['dynCall_iiiiij'] = createExportWrapper('dynCall_iiiiij');
 var dynCall_iiiiijj = Module['dynCall_iiiiijj'] = createExportWrapper('dynCall_iiiiijj');
 var dynCall_iiiiiijj = Module['dynCall_iiiiiijj'] = createExportWrapper('dynCall_iiiiiijj');
-var ___start_em_js = Module['___start_em_js'] = 81916;
-var ___stop_em_js = Module['___stop_em_js'] = 82058;
+var ___start_em_js = Module['___start_em_js'] = 81948;
+var ___stop_em_js = Module['___stop_em_js'] = 82090;
 
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===
 
 Module['wasmMemory'] = wasmMemory;
 Module['keepRuntimeAlive'] = keepRuntimeAlive;
-Module['ccall'] = ccall;
 Module['cwrap'] = cwrap;
+Module['setValue'] = setValue;
+Module['getValue'] = getValue;
 Module['ExitStatus'] = ExitStatus;
 var missingLibrarySymbols = [
   'writeI53ToI64',
@@ -5852,10 +5854,9 @@ var unexportedSymbols = [
   'wasmTable',
   'noExitRuntime',
   'getCFunc',
+  'ccall',
   'freeTableIndexes',
   'functionsInTableMap',
-  'setValue',
-  'getValue',
   'PATH',
   'PATH_FS',
   'UTF8Decoder',

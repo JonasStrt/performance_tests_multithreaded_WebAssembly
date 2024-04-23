@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Desktop/HRW/Master/masterarbeit/performance_tests_multithreaded_WebAssembly/tests/wasm_actor_16pthreads",
-      "program": "d:/Desktop/HRW/Master/masterarbeit/performance_tests_multithreaded_WebAssembly/tests/wasm_actor_16pthreads/build/Debug/outDebug",
+      "cwd": "d:/Desktop/HRW/Master/masterarbeit/performance_tests_multithreaded_WebAssembly/tests/wasm_actor_2pthreads",
+      "program": "d:/Desktop/HRW/Master/masterarbeit/performance_tests_multithreaded_WebAssembly/tests/wasm_actor_2pthreads/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

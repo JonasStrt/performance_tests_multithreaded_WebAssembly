@@ -2,6 +2,9 @@
 #include <vector>
 #include <algorithm>
 #include <emscripten.h>
+#include <cmath>
+#include <iomanip>
+
 
 // Deklariert die JavaScript-Funktion
 EM_JS(void, changeNodeColorJS, (int nodeKey, int newColorCode, int thread), {
@@ -97,10 +100,9 @@ void updateSaturation(int nodeKey, int color, std::vector<Node> &nodes, const st
 
 double calculatePiLeibniz(int terms)
 {
-    double sum = 0.0;
+    volatile long double sum = 0.0;
     for (int i = 0; i < terms; i++)
     {
-        std::cout << "calculate term" << std::endl;
         if (i % 2 == 0)
         {
             sum += 1.0 / (2 * i + 1);
@@ -110,8 +112,10 @@ double calculatePiLeibniz(int terms)
             sum -= 1.0 / (2 * i + 1);
         }
     }
-    std::cout << sum << std::endl;
-    return 4 * sum;
+    long double pi = 4 * sum;
+    std::cout << "Pi berechnet mit " << terms << " Termen: "
+              << std::setprecision(20) << pi << std::endl;
+    return pi;
 }
 
 void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms)
@@ -142,11 +146,10 @@ void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms)
             if (adjacentColored)
                 ++color;
         } while (adjacentColored);
-
-        calculatePiLeibniz(terms); // Simuliere Berechnungsaufwand
         node->color = color;
         updateSaturation(node->key, node->color, nodes, links);
         changeNodeColorJS(node->key, node->color, 0);
+        calculatePiLeibniz(terms+ color);
         node = selectNode(nodes, links);
     }
 }

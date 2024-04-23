@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <emscripten.h>
 #include <emscripten/threading.h>
-
+#include <cmath>
+#include <iomanip>
 struct Node
 {
     int key;
@@ -178,7 +179,7 @@ void unlockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector
 
 double calculatePiLeibniz(int terms)
 {
-    double sum = 0.0;
+    volatile long double sum = 0.0;
     for (int i = 0; i < terms; i++)
     {
         if (i % 2 == 0)
@@ -190,7 +191,10 @@ double calculatePiLeibniz(int terms)
             sum -= 1.0 / (2 * i + 1);
         }
     }
-    return 4 * sum;
+    long double pi = 4 * sum;
+    std::cout << "Pi berechnet mit " << terms << " Termen: "
+              << std::setprecision(20) << pi << std::endl;
+    return pi;
 }
 
 void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms, int threadId)
@@ -228,7 +232,7 @@ void dSatur(std::vector<Node> &nodes, std::vector<Link> &links, int terms, int t
                 lockAdjacentNodes(*node, nodes, links);
                 setNodeAttribute(node->key, 1, color);
                 updateSaturation(node->key, color, nodes, links);
-                calculatePiLeibniz(terms);
+                calculatePiLeibniz(terms + color);
                 unlockAdjacentNodes(*node, nodes, links);
                 changeNodeColorJS(node->key, color, threadId);
             }

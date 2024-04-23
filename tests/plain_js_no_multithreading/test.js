@@ -101,7 +101,8 @@ function dSatur() {
     ) {
       color++;
     }
-    calculatePiLeibniz(terms);
+    calculatePiLeibniz(terms + color);
+
     node.color = color;
     changeNodeColor(node.key, node.color, null);
     updateSaturation(node.key, color);
@@ -126,7 +127,7 @@ function calculatePiLeibniz(terms) {
       sum -= 1.0 / (2 * i + 1);
     }
   }
-  console.log(sum);
+  console.log(4*sum);
   return 4 * sum;
 }
 

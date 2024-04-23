@@ -11,7 +11,8 @@
 #include <emscripten.h>
 #include <emscripten/threading.h>
 #include <deque>
-
+#include <cmath>
+#include <iomanip>
 struct Node
 {
     int key;
@@ -339,7 +340,7 @@ private:
 
     double calculatePiLeibniz(int terms)
     {
-        double sum = 0.0;
+        volatile long double sum = 0.0;
         for (int i = 0; i < terms; i++)
         {
             if (i % 2 == 0)
@@ -351,7 +352,10 @@ private:
                 sum -= 1.0 / (2 * i + 1);
             }
         }
-        return 4 * sum;
+        long double pi = 4 * sum;
+        std::cout << "Pi berechnet mit " << terms << " Termen: "
+                  << std::setprecision(20) << pi << std::endl;
+        return pi;
     }
 
     int dSaturSingleNode(int nodeKey)
@@ -383,8 +387,7 @@ private:
             if (adjacentColored)
                 ++color;
         } while (adjacentColored);
-
-        calculatePiLeibniz(globalTerms);
+        calculatePiLeibniz(globalTerms + color);
         return color;
     }
 

@@ -1,4 +1,3 @@
-
 /**
  * Calculates an approximation of Pi using the Leibniz formula.
  * This function is used to simulate computational work for the performance test.
@@ -15,6 +14,7 @@ function calculatePiLeibniz(terms) {
       sum -= 1.0 / (2 * i + 1);
     }
   }
+  console.log(4*sum);
   return 4 * sum;
 }
 
@@ -32,13 +32,18 @@ function dSaturSingleNode(nodeToColor, nodes, links, terms) {
   ) {
     color++;
   }
-  calculatePiLeibniz(terms);
+
+  calculatePiLeibniz(terms + color);
   nodeToColor.color = color;
   return nodeToColor;
 }
 
-self.addEventListener('message', function(e) {
-  const result = dSaturSingleNode(e.data["node"], e.data["nodes"], e.data["links"], e.data["terms"]);
+self.addEventListener("message", function (e) {
+  const result = dSaturSingleNode(
+    e.data["node"],
+    e.data["nodes"],
+    e.data["links"],
+    e.data["terms"]
+  );
   postMessage(result);
 });
-

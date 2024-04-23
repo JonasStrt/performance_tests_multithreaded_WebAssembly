@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <emscripten.h>
+#include <cmath>
+#include <iomanip>
 
 struct Node
 {
@@ -19,7 +21,7 @@ struct Link
 
 double calculatePiLeibniz(int terms)
 {
-    double sum = 0.0;
+    volatile long double sum = 0.0;
     for (int i = 0; i < terms; i++)
     {
         if (i % 2 == 0)
@@ -31,7 +33,10 @@ double calculatePiLeibniz(int terms)
             sum -= 1.0 / (2 * i + 1);
         }
     }
-    return 4 * sum;
+    long double pi = 4 * sum;
+    std::cout << "Pi berechnet mit " << terms << " Termen: "
+              << std::setprecision(20) << pi << std::endl;
+    return pi;
 }
 
 int dSaturSingleNode(int nodeKey, std::vector<Node> &nodes, std::vector<Link> &links, int terms)
@@ -63,8 +68,7 @@ int dSaturSingleNode(int nodeKey, std::vector<Node> &nodes, std::vector<Link> &l
         if (adjacentColored)
             ++color;
     } while (adjacentColored);
-
-    calculatePiLeibniz(terms);
+    calculatePiLeibniz(terms + color);
     return color;
 }
 
