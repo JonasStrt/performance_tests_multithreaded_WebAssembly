@@ -243,6 +243,9 @@ function getMemoryUsage() {
 }
 
 function calculateGiniCoefficient() {
+  while(threadNodeCount.length < threads) {
+    threadNodeCount.push(0);
+  }
   const sortedTasks = threadNodeCount.slice().sort((a, b) => a - b);
   const n = sortedTasks.length;
   let kumulativeSummen = 0;
