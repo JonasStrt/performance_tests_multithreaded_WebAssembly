@@ -52,12 +52,12 @@ function addNewMeasuringPoint(filePath, newObject) {
       // JSON parsen
       let obj = JSON.parse(data);
   
-      //obj.push(newObject);
+      obj.push(newObject);
 
-      obj = obj.filter(item => item.Implementation !== "wasm_actor_pthreads");
-      obj.forEach(item => {
-        item["Terms"] = 0;
-      })
+      // obj = obj.filter(item => item.Implementation !== "wasm_actor_pthreads");
+      // obj.forEach(item => {
+      //   item["Terms"] = 0;
+      // })
 
       const updatedJson = JSON.stringify(obj, null, 2);  // 'null, 2' für eine formatierte Ausgabe
   

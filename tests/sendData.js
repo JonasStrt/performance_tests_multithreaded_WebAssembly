@@ -16,7 +16,7 @@ function sendData(
     Browser: getBrowserName(),
     Implementation: implementation,
     Visualisation: vis,
-    Terms: localStorage.getItem("terms")
+    Terms: +localStorage.getItem("terms")
   };
   fetch("http://localhost:3000/sendData", {
     method: "POST", // HTTP-Methode
