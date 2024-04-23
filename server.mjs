@@ -50,15 +50,14 @@ function addNewMeasuringPoint(filePath, newObject) {
       }
   
       // JSON parsen
-      const obj = JSON.parse(data);
+      let obj = JSON.parse(data);
   
-      obj.push(newObject);
-      // obj.forEach(item => {
-      //   if(item["Implementation"] === "js_no_multithreading" || item["Implementation"] === "wasm_no_multithreading") {
-      //     item["Threads"] = 0;
-      //     item["Gini coefficient"] = 0;
-      //   }
-      // })
+      //obj.push(newObject);
+
+      obj = obj.filter(item => item.Implementation !== "wasm_actor_pthreads");
+      obj.forEach(item => {
+        item["Terms"] = 0;
+      })
 
       const updatedJson = JSON.stringify(obj, null, 2);  // 'null, 2' für eine formatierte Ausgabe
   
