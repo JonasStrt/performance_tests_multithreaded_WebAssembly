@@ -59,3 +59,5 @@ self.addEventListener("message", async function (e) {
     );
   }
 });
+
+

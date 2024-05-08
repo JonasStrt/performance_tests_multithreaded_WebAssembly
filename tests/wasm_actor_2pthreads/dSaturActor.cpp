@@ -161,15 +161,12 @@ public:
     void executeMainThreadActions()
     {
         std::function<void()> action;
-        while (true)
-        {
-            std::lock_guard<std::mutex> lock(mainThreadActionsMutex);
-            if (mainThreadActionsQueue.empty())
-                break;
-            action = mainThreadActionsQueue.front();
-            mainThreadActionsQueue.pop_front();
-            action(); // Führe die Aktion außerhalb des Locks aus
-        }
+        std::lock_guard<std::mutex> lock(mainThreadActionsMutex);
+        if (mainThreadActionsQueue.empty())
+            return;
+        action = mainThreadActionsQueue.front();
+        mainThreadActionsQueue.pop_front();
+        action(); // Führe die Aktion außerhalb des Locks aus
         if (areAllNodesColored())
         {
             emscripten_cancel_main_loop();
