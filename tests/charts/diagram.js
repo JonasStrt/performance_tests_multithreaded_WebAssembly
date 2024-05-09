@@ -9,11 +9,30 @@ var browserValue;
 var visualizationChecked;
 var valueSelection;
 var termsValue;
-// async function initDataSet(xParam, yParam, browser, vis, nodes) {
-//   const response = await fetch('/data');
-//   data = await response.json();
-//   console.log(data);
-// }
+
+var cornerText ="";
+
+// Plugin definieren
+const cornerTextPlugin = {
+  id: 'cornerText',
+  beforeDraw: (chart, args, options) => {
+    const { ctx, chartArea } = chart;
+    ctx.save();
+    // Position und Stil festlegen
+    ctx.font = options.font || '16px Arial';
+    ctx.fillStyle = options.fillStyle || 'black';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'top';
+    // Text und Position festlegen
+    const text = options.text || '';
+    const x = chartArea.right - 10;
+    const y = chartArea.top + 10;
+    // Text zeichnen
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+};
+
 
 async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
   const response = await fetch("/data");
@@ -51,17 +70,63 @@ async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
   // Calculate average for each group using only 10 random samples
   const chartDataSets = Object.keys(groupedData).map((impl) => {
     const dataPoints = Object.keys(groupedData[impl]).map((threads) => {
-      const samples = selectRandomSamples(groupedData[impl][threads], 10);
+      const samples = selectRandomSamples(groupedData[impl][threads], 5);
       const avg = samples.reduce((a, b) => a + b, 0) / samples.length;
       return { x: parseInt(threads), y: avg };
     });
+    if(impl == "wasm_sharedMemory_webWorker") {
+      return {
+        label: impl +"s",
+        data: dataPoints,
+        borderColor: implementationColors[impl],
+        tension:0.3,
+        pointRadius:3.5,
+        fill: false,
+      };
+    }
+    else if (impl == "wasm_no_multithreading") {
+      dataPoints.push({x:32,y:dataPoints[0].y});
+      console.log(dataPoints);
+      return {
+        label: impl,
+        data: dataPoints,
+        borderColor: implementationColors[impl],
+        borderDash: [10, 5],
+        fill: false,
+        tension:0.3,
+        pointRadius:0,
+        lineWidth:0.1,
+        borderWidth:1,
+        showLine:true
+      };
+    }
+    else if (impl == "js_no_multithreading") {
+      dataPoints.push({x:32,y:dataPoints[0].y});
+      console.log(dataPoints);
+      return {
+        label: impl,
+        data: dataPoints,
+        borderColor: implementationColors[impl],
+        borderDash: [10, 5],
+        fill: false,
+        tension:0.3,
+        pointRadius:0,
+        lineWidth:0.1,
+        borderWidth:1,
+        showLine:true
+      };
+    }
+    else {
+      return {
+        label: impl,
+        data: dataPoints,
+        borderColor: implementationColors[impl],
+        tension:0.3,
+        pointRadius:3.5,
+        fill: false,
+      };
+    }
 
-    return {
-      label: impl,
-      data: dataPoints,
-      borderColor: implementationColors[impl],
-      fill: false,
-    };
   });
 
   return chartDataSets;
@@ -88,43 +153,51 @@ async function generateChart() {
       datasets: chartDataSets,
     },
     options: {
+      plugins: {
+        cornerText: {
+            text: cornerText, // Der Text, den Sie anzeigen möchten
+            font: '14px Arial', // Schriftart und -größe
+            fillStyle: 'black' // Textfarbe
+        }
+    },
       scales: {
         x: {
           type: "linear",
           position: "bottom",
+          title:{
+            display:true,
+            font:{
+              size:20,
+            },
+            text:"Anzahl der Threads"
+          }
         },
         y: {
           beginAtZero: true,
+          title:{
+            display:true,
+            font:{
+              size:20,
+            },
+            text: "Ausführungszeit [ms]"
+          }
         },
       },
     },
+    plugins: [cornerTextPlugin],
   });
 }
 
 function assignColors(implementations) {
-  const colors = [
-    "#FF6384",
-    "#36A2EB",
-    "#FFCE56",
-    "#4BC0C0",
-    "#9966FF",
-    "#FF9F40",
-    "#C9CBCF",
-    "#7E7F9A",
-    "#FFD700",
-    "#DC143C",
-    "#00FFFF",
-    "#00008B",
-    "#008B8B",
-    "#B8860B",
-    "#006400",
-  ];
-
   const colorMap = {};
-  implementations.forEach((impl, index) => {
-    colorMap[impl] = colors[index % colors.length];
-  });
-
+  colorMap["js_no_multithreading"] = "gray";
+  colorMap["js_actor_webWorkers"] = "LawnGreen";
+  colorMap["js_sharedMemory_webWorkers"] = "DarkGreen";
+  colorMap["wasm_no_multithreading"] = "gray0";
+  colorMap["wasm_sharedMemory_pthreads"] = "red";
+  colorMap["wasm_actor_pthreads"] = "cyan";
+  colorMap["wasm_actor_webWorkers"] = "blue";
+  colorMap["wasm_sharedMemory_webWorker"] = "orange";
   return colorMap;
 }
 
@@ -143,6 +216,8 @@ function getFormValues() {
   visualizationChecked = document.getElementById("flexSwitchCheckDefault").checked;
   valueSelection = document.getElementById("valueDropdown").value;
   termsValue = parseInt(document.getElementById("termsDropdown").value);
+
+  cornerText = "Nodes: " + nodesValue+ "  " + "Terms: "+ termsValue + "  " + "Browser: "+ browserValue + "  " + "Visualisierung: "+ visualizationChecked;
 }
 window.generateChart = generateChart;
 export { generateChart };
