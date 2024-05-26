@@ -86,7 +86,6 @@ async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
     }
     else if (impl == "wasm_no_multithreading") {
       dataPoints.push({x:32,y:dataPoints[0].y});
-      console.log(dataPoints);
       return {
         label: impl,
         data: dataPoints,
@@ -102,7 +101,6 @@ async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
     }
     else if (impl == "js_no_multithreading") {
       dataPoints.push({x:32,y:dataPoints[0].y});
-      console.log(dataPoints);
       return {
         label: impl,
         data: dataPoints,
@@ -124,6 +122,110 @@ async function initDataSet(xParam, yParam, browser, vis, nodes, terms) {
         tension:0.3,
         pointRadius:3.5,
         fill: false,
+      };
+    }
+
+  });
+
+  return chartDataSets;
+}
+
+
+function findBestPoint(data, implementierungsname) {
+  // Prüfen, ob das Array leer ist
+  if (data.length === 0) return null;
+  
+  // Initialisiere den besten Punkt mit null, um zu beginnen
+  let bestPoint = null;
+
+  // Durchlaufen des Arrays, um den Punkt mit dem niedrigsten y-Wert und x > 1 zu finden
+  for (let point of data) {
+      if (point.x > 1 && (bestPoint === null || point.y < bestPoint.y)) {
+          bestPoint = point;
+      }
+  }
+
+  // Prüfen, ob ein bester Punkt gefunden wurde
+  if (bestPoint === null) return null;
+
+  // Erstellen des Ergebnisobjekts mit "best" als x-Wert
+  return { x: implementierungsname, y: bestPoint.y };
+}
+
+
+async function initBarDataSet(xParam, yParam, browser, vis, nodes, terms) {
+  const response = await fetch("/data");
+  const rawData = await response.json();
+  console.log(yParam);
+  console.log(browser);
+  console.log(vis);
+  console.log(nodes);
+  console.log(terms)
+
+  // Filter the data based on browser, visualisation, and nodes criteria
+  const filteredData = rawData.filter(
+    (item) =>
+      item.Browser === browser &&
+      item.Visualisation === vis &&
+      item.Nodes === nodes &&
+      item.Terms === terms
+  );
+
+  // Group and calculate average values per implementation and thread count
+  const groupedData = {};
+  filteredData.forEach((item) => {
+    const impl = item.Implementation;
+    const threads = item[xParam];
+    if (!groupedData[impl]) {
+      groupedData[impl] = {};
+    }
+    if (!groupedData[impl][threads]) {
+      groupedData[impl][threads] = [];
+    }
+    groupedData[impl][threads].push(item[yParam]);
+  });
+
+  const implementationColors = assignColors(Object.keys(groupedData));
+  // Calculate average for each group using only 10 random samples
+  const chartDataSets = Object.keys(groupedData).map((impl) => {
+    const dataPoints = Object.keys(groupedData[impl]).map((threads) => {
+      const samples = selectRandomSamples(groupedData[impl][threads], 5);
+      const avg = samples.reduce((a, b) => a + b, 0) / samples.length;
+      return { x: parseInt(threads), y: avg };
+    });
+
+    if(impl == "wasm_sharedMemory_webWorker") {
+      return {
+        label: impl +"s",
+        data: findBestPoint(dataPoints,  impl +"s"),
+        backgroundColor: implementationColors[impl],
+        fill: true,
+      };
+    }
+    else if (impl == "wasm_no_multithreading") {
+      dataPoints.push({x:32,y:dataPoints[0].y});
+      return {
+        label: impl,
+        data: findBestPoint(dataPoints,  impl),
+        backgroundColor: implementationColors[impl],
+        fill: true,
+      };
+    }
+    else if (impl == "js_no_multithreading") {
+      dataPoints.push({x:32,y:dataPoints[0].y});
+      return {
+        label: impl,
+        data: findBestPoint(dataPoints, impl),
+        backgroundColor: implementationColors[impl],
+        fill: true,
+      };
+    }
+    else {
+      return {
+        label: impl,
+        data: findBestPoint(dataPoints, impl),
+        backgroundColor: implementationColors[impl],
+        fill: true,
       };
     }
 
@@ -154,6 +256,13 @@ async function generateChart() {
     },
     options: {
       plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 18 // Hier setzen Sie die gewünschte Schriftgröße für die Legende
+            }
+          }
+        },
         cornerText: {
             text: cornerText, // Der Text, den Sie anzeigen möchten
             font: '14px Arial', // Schriftart und -größe
@@ -187,7 +296,71 @@ async function generateChart() {
     plugins: [cornerTextPlugin],
   });
 }
-
+async function generateBarChart() {
+  getFormValues();
+  const chartDataSets = await initBarDataSet(
+    "Threads",
+    valueSelection.toString(),
+    browserValue.toString(),
+    visualizationChecked,
+    nodesValue,
+    termsValue
+  );
+  const labels = chartDataSets.map(item => item.data.x);
+const data = chartDataSets.map(item => item.data.y);
+const backgroundColors = chartDataSets.map(item => item.backgroundColor);
+  console.log(chartDataSets);
+  myChart = new Chart(document.getElementById("chart"), {
+    type: "bar",
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Performance',
+            data: data,
+            backgroundColor: backgroundColors,
+            fill: true
+        }]
+    },
+    options: {
+    //   plugins: {
+    //     legend: {
+    //       labels: {
+    //         font: {
+    //           size: 18 // Hier setzen Sie die gewünschte Schriftgröße für die Legende
+    //         }
+    //       }
+    //     }
+        // cornerText: {
+        //     text: cornerText, // Der Text, den Sie anzeigen möchten
+        //     font: '14px Arial', // Schriftart und -größe
+        //     fillStyle: 'black' // Textfarbe
+        // }
+    // },
+      scales: {
+        x: {
+          title:{
+            display:true,
+            font:{
+              size:20,
+            },
+            text:"Niedrigste Ausführungszeit des Implementierungsansatzes (Threads > 1)"
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title:{
+            display:true,
+            font:{
+              size:20,
+            },
+            text: "Ausführungszeit [ms]"
+          }
+        },
+      },
+    },
+    // plugins: [cornerTextPlugin],
+  });
+}
 function assignColors(implementations) {
   const colorMap = {};
   colorMap["js_no_multithreading"] = "gray";
@@ -198,6 +371,7 @@ function assignColors(implementations) {
   colorMap["wasm_actor_pthreads"] = "cyan";
   colorMap["wasm_actor_webWorkers"] = "blue";
   colorMap["wasm_sharedMemory_webWorker"] = "orange";
+  colorMap["wasm_sharedMemory_pthreads_noAtomics"] = "pink";
   return colorMap;
 }
 
@@ -220,4 +394,5 @@ function getFormValues() {
   cornerText = "Nodes: " + nodesValue+ "  " + "Terms: "+ termsValue + "  " + "Browser: "+ browserValue + "  " + "Visualisierung: "+ visualizationChecked;
 }
 window.generateChart = generateChart;
+window.generateBarChart = generateBarChart;
 export { generateChart };

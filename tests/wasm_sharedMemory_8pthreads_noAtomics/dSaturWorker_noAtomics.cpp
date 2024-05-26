@@ -31,9 +31,9 @@ EM_JS(void, threadsFinishedJS, (), {
 struct Node
 {
     int key;
-    std::atomic<int> color;
-    std::atomic<int> weight;
-    std::atomic<int> lock;
+    int color;
+    int weight;
+    int lock;
 
     // Default-Konstruktor
     Node() : key(0), color(0), weight(0), lock(0) {}
@@ -41,22 +41,6 @@ struct Node
     // Konstruktor mit Parametern
     Node(int k, int c, int w, int l) : key(k), color(c), weight(w), lock(l) {}
 
-    // Kopierkonstruktor und Zuweisungsoperator explizit löschen
-    Node(const Node &) = delete;
-    Node &operator=(const Node &) = delete;
-
-    // Move-Konstruktor
-    Node(Node &&other) noexcept : key(other.key), color(other.color.load()), weight(other.weight.load()), lock(other.lock.load()) {}
-
-    // Move-Zuweisungsoperator
-    Node &operator=(Node &&other) noexcept
-    {
-        key = other.key;
-        color.store(other.color.load());
-        weight.store(other.weight.load());
-        lock.store(other.lock.load());
-        return *this;
-    }
 };
 struct Link
 {
@@ -96,9 +80,9 @@ Node *selectNode(std::vector<Node> &nodes, const std::vector<Link> &links)
 
     for (auto &currNode : nodes)
     {
-        if (currNode.color.load() == 0 && currNode.lock.load() == 0)
+        if (currNode.color == 0 && currNode.lock == 0)
         { // Knoten noch nicht gefärbt
-            int weight = currNode.weight.load();
+            int weight = currNode.weight;
             int linkCount = countLinksForNode(currNode.key, links);
 
             if (weight > maxWeight || (weight == maxWeight && linkCount > maxLinkCount))
@@ -139,16 +123,16 @@ void updateSaturation(int nodeKey, int color, std::vector<Node> &nodes, const st
             targetNode = findNodeByKey(nodes, link.from);
         }
 
-        if (targetNode != nullptr && targetNode->color.load() == 0)
+        if (targetNode != nullptr && targetNode->color == 0)
         {
-            targetNode->weight.fetch_add(1);
+            targetNode->weight =  targetNode->weight + 1;
         }
     }
 }
 
 void lockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector<Link> &links)
 {
-    node.lock.fetch_add(1); // Schließt den aktuellen Knoten
+    node.lock = node.lock +1; // Schließt den aktuellen Knoten
 
     for (const auto &link : links)
     {
@@ -160,7 +144,7 @@ void lockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector<L
 
             if (targetNodeIter != nodes.end())
             {
-                targetNodeIter->lock.fetch_add(1); // Schließt den angrenzenden Knoten
+                targetNodeIter->lock = targetNodeIter->lock +1; // Schließt den angrenzenden Knoten
             }
         }
     }
@@ -168,7 +152,7 @@ void lockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector<L
 
 void unlockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector<Link> &links)
 {
-    node.lock.fetch_sub(1); // Entsperren des aktuellen Knotens
+    node.lock = node.lock -1; // Entsperren des aktuellen Knotens
 
     for (const auto &link : links)
     {
@@ -180,8 +164,7 @@ void unlockAdjacentNodes(Node &node, std::vector<Node> &nodes, const std::vector
 
             if (targetNodeIter != nodes.end())
             {
-                targetNodeIter->lock.fetch_sub(1);
-                ; // Entsperren des angrenzenden Knotens
+                targetNodeIter->lock = targetNodeIter->lock -1;
             }
         }
     }
@@ -230,7 +213,7 @@ void *dSatur(void *arg)
                                                                                 { return n.key == link.to; })
                                                                 : *std::find_if(nodes.begin(), nodes.end(), [&](const Node &n)
                                                                                 { return n.key == link.from; });
-                    if (targetNode.color.load() == color)
+                    if (targetNode.color == color)
                     {
                         adjacentColored = true;
                         break;
@@ -240,13 +223,13 @@ void *dSatur(void *arg)
             if (adjacentColored)
                 ++color;
         } while (adjacentColored);
-        if (node->color.load() == 0)
+        if (node->color == 0)
         {
-            if (node->lock.load() == 0)
+            if (node->lock == 0)
             {
                 lockAdjacentNodes(*node, nodes, links);
                 updateSaturation(node->key, color, nodes, links);
-                node->color.store(color);
+                node->color =color;
                 if(terms != 0) {
                     calculatePiLeibniz(terms + color);
                 }
@@ -291,9 +274,9 @@ void serializeBackToInt32Array(std::vector<Node> &nodes, int32_t *nodesData)
     for (size_t i = 0; i < nodes.size(); ++i)
     {
         nodesData[i * 4] = nodes[i].key;
-        nodesData[i * 4 + 1] = nodes[i].color.load();
-        nodesData[i * 4 + 2] = nodes[i].weight.load();
-        nodesData[i * 4 + 3] = nodes[i].lock.load();
+        nodesData[i * 4 + 1] = nodes[i].color;
+        nodesData[i * 4 + 2] = nodes[i].weight;
+        nodesData[i * 4 + 3] = nodes[i].lock;
     }
 }
 

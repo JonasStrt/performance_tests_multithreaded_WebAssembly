@@ -247,7 +247,9 @@ void *dSatur(void *arg)
                 lockAdjacentNodes(*node, nodes, links);
                 updateSaturation(node->key, color, nodes, links);
                 node->color.store(color);
-                calculatePiLeibniz(terms + color);
+                if(terms != 0) {
+                    calculatePiLeibniz(terms + color);
+                }
                 unlockAdjacentNodes(*node, nodes, links);
                 // changeNodeColorJS(node->key, node->color, threadId);
                 emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIII, changeNodeColorCallback, node->key, color, threadId);
