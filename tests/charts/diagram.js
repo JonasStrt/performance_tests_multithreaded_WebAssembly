@@ -366,6 +366,7 @@ function assignColors(implementations) {
   colorMap["js_no_multithreading"] = "gray";
   colorMap["js_actor_webWorkers"] = "LawnGreen";
   colorMap["js_sharedMemory_webWorkers"] = "DarkGreen";
+  colorMap["js_sharedMemory_webWorkers_randomDSatur"] = "Olive";
   colorMap["wasm_no_multithreading"] = "gray0";
   colorMap["wasm_sharedMemory_pthreads"] = "red";
   colorMap["wasm_actor_pthreads"] = "cyan";
